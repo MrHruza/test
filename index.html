@@ -1,320 +1,427 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zahradnictví a Golf Park Bratronice</title>
-    <!-- Fonty a FontAwesome ikony -->
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="robots" content="index, follow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+    <title>Prodej květin, dřevin, trvalek - Zahradnictví Bratronice</title>
     
+    <!-- Google Fonts & FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    
+    <link rel="alternate" href="/" hreflang="cs" />
+    <link rel="stylesheet" type="text/css" href="/glm/internal/cookies-2022/cookies-2023.css?tmrk=1159b82a" />
+    <link rel="stylesheet" type="text/css" href="/glm/external/jquery/fancybox/jquery.fancybox.min.css?tmrk=1b2fab8" />
+    <link rel="stylesheet" type="text/css" href="/glm/external/jquery/ui/jquery-ui-1.12.1.min.css?tmrk=1abac2a" />
+    <link rel="stylesheet" type="text/css" href="/css/camera.css?tmrk=222c46f" />
+    <link rel="stylesheet" type="text/css" href="/css/main.css?tmrk=1063f405" />
+    <script src="/hjs/jqeafbfijucals.h.js?tmrk=83a798c"></script>
+    <link rel="icon" href="/files/images/favicon.png?tmrk=22436b8" />
+
+    <!-- SPECIÁLNÍ EFEKTY A MODERNÍ DESIGN (PŘIDÁNO) -->
     <style>
         :root {
-            --primary: #2c5e3b;
-            --accent: #d4a373;
-            --bg-light: #fbf9f5;
+            --primary-green: #2c5e3b;
+            --accent-beige: #f4f1ea;
+            --gold-accent: #d4a373;
             --text-dark: #2d3748;
-            --white: #ffffff;
         }
 
         body {
-            font-family: 'Outfit', sans-serif;
+            font-family: 'Outfit', sans-serif !important;
             color: var(--text-dark);
-            background-color: var(--white);
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
+            background-color: #ffffff;
+            overflow-x: hidden;
         }
 
-        h1, h2, h3 {
-            font-family: 'Playfair Display', serif;
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif !important;
         }
 
-        /* HLAVIČKA A KONTAKTY */
-        header {
-            background: var(--bg-light);
-            border-bottom: 2px solid var(--accent);
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .logo-area h1 {
-            font-size: 1.5rem;
-            color: var(--primary);
-            margin: 0;
-        }
-
-        .quick-contacts {
-            display: flex;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-        }
-
-        .contact-pill {
-            background: var(--white);
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .contact-pill a {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        /* NAVIGACE */
-        nav {
-            background: var(--primary);
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            padding: 0.8rem;
-        }
-
-        nav a {
-            color: var(--white);
-            text-decoration: none;
-            font-weight: 400;
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            letter-spacing: 1px;
-            transition: opacity 0.2s;
-        }
-
-        nav a:hover {
-            opacity: 0.8;
-        }
-
-        /* HERO SEKCE */
-        .hero {
-            height: 50vh;
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&q=80&w=1600');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: var(--white);
-            padding: 0 1rem;
-        }
-
-        .hero h2 {
-            font-size: 3rem;
-            margin: 0 0 0.5rem 0;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            font-weight: 300;
-            margin: 0;
-        }
-
-        /* O NÁS / RODINNÁ ATMOSFÉRA */
-        .about-section {
-            max-width: 800px;
-            margin: 4rem auto;
-            text-align: center;
-            padding: 0 1.5rem;
-        }
-
-        .about-section h2 {
-            color: var(--primary);
-            font-size: 2.2rem;
-            margin-bottom: 1rem;
-        }
-
-        /* PRODUKTY / SLUŽBY GRID */
-        .section-title {
-            text-align: center;
-            color: var(--primary);
-            font-size: 2rem;
-            margin-top: 3rem;
-        }
-
-        .grid {
+        /* Efekt plynulého ztmavení a zvětšení obrázků v bannerech */
+        #banners {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            padding: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            padding: 2rem 1rem;
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        .card {
-            background: var(--bg-light);
+        .banner {
+            background: var(--accent-beige);
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-            transition: transform 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
         }
 
-        .card:hover {
-            transform: translateY(-5px);
+        .banner:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(44, 94, 59, 0.15);
         }
 
-        .card img {
+        .banner .ban_img img {
             width: 100%;
-            height: 220px;
+            height: 180px;
             object-fit: cover;
+            transition: transform 0.6s ease;
         }
 
-        .card-content {
-            padding: 1.5rem;
+        .banner:hover .ban_img img {
+            transform: scale(1.08);
         }
 
-        .card-content h3 {
-            margin-top: 0;
-            color: var(--primary);
+        .banner h2 {
+            font-size: 1.25rem;
+            color: var(--primary-green);
+            padding: 1rem 1rem 0.5rem 1rem;
+            margin: 0;
         }
 
-        /* SEKCE KDE NÁS NAJDETE A KONTAKTY */
-        .info-section {
-            background: var(--bg-light);
-            padding: 4rem 2rem;
-            margin-top: 4rem;
-        }
-
-        .info-container {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .info-box h3 {
-            color: var(--primary);
-            margin-top: 0;
-        }
-
-        .map-box iframe {
-            width: 100%;
-            height: 300px;
-            border: 0;
-            border-radius: 12px;
-        }
-
-        /* FOOTER */
-        footer {
-            background: #1a2e22;
-            color: var(--white);
-            text-align: center;
-            padding: 2rem;
+        .banner p {
+            padding: 0 1rem 1rem 1rem;
             font-size: 0.9rem;
+            color: #666;
         }
 
-        @media (max-width: 768px) {
-            .info-container {
-                grid-template-columns: 1fr;
-            }
-            .hero h2 {
-                font-size: 2rem;
-            }
+        /* Efekt pro kontaktní karty v hlavičce */
+        .contact-card {
+            transition: all 0.3s ease;
+            border-radius: 50px;
+            padding: 0.4rem 1.2rem !important;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        .contact-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        /* Jemné oživení textové sekce */
+        #text {
+            background: linear-gradient(180deg, #ffffff 0%, #fbf9f5 100%);
+            padding: 4rem 1.5rem;
+            border-radius: 20px;
+            max-width: 1100px;
+            margin: 2rem auto;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.02);
+        }
+
+        #text h2 {
+            color: var(--primary-green);
+            line-height: 1.4;
+        }
+
+        /* Efekt tlačítek a odkazů */
+        a {
+            transition: color 0.2s ease, transform 0.2s ease;
+        }
+
+        /* Moderní zaoblení mapy a boxů */
+        iframe {
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
         }
     </style>
 </head>
 <body>
-
-    <!-- HLAVIČKA S RYCHLÝMI KONTAKTY -->
-    <header>
-        <div class="logo-area">
-            <h1>Zahradnictví Bratronice</h1>
+	<div id="header" class="py-3" style="border-bottom: 1px solid #eaeaea; background: #fff;">	
+        <div class="container">		
+            <div class="row column-mobile align-items-center justify-content-center justify-content-md-between">			
+                <div id="logo mt-0 mt-2 mt-md-0"> 
+                    <div id="logo">	
+                        <a href="/" ID="odkaz_na_uvod" title="Název společnosti"><img class="logo" src="/files/images/logo.png" alt="Logo" /></a>			
+                    </div> 
+                </div>			
+                <div class="contact-card green mt-2 mt-md-0" style="background: #f0f4f1;">				
+                    <span><strong>Zahradnictví Bratronice</strong></span>				
+                    <div class="contact-card-icons">					
+                        <a href="https://www.facebook.com/bratronice.zahradnictvi" target="_blank" aria-label="Facebook"><i class="fab fa-facebook green-icon"></i></a>
+                        <a class="instagram" href="https://www.instagram.com/zahradnictvi_bratronice" target="_blank" aria-label="Instagram"><i class="fab fa-instagram green-icon"></i></a>
+                        <a href="tel:+420606321004"><i class="fas fa-phone green-icon"></i></a>
+                        <a href="tel:+420606321004">+420 606 321 004</a>				
+                    </div>			
+                </div>			
+                <div class="contact-card beige mt-2 mt-md-0" style="background: #fdfaf6;">				
+                    <span><strong>Golf Park Bratronice</strong></span>				
+                    <div class="contact-card-icons">					
+                        <a href="https://www.facebook.com/people/Golf-Park-Bratronice/61578399721210/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook green-icon"></i></a>
+                        <a class="instagram" href="https://www.instagram.com/golfpark_bratronice" target="_blank" aria-label="Instagram"><i class="fab fa-instagram green-icon"></i></a>
+                        <a href="tel:+420725112318"><i class="fas fa-phone green-icon"></i></a>
+                        <a href="tel:+420725112318">+420 725 112 318</a>				
+                    </div>			
+                </div>		
+            </div>	
         </div>
-        <div class="quick-contacts">
-            <div class="contact-pill">
-                <i class="fas fa-seedling" style="color: var(--primary);"></i>
-                <a href="tel:+420606321004">Zahradnictví: +420 606 321 004</a>
-            </div>
-            <div class="contact-pill">
-                <i class="fas fa-golf-ball" style="color: var(--accent);"></i>
-                <a href="tel:+420725112318">Golf Park: +420 725 112 318</a>
-            </div>
-        </div>
-    </header>
+    </div>
 
-    <!-- NAVIGACE -->
-    <nav>
-        <a href="#nabidka">Nabídka</a>
-        <a href="#golf">Golf Park</a>
-        <a href="#o-nas">O nás</a>
-        <a href="#kontakt">Kontakt</a>
+    <nav id="menu_top" style="background: var(--primary-green);">	
+        <div id="mobile_open">MENU</div>
+        <div id="mobile_close">MENU</div>
+        <div id="hornimenu1" class="ddmx">		
+            <div class="ddmxlileft">		
+                <a href="/" class="item1 topMenuItem40 selected"><span>Úvod</span></a>							
+            </div>		
+            <div class="ddmxlileft">		
+                <a href="/nabidka-zahradnictvi-bratronice" class="item1 topMenuItem61 hasKids"><span>Nabídka zahradnictví</span></a>				
+                <div class="section">			
+                    <div class="ddmxlileft"><a href="/rezane-kvetiny" class="item2">Řezané květiny</a></div>					
+                    <div class="ddmxlileft"><a href="/sadba-zeleniny" class="item2">Sadba zeleniny</a></div>					
+                    <div class="ddmxlileft"><a href="/balkonove-kvetiny" class="item2">Balkonové květiny</a></div>					
+                    <div class="ddmxlileft"><a href="/podzim-a-zima" class="item2">Podzim a zima</a></div>					
+                    <div class="ddmxlileft"><a href="/okrasne-dreviny-a-trvalky" class="item2">Okrasné dřeviny a trvalky</a></div>		
+                </div>			
+            </div>		
+            <div class="ddmxlileft">		
+                <a href="/golf-park-bratronice-1" class="item1 topMenuItem68"><span>Golf Park Bratronice</span></a>							
+            </div>		
+            <div class="ddmxlileft">		
+                <a href="/novinky" class="item1 topMenuItem36"><span>Novinky</span></a>							
+            </div>		
+            <div class="ddmxlileft">		
+                <a href="/o-nas" class="item1 topMenuItem66"><span>O nás</span></a>							
+            </div>		
+            <div class="ddmxlileft">		
+                <a href="/kontakt" class="item1 topMenuItem39"><span>Kontakty</span></a>							
+            </div>		
+        </div>
+        <script>
+            $( ".hasKids" ).click(function(event) {  
+                event.preventDefault();  
+                section = $(this).siblings(".section");  
+                if(section.css("display") == "none"){	 
+                    section.css("display","block");	 
+                    $(this).addClass("selected");  
+                } else {	 
+                    section.css("display","none");	 
+                    $(this).removeClass("selected");  
+                }
+            });
+            $("#mobile_open").click(function(event) {	
+                $("#hornimenu1").addClass("visible");	
+                $(this).css("display", "none");	
+                $("#mobile_close").css("display", "block");	
+                $("#header").addClass("mobile");
+            });
+            $("#mobile_close").click(function(event) {	
+                $("#hornimenu1").removeClass("visible");	
+                $(this).css("display", "none");	
+                $("#mobile_open").css("display", "block");	
+                $("#header").removeClass("mobile");
+            });
+        </script> 
     </nav>
 
-    <!-- HERO SEKCE -->
-    <div class="hero">
-        <h2>Příroda, relax a rodinná tradice</h2>
-        <p>Maloobchodní i velkoobchodní prodej květin, dřevin a sazenic</p>
-    </div>
-
-    <!-- O NÁS -->
-    <section id="o-nas" class="about-section">
-        <h2>Vítejte u nás</h2>
-        <p>Jsme rodinná firma s dlouholetou tradicí. Na ploše přes 4000 m² a v moderních fóliovnících pro vás s láskou pěstujeme široký sortiment rostlin. Nově u nás navíc najdete i <strong>Adventure Golf Park Bratronice</strong> s útulným bistrem pro dokonalý odpočinek celé rodiny.</p>
-    </section>
-
-    <!-- NABÍDKA -->
-    <h2 id="nabidka" class="section-title">Co u nás najdete</h2>
-    <div class="grid">
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1594730407706-03f38891d499?auto=format&fit=crop&q=80&w=600" alt="Sadba zeleniny">
-            <div class="card-content">
-                <h3>Zdravá sadba a květiny</h3>
-                <p>Široký výběr roubované zeleniny, balkonových květin, letniček a okrasných dřevin z naší produkce.</p>
-            </div>
-        </div>
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1521747116042-5a810fda9664?auto=format&fit=crop&q=80&w=600" alt="Golf Park">
-            <div class="card-content">
-                <h3>Golf Park & Bistro</h3>
-                <p>Zábava uprostřed zeleně. Zahrajte si adventure golf a vychutnejte si kávu nebo drink v našem bistru.</p>
-            </div>
-        </div>
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=600" alt="Řezané květiny">
-            <div class="card-content">
-                <h3>Řezané květiny a vazby</h3>
-                <p>Kytice pro každou příležitost – svatby, narozeniny i sezónní a smuteční vazby.</p>
-            </div>
+    <div id="intro">	
+        <div id="slides">		
+            <div data-src="/files/images/slide01.jpg">			
+                <div style="width: 1020px;">				
+                    <div class="slide-text">					
+                        <h2>Zahradnictví Bratronice - maloobchodní i velkoobochodní prodej</h2>									
+                    </div>			
+                </div>		
+            </div>		
+            <div data-src="/files/images/slide02b.png">			
+                <div style="width: 1020px;">				
+                    <div class="slide-text">					
+                        <h2>Golf park Bratronice - adventure golf a bistro s občerstvením</h2>
+                        <p style="margin-top: 20px;"><a href="/golf-park-bratronice-1" type="button" class="btn-more">Více info zde</a></p>				
+                    </div>			
+                </div>		
+            </div>		
+            <div data-src="/files/images/slide03.jpg"></div>
+            <div data-src="/files/images/slide04b.png"></div>
+            <div data-src="/files/images/slide05b.png"></div>
+            <div data-src="/files/images/slide06.jpg"></div>	
         </div>
     </div>
+    <script>
+        $(document).ready(function() {  
+            $("#slides").camera({   	
+                pagination: true,  
+                navigation: false,    
+                time: 4000,    
+                hover: false,	
+                height: '30%'  
+            });
+        });
+    </script>
 
-    <!-- KONTAKTY A MAPA -->
-    <section id="kontakt" class="info-section">
-        <div class="info-container">
-            <div class="info-box">
-                <h3>Kde nás najdete</h3>
-                <p><strong>Zahradnictví Bratronice</strong><br>
-                Bratronice 20, 294 42 Luštěnice<br>
-                <em>(Na hlavním tahu Mladá Boleslav – Nymburk)</em></p>
-                
-                <p><strong>Kontakty:</strong><br>
-                📞 Zahradnictví: +420 606 321 004<br>
-                📞 Řezané květiny: +420 724 171 488<br>
-                📞 Golf Park: +420 725 112 318<br>
-                ✉️ E-mail: tomas.balda@centrum.cz</p>
+    <div id="aktuality_box">	
+        <div>		
+            <h3>Novinky</h3>
+            <div id="aktuality_slide">    
+                <article class="aktuality_box"> 	  
+                    <div class="aktuality_text">	
+                        <figure class="aktuality_img"><a href="/roubovana-se-vyplati"><img src="/img/4/roubovana-logo-cmyk.250x146.jpg" alt="Roubovaná se vyplatí" /></a></figure>
+                        <h2 class="aktuality_name"><a href="/roubovana-se-vyplati">Roubovaná se vyplatí</a></h2>    	
+                        <p>Široká nabídka roubované zeleniny přímo od pěstitele. Roubovaná zelenina je pro Vás nachystaná v plné síle.</p>	
+                        <div class="aktuality_vice_odkaz"><a href="/roubovana-se-vyplati" title="více informací">více informací</a></div>  
+                    </div>     
+                </article>
+                <article class="aktuality_box"> 	  
+                    <div class="aktuality_text">	
+                        <figure class="aktuality_img"><a href="/letnicky"><img src="/img/4/petunia-817383-1280.211x150.jpg" alt="Letničky" /></a></figure>
+                        <h2 class="aktuality_name"><a href="/letnicky">Letničky</a></h2>    	
+                        <p>Zahradnictví Bratonice, to jsou květiny, dřeviny a sazenice. Největší výběr letniček v regionu.</p>	
+                        <div class="aktuality_vice_odkaz"><a href="/letnicky" title="více informací">více informací</a></div>  
+                    </div>     
+                </article>
+                <article class="aktuality_box"> 	  
+                    <div class="aktuality_text">	
+                        <figure class="aktuality_img"><a href="/golf-park-bratronice"><img src="/img/5/imgid-429.153x150.jpg" alt="Golf Park Bratronice" /></a></figure>
+                        <h2 class="aktuality_name"><a href="/golf-park-bratronice">Golf Park Bratronice</a></h2>    	
+                        <p>Golf Park Bratronice Otevřeno: Pondělí - neděle 9:00-19:00 Zábava a relax pro celou rodinu.</p>	
+                        <div class="aktuality_vice_odkaz"><a href="/golf-park-bratronice" title="více informací">více informací</a></div>  
+                    </div>     
+                </article>
             </div>
-            <div class="map-box">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2548.6237924560464!2d14.953041115706792!3d50.29895007945468!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470c00b5a1c1f6c9%3A0x51cd5fcac857d9fb!2sBratronice+20%2C+294+42+Smilovice!5e0!3m2!1scs!2scz!4v1519064759572" allowfullscreen="" loading="lazy"></iframe>
-            </div>
+            <script>
+                if($('#aktuality_slide > .aktuality_box').length > 1){    
+                    $(function(){      
+                        $("#aktuality_slide").slidesjs({        
+                            width: 960,        
+                            height: 150,	  
+                            play: {		
+                                effect: "fade",		
+                                interval: 4000,		
+                                active: false,		
+                                auto: true    	  },	  
+                            navigation: { active: false },	  
+                            pagination: { active: true }      
+                        });    
+                    });
+                }   
+            </script>	
         </div>
-    </section>
+    </div>
 
-    <!-- FOOTER -->
-    <footer>
-        <p>© Tomáš Balda 2026. Všechna práva vyhrazena. | <a href="/ochrana-osobnich-udaju-gdpr" style="color: var(--accent);">GDPR</a></p>
+    <main id="main_content">  			     
+        <div class="EditableContent"><h1 class="cent" style="color: var(--primary-green); margin: 2rem 0;">Zahradnictví Bratronice</h1></div> 	
+        
+        <section id="banners">		
+            <div class="banner">			
+                <a href="/sadba-zeleniny" style="text-decoration: none;">				
+                    <h2>Sadba zeleniny</h2>				
+                    <p>U veškerého sortimentu zeleniny používáme výhradně kvalitní výkonné zahraniční odrůdy ...</p>				
+                    <div class="ban_img"><img src="/files/images/banner1.jpg" alt="Banner1" /></div>			
+                </a>		
+            </div>		
+            <div class="banner">			
+                <a href="/balkonove-kvetiny" style="text-decoration: none;">				
+                    <h2>Balkonové květiny</h2>				
+                    <p>Primula - petrklíč, Violka - maceška, Sunflor - karafiát, Bellis - sedmikráska ...</p>				
+                    <div class="ban_img"><img src="/files/images/banner2.jpg" alt="Banner2" /></div>			
+                </a>		
+            </div>		
+            <div class="banner">			
+                <a href="/okrasne-dreviny-a-trvalky" style="text-decoration: none;">				
+                    <h2>Okrasné dřeviny a trvalky</h2>				
+                    <p>Okrasné dřeviny a trvalky jsou celoročně v široké nabídce z naší produkce ...</p>				
+                    <div class="ban_img"><img src="/files/images/banner3.jpg" alt="Banner3" /></div>			
+                </a>		
+            </div>		
+            <div class="banner">			
+                <a href="/podzim-a-zima" style="text-decoration: none;">				
+                    <h2>Podzim a zima</h2>				
+                    <p>Chryzantémy, dušičková vazba, brambory, cibule, zelí, vánoční hvězdy ...</p>				
+                    <div class="ban_img"><img src="/files/images/banner4.jpg" alt="Banner4" /></div>			
+                </a>		
+            </div>		
+            <div class="banner">			
+                <a href="/rezane-kvetiny" style="text-decoration: none;">				
+                    <h2>Řezané květiny</h2>				
+                    <p>Kromě zahradnictví v Bratronicích Vám nabízíme zahradnictví v Řepově a Dobrovicích ...</p>				
+                    <div class="ban_img"><img src="/files/images/banner5.jpg" alt="Banner5" /></div>			
+                </a>		
+            </div>	
+        </section>	
+
+        <section id="text">		
+            <div>			
+                <div class="editable-section">
+                    <h2>Jsme rodinná firma s&nbsp;dlouholetou tradicí a&nbsp;širokou klientelou spokojených zákazníků.</h2>
+                    <h2>Nabízíme maloobchodní i&nbsp;velkoobchodní prodej rostlin a&nbsp;květin.</h2>
+                    <p style="font-style: italic;">NOVĚ v&nbsp;létě 2025 jsme nejen pro&nbsp;naše klienty, ale i&nbsp;pro&nbsp;širokou veřejnost otevřeli nový areál Adventure Golf Park Bratronice.</p>
+                    <p style="font-style: italic;">Adventure Golf Park Bratronice - místo, kde se spojuje příroda, relax a&nbsp;zábava. Krásné místo pro&nbsp;inspiraci, relax, odpočinek i&nbsp;zábavu uprostřed zeleně, kde si mohou navštěvníci zahrát Adventure golf v&nbsp;originálním prostředí plném květin a&nbsp;přírodních prvků a&nbsp;zárověň příjemně strávit čas s&nbsp;rodinou či přáteli. Pochutnat si v&nbsp;našem bistru na&nbsp;kávě, drincích, zmrzlině a&nbsp;dalších dobrotách...</p>
+                    <p>Naším hlavním zaměřením&nbsp;je pěstování sadby květin a&nbsp;zeleniny v&nbsp;nejširším sortimentu v&nbsp;naší oblasti.</p>
+                    <p>Zahradnictví Bratronice nabízí prodejní plochu více než&nbsp;<strong>4000&nbsp;m2</strong> - prostor plný květin, zeleně a&nbsp;nápadů nejen pro&nbsp;Váš dům a&nbsp;zahradu.</p>
+                    <h3>Do&nbsp;námi nabízeného sortimentu patří:</h3>
+                    <ul>	
+                        <li>okrasné dřeviny a&nbsp;trvalky</li>	
+                        <li>substráty</li>	
+                        <li>hnojiva a&nbsp;postřiky</li>	
+                        <li>mulčovací kůra</li>	
+                        <li>okrasné kameny</li>	
+                        <li>sezónní vazby (velikonoce, dušičky, vánoce)</li>	
+                        <li>kompletní zahradnický sortiment nutný pro&nbsp;Váš krásný dům a&nbsp;zahradu</li>	
+                        <li>ŘEZANÉ KVĚTINY - kytice k&nbsp;různým příležitostem</li>
+                    </ul>
+                </div>			
+            </div>	
+        </section>	
+
+        <section id="kde" style="max-width: 1100px; margin: 3rem auto; padding: 0 1rem;">		
+            <div>			
+                <h2>Kde nás najdete</h2>			
+                <div class="col">				
+                    <div class="adr">					
+                        <div class="editable-section">
+                            <p><strong>Zahradnictví Bratronice</strong> - Adventure Golf Park Bratronice</p>
+                            <p>Bratronice, 294 42 Luštěnice <br />na&nbsp;hlavním tahu Mladá Boleslav - Nymburk</p>
+                            <p>Telefon řezané květiny: 724 171 488</p>
+                            <p>Golf Park Bratronice: 725 112 318</p>
+                        </div>					
+                    </div>							
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2548.6237924560464!2d14.953041115706792!3d50.29895007945468!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470c00b5a1c1f6c9%3A0x51cd5fcac857d9fb!2sBratronice+20%2C+294+42+Smilovice!5e0!3m2!1scs!2scz!4v1519064759572" width="100%" height="300" frameborder="0" style="border:0"></iframe>
+                </div>								
+                <div class="stretch"></div>		
+            </div>	
+        </section>	
+        <div class="clear"></div>
+    </main>	
+
+    <footer>	
+        <div id="footer">				
+            <div id="footer_text">			
+                <div class="col">				
+                    <div class="editable-section">
+                        <p><strong>Telefon</strong></p>
+                        <p><a title="" href="tel:+420606321004" target="_self">+420 606 321 004</a></p>
+                        <p><strong>E-mail</strong></p>
+                        <p><a href="mailto:tomas.balda@centrum.cz">tomas.balda@centrum.cz</a></p>
+                        <p><a class="mt-2" title="" href="/ochrana-osobnich-udaju-gdpr" target="_self">GDPR</a></p>
+                    </div>			
+                </div>
+                <div class="col">				
+                    <div class="editable-section">
+                        <p><strong>Fakturační adresa</strong></p>
+                        <p>Tomáš Balda</p>
+                        <p>294 42 Smilovice</p>
+                        <p>Bratronice 20</p>
+                        <p>IČ: 66996112</p>
+                    </div>			
+                </div>
+                <div class="col">				
+                    <div><p>© Tomáš Balda 2026. Všechna práva vyhrazena.</p></div>				
+                    <div><p><a href="http://www.webstranky.cz/">Tvorba webových stránek</a></p></div>			
+                </div>								
+            </div>					 					      
+        </div>
     </footer>
 
+    <!-- Cookies script zachován bez změn -->
+    <script src="https://www.googletagmanager.com/gtag/js?id=UA-113549311-1"></script>
+    <script>  
+        window.dataLayer = window.dataLayer || [];  
+        function gtag(){dataLayer.push(arguments);}  
+        gtag('js', new Date());
+        gtag('config', 'UA-113549311-1');
+    </script>  
+    <script src="/glm/internal/cookies-2022/cookies-2022.static.js?tmrk=9d32bee"></script>
 </body>
 </html>
