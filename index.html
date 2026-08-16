@@ -7,8 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
     <title>Prodej květin, dřevin, trvalek - Zahradnictví Bratronice</title>
     
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+
     <!-- Styly -->
-    <link rel="alternate" href="/" hreflang="cs" />
     <link rel="stylesheet" type="text/css" href="/glm/internal/cookies-2022/cookies-2023.css?tmrk=1159b82a" />
     <link rel="stylesheet" type="text/css" href="/glm/external/jquery/fancybox/jquery.fancybox.min.css?tmrk=1b2fab8" />
     <link rel="stylesheet" type="text/css" href="/glm/external/jquery/ui/jquery-ui-1.12.1.min.css?tmrk=1abac2a" />
@@ -16,6 +20,150 @@
     <link rel="stylesheet" type="text/css" href="/css/main.css?tmrk=1063f405" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     
+    <!-- Vlastní vylepšené CSS pro modernější vzhled -->
+    <style>
+        :root {
+            --primary-green: #2c5e3b;
+            --light-green: #eef4f0;
+            --accent-gold: #d4a373;
+            --dark-text: #2d3748;
+            --bg-sand: #fbf9f5;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif !important;
+            color: var(--dark-text);
+            background-color: #fff;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, .slide-text h2, .aktuality_name a {
+            font-family: 'Playfair Display', serif !important;
+        }
+
+        /* Moderní hlavička */
+        #header {
+            background: #ffffff;
+            border-bottom: 2px solid var(--accent-gold) !important;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+
+        .contact-card {
+            border-radius: 12px;
+            padding: 8px 16px;
+            transition: transform 0.2s ease;
+        }
+        .contact-card:hover {
+            transform: translateY(-2px);
+        }
+        .contact-card.green {
+            background-color: var(--primary-green) !important;
+            color: #fff !important;
+        }
+        .contact-card.green span, .contact-card.green a {
+            color: #fff !important;
+        }
+        .contact-card.beige {
+            background-color: var(--bg-sand) !important;
+            border: 1px solid #e2d9cd;
+        }
+
+        /* Vylepšené menu */
+        #menu_top {
+            background: var(--primary-green);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        #hornimenu1 a.item1 {
+            color: #fff !important;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+        #hornimenu1 a.item1:hover, #hornimenu1 a.item1.selected {
+            background-color: rgba(255,255,255,0.15) !important;
+        }
+
+        /* Sekce bannery */
+        #banners {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .banner {
+            background: var(--bg-sand);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border: 1px solid #eee;
+        }
+        .banner:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+        }
+        .banner a {
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .banner h2 {
+            font-size: 1.25rem;
+            color: var(--primary-green);
+            padding: 15px 15px 5px 15px;
+            margin: 0;
+        }
+        .banner p {
+            padding: 0 15px 15px 15px;
+            font-size: 0.9rem;
+            color: #666;
+            flex-grow: 1;
+        }
+        .ban_img img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+        }
+
+        /* Hlavní obsah a boxy */
+        #main_content {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .EditableContent h1 {
+            color: var(--primary-green);
+            font-size: 2.5rem;
+            margin: 30px 0;
+            text-align: center;
+        }
+        .editable-section {
+            background: var(--bg-sand);
+            padding: 40px;
+            border-radius: 16px;
+            margin: 30px 0;
+            border-left: 5px solid var(--primary-green);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a2e22;
+            color: #fff;
+            padding: 40px 20px;
+            margin-top: 50px;
+        }
+        #footer_text a {
+            color: var(--accent-gold);
+            text-decoration: none;
+        }
+        #footer_text a:hover {
+            text-decoration: underline;
+        }
+    </style>
+
     <!-- Skripty -->
     <script src="/hjs/jqeafbfijucals.h.js?tmrk=83a798c"></script>
     <link rel="icon" href="/files/images/favicon.png?tmrk=22436b8" />
@@ -23,50 +171,34 @@
 <body>
 
     <!-- HLAVIČKA -->
-    <header id="header" class="py-2" style="border-bottom: 1px solid #f7cc20;">
+    <header id="header" class="py-2">
         <div class="container">
             <div class="row column-mobile align-items-center justify-content-center justify-content-md-between">
                 
                 <!-- Logo -->
-                <div class="logo-wrapper mt-0 mt-2 mt-md-0">
-                    <div id="logo">
-                        <a href="/" id="odkaz_na_uvod" title="Název společnosti">
-                            <img class="logo" src="/files/images/logo.png" alt="Logo Zahradnictví Bratronice" />
-                        </a>
-                    </div>
+                <div id="logo">
+                    <a href="/" id="odkaz_na_uvod" title="Zahradnictví Bratronice">
+                        <img class="logo" src="/files/images/logo.png" alt="Logo Zahradnictví Bratronice" style="max-height: 60px;" />
+                    </a>
                 </div>
 
                 <!-- Kontakt 1: Zahradnictví -->
                 <div class="contact-card green mt-2 mt-md-0">
                     <span><strong>Zahradnictví Bratronice</strong></span>
-                    <div class="contact-card-icons">
-                        <a href="https://www.facebook.com/bratronice.zahradnictvi" target="_blank" aria-label="Facebook">
-                            <i class="fab fa-facebook white-icon"></i>
-                        </a>
-                        <a class="instagram" href="https://www.instagram.com/zahradnictvi_bratronice" target="_blank" aria-label="Instagram">
-                            <i class="fab fa-instagram white-icon"></i>
-                        </a>
-                        <a href="tel:+420606321004" aria-label="Telefon">
-                            <i class="fas fa-phone white-icon"></i>
-                        </a>
-                        <a href="tel:+420606321004">+420 606 321 004</a>
+                    <div class="contact-card-icons" style="margin-top: 4px;">
+                        <a href="https://www.facebook.com/bratronice.zahradnictvi" target="_blank" aria-label="Facebook"><i class="fab fa-facebook white-icon"></i></a>
+                        <a class="instagram" href="https://www.instagram.com/zahradnictvi_bratronice" target="_blank" aria-label="Instagram"><i class="fab fa-instagram white-icon" style="margin-left: 8px;"></i></a>
+                        <a href="tel:+420606321004" style="margin-left: 12px;"><i class="fas fa-phone white-icon"></i> +420 606 321 004</a>
                     </div>
                 </div>
 
                 <!-- Kontakt 2: Golf Park -->
                 <div class="contact-card beige mt-2 mt-md-0">
                     <span><strong>Golf Park Bratronice</strong></span>
-                    <div class="contact-card-icons">
-                        <a href="https://www.facebook.com/people/Golf-Park-Bratronice/61578399721210/" target="_blank" aria-label="Facebook">
-                            <i class="fab fa-facebook green-icon"></i>
-                        </a>
-                        <a class="instagram" href="https://www.instagram.com/golfpark_bratronice" target="_blank" aria-label="Instagram">
-                            <i class="fab fa-instagram green-icon"></i>
-                        </a>
-                        <a href="tel:+420725112318" aria-label="Telefon">
-                            <i class="fas fa-phone green-icon"></i>
-                        </a>
-                        <a href="tel:+420725112318">+420 725 112 318</a>
+                    <div class="contact-card-icons" style="margin-top: 4px;">
+                        <a href="https://www.facebook.com/people/Golf-Park-Bratronice/61578399721210/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook green-icon"></i></a>
+                        <a class="instagram" href="https://www.instagram.com/golfpark_bratronice" target="_blank" aria-label="Instagram"><i class="fab fa-instagram green-icon" style="margin-left: 8px;"></i></a>
+                        <a href="tel:+420725112318" style="margin-left: 12px; color: var(--primary-green); font-weight: 500;"><i class="fas fa-phone green-icon"></i> +420 725 112 318</a>
                     </div>
                 </div>
 
@@ -78,32 +210,22 @@
     <nav id="menu_top">
         <div id="mobile_open">MENU</div>
         <div id="mobile_close">MENU</div>
-        <div id="hornimenu1" class="ddmx">
+        <div id="hornimenu1" class="ddmx" style="display: flex; justify-content: center; flex-wrap: wrap;">
+            <div class="ddmxlileft"><a href="/" class="item1 topMenuItem40 selected" style="padding: 12px 20px; display: inline-block;"><span>Úvod</span></a></div>
             <div class="ddmxlileft">
-                <a href="/" class="item1 topMenuItem40 selected"><span>Úvod</span></a>
-            </div>
-            <div class="ddmxlileft">
-                <a href="/nabidka-zahradnictvi-bratronice" class="item1 topMenuItem61 hasKids"><span>Nabídka zahradnictví</span></a>
-                <div class="section">
-                    <div class="ddmxlileft"><a href="/rezane-kvetiny" class="item2">Řezané květiny</a></div>
-                    <div class="ddmxlileft"><a href="/sadba-zeleniny" class="item2">Sadba zeleniny</a></div>
-                    <div class="ddmxlileft"><a href="/balkonove-kvetiny" class="item2">Balkonové květiny</a></div>
-                    <div class="ddmxlileft"><a href="/podzim-a-zima" class="item2">Podzim a zima</a></div>
-                    <div class="ddmxlileft"><a href="/okrasne-dreviny-a-trvalky" class="item2">Okrasné dřeviny a trvalky</a></div>
+                <a href="/nabidka-zahradnictvi-bratronice" class="item1 topMenuItem61 hasKids" style="padding: 12px 20px; display: inline-block;"><span>Nabídka zahradnictví</span></a>
+                <div class="section" style="display: none; position: absolute; background: #fff; box-shadow: 0 4px 12px rgba(0,0,0,0.1); padding: 10px; z-index: 100;">
+                    <div class="ddmxlileft"><a href="/rezane-kvetiny" class="item2" style="color: #333; padding: 5px 10px; display: block;">Řezané květiny</a></div>
+                    <div class="ddmxlileft"><a href="/sadba-zeleniny" class="item2" style="color: #333; padding: 5px 10px; display: block;">Sadba zeleniny</a></div>
+                    <div class="ddmxlileft"><a href="/balkonove-kvetiny" class="item2" style="color: #333; padding: 5px 10px; display: block;">Balkonové květiny</a></div>
+                    <div class="ddmxlileft"><a href="/podzim-a-zima" class="item2" style="color: #333; padding: 5px 10px; display: block;">Podzim a zima</a></div>
+                    <div class="ddmxlileft"><a href="/okrasne-dreviny-a-trvalky" class="item2" style="color: #333; padding: 5px 10px; display: block;">Okrasné dřeviny a trvalky</a></div>
                 </div>
             </div>
-            <div class="ddmxlileft">
-                <a href="/golf-park-bratronice-1" class="item1 topMenuItem68"><span>Golf Park Bratronice</span></a>
-            </div>
-            <div class="ddmxlileft">
-                <a href="/novinky" class="item1 topMenuItem36"><span>Novinky</span></a>
-            </div>
-            <div class="ddmxlileft">
-                <a href="/o-nas" class="item1 topMenuItem66"><span>O nás</span></a>
-            </div>
-            <div class="ddmxlileft">
-                <a href="/kontakt" class="item1 topMenuItem39"><span>Kontakty</span></a>
-            </div>
+            <div class="ddmxlileft"><a href="/golf-park-bratronice-1" class="item1 topMenuItem68" style="padding: 12px 20px; display: inline-block;"><span>Golf Park Bratronice</span></a></div>
+            <div class="ddmxlileft"><a href="/novinky" class="item1 topMenuItem36" style="padding: 12px 20px; display: inline-block;"><span>Novinky</span></a></div>
+            <div class="ddmxlileft"><a href="/o-nas" class="item1 topMenuItem66" style="padding: 12px 20px; display: inline-block;"><span>O nás</span></a></div>
+            <div class="ddmxlileft"><a href="/kontakt" class="item1 topMenuItem39" style="padding: 12px 20px; display: inline-block;"><span>Kontakty</span></a></div>
         </div>
 
         <script>
@@ -130,10 +252,10 @@
                 $("#mobile_open").css("display", "block");	
                 $("#header").removeClass("mobile");
             });
-        </script>
+        </script> 
     </nav>
 
-    <!-- SLIDER / ÚVOD -->
+    <!-- SLIDER -->
     <div id="intro">
         <div id="slides">
             <div data-src="/files/images/slide01.jpg">
@@ -147,7 +269,7 @@
                 <div style="width: 1020px;">
                     <div class="slide-text">
                         <h2>Golf park Bratronice - adventure golf a bistro s občerstvením</h2>
-                        <p style="margin-top: 20px;"><a href="/golf-park-bratronice-1" type="button" class="btn-more">Více info zde</a></p>
+                        <p style="margin-top: 20px;"><a href="/golf-park-bratronice-1" class="btn-more" style="background: var(--primary-green); color: #fff; padding: 10px 20px; border-radius: 5px; text-decoration: none;">Více info zde</a></p>
                     </div>
                 </div>
             </div>
@@ -171,166 +293,100 @@
     </script>
 
     <!-- AKTUALITY -->
-    <div id="aktuality_box">
-        <div>
-            <h3>Novinky</h3>
-            <div id="aktuality_slide">
-                <article class="aktuality_box">
-                    <div class="aktuality_text">
-                        <figure class="aktuality_img">
-                            <a href="/roubovana-se-vyplati"><img src="/img/4/roubovana-logo-cmyk.250x146.jpg" alt="Roubovaná se vyplatí" /></a>
-                        </figure>
-                        <h2 class="aktuality_name">
-                            <a href="/roubovana-se-vyplati">Roubovaná se vyplatí</a>
-                        </h2>
-                        <p>Široká nabídka roubované zeleniny přímo od pěstitele. Roubovaná zelenina je pro Vás nachystaná v plné síle. https://www.roubovana.cz/</p>
-                        <div class="aktuality_vice_odkaz">
-                            <a href="/roubovana-se-vyplati" title="více informací">více informací</a>
-                        </div>
-                    </div>
-                </article>
-                <article class="aktuality_box">
-                    <div class="aktuality_text">
-                        <figure class="aktuality_img">
-                            <a href="/letnicky"><img src="/img/4/petunia-817383-1280.211x150.jpg" alt="Letničky" /></a>
-                        </figure>
-                        <h2 class="aktuality_name">
-                            <a href="/letnicky">Letničky</a>
-                        </h2>
-                        <p>Zahradnictví Bratonice, to jsou květiny, dřeviny a sazenice. Ze široké nabídky můžete vybírat a své domovy a zahrady zkrášlovat. Největší výběr letniček v regionu...</p>
-                        <div class="aktuality_vice_odkaz">
-                            <a href="/letnicky" title="více informací">více informací</a>
-                        </div>
-                    </div>
-                </article>
-                <article class="aktuality_box">
-                    <div class="aktuality_text">
-                        <figure class="aktuality_img">
-                            <a href="/golf-park-bratronice"><img src="/img/5/imgid-429.153x150.jpg" alt="Golf Park Bratronice" /></a>
-                        </figure>
-                        <h2 class="aktuality_name">
-                            <a href="/golf-park-bratronice">Golf Park Bratronice</a>
-                        </h2>
-                        <p>Golf Park Bratronice Otevřeno: Pondělí - neděle 9:00-19:00 Zábava a relax pro celou rodinu. tel. 725 112 318</p>
-                        <div class="aktuality_vice_odkaz">
-                            <a href="/golf-park-bratronice" title="více informací">více informací</a>
-                        </div>
-                    </div>
+    <div id="aktuality_box" style="background: var(--light-green); padding: 30px 0; margin-top: 20px;">
+        <div style="max-width: 1000px; margin: 0 auto; padding: 0 20px;">
+            <h3 style="color: var(--primary-green); margin-bottom: 20px;">Aktuality a novinky</h3>
+            <div id="aktuality_slide">    
+                <article class="aktuality_box"> 	  
+                    <div class="aktuality_text">	
+                        <figure class="aktuality_img"><a href="/roubovana-se-vyplati"><img src="/img/4/roubovana-logo-cmyk.250x146.jpg" alt="Roubovaná se vyplatí" style="border-radius: 8px;" /></a></figure>
+                        <h2 class="aktuality_name"><a href="/roubovana-se-vyplati" style="color: var(--primary-green);">Roubovaná se vyplatí</a></h2>    	
+                        <p>Široká nabídka roubované zeleniny přímo od pěstitele. Roubovaná zelenina je pro Vás nachystaná v plné síle.</p>	
+                        <div class="aktuality_vice_odkaz"><a href="/roubovana-se-vyplati" title="více informací" style="color: var(--accent-gold); font-weight: 600;">více informací &rarr;</a></div>  
+                    </div>     
                 </article>
             </div>
-
-            <script>
-                if($('#aktuality_slide > .aktuality_box').length > 1){
-                    $(function(){
-                        $("#aktuality_slide").slidesjs({
-                            width: 960,
-                            height: 150,
-                            play: {
-                                effect: "fade",
-                                interval: 4000,
-                                active: false,
-                                auto: true
-                            },
-                            navigation: { active: false },
-                            pagination: { active: true }
-                        });
-                    });
-                }
-            </script>
         </div>
     </div>
 
     <!-- HLAVNÍ OBSAH -->
-    <main id="main_content">
-        <div class="EditableContent">
-            <h1 class="cent">Zahradnictví Bratronice</h1>
-        </div>
-
+    <main id="main_content">  
+        <div class="EditableContent"><h1 class="cent">Zahradnictví Bratronice</h1></div> 
+        
         <!-- BANNERY -->
         <section id="banners">
             <div class="banner">
                 <a href="/sadba-zeleniny">
                     <h2>Sadba zeleniny</h2>
                     <p>U veškerého sortimentu zeleniny používáme výhradně kvalitní výkonné zahraniční odrůdy ...</p>
-                    <div class="ban_img"><img src="/files/images/banner1.jpg" alt="Banner 1" /></div>
+                    <div class="ban_img"><img src="/files/images/banner1.jpg" alt="Sadba zeleniny" /></div>
                 </a>
             </div>
             <div class="banner">
                 <a href="/balkonove-kvetiny">
                     <h2>Balkonové květiny</h2>
-                    <p>Primula - petrklíč, Violka - maceška<br />Violka - drobnokvětá maceška, Sunflor - karafiát, Bellis - sedmikráska ...</p>
-                    <div class="ban_img"><img src="/files/images/banner2.jpg" alt="Banner 2" /></div>
+                    <p>Primula - petrklíč, Violka - maceška, Sunflor - karafiát, Bellis - sedmikráska ...</p>
+                    <div class="ban_img"><img src="/files/images/banner2.jpg" alt="Balkonové květiny" /></div>
                 </a>
             </div>
             <div class="banner">
                 <a href="/okrasne-dreviny-a-trvalky">
                     <h2>Okrasné dřeviny a trvalky</h2>
-                    <p>Okrasné dřeviny a trvalky jsou celoročně v široké nabídce. Nabízíme rostliny z naší produkce ...</p>
-                    <div class="ban_img"><img src="/files/images/banner3.jpg" alt="Banner 3" /></div>
+                    <p>Okrasné dřeviny a trvalky jsou celoročně v široké nabídce z naší vlastní produkce.</p>
+                    <div class="ban_img"><img src="/files/images/banner3.jpg" alt="Okrasné dřeviny a trvalky" /></div>
                 </a>
             </div>
             <div class="banner">
                 <a href="/podzim-a-zima">
                     <h2>Podzim a zima</h2>
-                    <p>chryzantémy, dušičková vazba, brambory, cibule, zelí, vánoční hvězdy, vánoční kaktusy ...</p>
-                    <div class="ban_img"><img src="/files/images/banner4.jpg" alt="Banner 4" /></div>
+                    <p>Chryzantémy, dušičková vazba, brambory, cibule, zelí, vánoční hvězdy a bramboříky ...</p>
+                    <div class="ban_img"><img src="/files/images/banner4.jpg" alt="Podzim a zima" /></div>
                 </a>
             </div>
             <div class="banner">
                 <a href="/rezane-kvetiny">
                     <h2>Řezané květiny</h2>
                     <p>Kromě zahradnictví v Bratronicích Vám nabízíme zahradnictví v Řepově a Dobrovicích ...</p>
-                    <div class="ban_img"><img src="/files/images/banner5.jpg" alt="Banner 5" /></div>
+                    <div class="ban_img"><img src="/files/images/banner5.jpg" alt="Řezané květiny" /></div>
                 </a>
             </div>
         </section>
 
-        <!-- TEXTOVÁ SEKCE -->
+        <!-- TEXTOVÁ ČÁST -->
         <section id="text">
             <div>
                 <div class="editable-section">
-                    <h2>Jsme rodinná firma s&nbsp;dlouholetou tradicí a&nbsp;širokou klientelou spokojených zákazníků.</h2>
-                    <h2>Nabízíme maloobchodní i&nbsp;velkoobchodní prodej rostlin a&nbsp;květin.</h2>
-                    <p style="font-style: italic;">NOVĚ v&nbsp;létě 2025 jsme otevřeli nový areál Adventure Golf Park Bratronice.</p>
-                    <p style="font-style: italic;">Adventure Golf Park Bratronice - místo, kde se spojuje příroda, relax a&nbsp;zábava.</p>
-                    <p>Naším hlavním zaměřením&nbsp;je pěstování sadby květin a&nbsp;zeleniny v&nbsp;nejširším sortimentu.</p>
-                    <p>Zahradnictví Bratronice nabízí prodejní plochu více než&nbsp;<strong>4000&nbsp;m2</strong>.</p>
-                    <p>Areál tvoří pěstební plochy, 7-loďový fóliovník s moderními technologiemi (celkem 8000 m2) a cca 1 hektar venkovní trvalkové školky.</p>
-                    <p>Samozřejmostí je dostatek místa pro&nbsp;parkování.</p>
+                    <h2 style="color: var(--primary-green);">Jsme rodinná firma s&nbsp;dlouholetou tradicí a&nbsp;širokou klientelou spokojených zákazníků.</h2>
+                    <p style="font-style: italic;">NOVĚ v&nbsp;létě 2025 jsme otevřeli nový areál <strong>Adventure Golf Park Bratronice</strong> – místo, kde se spojuje příroda, relax a&nbsp;zábava uprostřed zeleně.</p>
+                    <p>Zahradnictví Bratronice nabízí prodejní plochu více než&nbsp;<strong>4000&nbsp;m²</strong> plnou květin, zeleně a&nbsp;nápadů pro&nbsp;Váš dům a&nbsp;zahradu.</p>
+                    <p>Areál firmy tvoří kromě prodejních ploch také 7-loďový fóliovník vybavený moderními technologiemi (celkem 8000 m² fóliovníků) a&nbsp;okolo 1 hektaru venkovní trvalkové školky.</p>
                     
-                    <h3>Naším cílem je uspokojit Vaše potřeby, splnit přání a&nbsp;požadavky.</h3>
-                    <p><strong>Profesionální přístup k&nbsp;zákazníkům a&nbsp;poradenství je u&nbsp;nás samozřejmostí.</strong></p>
-                    
-                    <h3>Do&nbsp;námi nabízeného sortimentu patří:</h3>
-                    <img title="" alt="Sortiment" src="/img/4/43.jpg" style="width: 276px; height: 300px; float: right; border: 0;" />
+                    <h3 style="color: var(--primary-green); margin-top: 20px;">Do&nbsp;námi nabízeného sortimentu patří:</h3>
                     <ul>
                         <li>okrasné dřeviny a&nbsp;trvalky</li>
-                        <li>substráty</li>
-                        <li>hnojiva a&nbsp;postřiky</li>
-                        <li>mulčovací kůra</li>
-                        <li>okrasné kameny</li>
+                        <li>substráty, hnojiva a&nbsp;postřiky</li>
+                        <li>mulčovací kůra a&nbsp;okrasné kameny</li>
                         <li>sezónní vazby (velikonoce, dušičky, vánoce)</li>
-                        <li>kompletní zahradnický sortiment</li>
-                        <li>ŘEZANÉ KVĚTINY - kytice k&nbsp;různým příležitostem (svatby, narozeniny, smuteční vazby)</li>
+                        <li><strong>ŘEZANÉ KVĚTINY</strong> – kytice k&nbsp;různým příležitostem (svatby, narozeniny, smuteční vazba)</li>
                     </ul>
                 </div>
-            </div>
+            </div>	
         </section>
 
         <!-- KDE NÁS NAJDETE -->
-        <section id="kde">
+        <section id="kde" style="margin-top: 40px;">
             <div>
-                <h2>Kde nás najdete</h2>
-                <div class="col">
+                <h2 style="color: var(--primary-green); text-align: center; margin-bottom: 20px;">Kde nás najdete</h2>
+                <div class="col" style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: center;">
                     <div class="adr">
-                        <div class="editable-section">
+                        <div class="editable-section" style="margin: 0;">
                             <p><strong>Zahradnictví Bratronice</strong> - Adventure Golf Park Bratronice</p>
-                            <p>Bratronice, 294 42 Luštěnice <br />na&nbsp;hlavním tahu Mladá Boleslav - Nymburk</p>
-                            <p>Telefon řezané květiny: 724 171 488</p>
-                            <p>Golf Park Bratronice: 725 112 318</p>
+                            <p>Bratronice, 294 42 Luštěnice <br /><em>na&nbsp;hlavním tahu Mladá Boleslav - Nymburk</em></p>
+                            <p><strong>Telefon řezané květiny:</strong> 724 171 488</p>
+                            <p><strong>Golf Park Bratronice:</strong> 725 112 318</p>
                         </div>
-                    </div>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2548.6237924560464!2d14.953041115706792!3d50.29895007945468!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470c00b5a1c1f6c9%3A0x51cd5fcac857d9fb!2sBratronice+20%2C+294+42+Smilovice!5e0!3m2!1scs!2scz!4v1519064759572" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>							
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2548.6237924560464!2d14.953041115706792!3d50.29895007945468!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470c00b5a1c1f6c9%3A0x51cd5fcac857d9fb!2sBratronice+20%2C+294+42+Smilovice!5e0!3m2!1scs!2scz!4v1519064759572" width="100%" height="250" style="border:0; border-radius: 12px;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
                 <div class="stretch"></div>
             </div>
@@ -340,179 +396,33 @@
 
     <!-- ZÁPATÍ -->
     <footer>
-        <div id="footer">
-            <div id="footer_text">
-                <div class="col">
-                    <div class="editable-section">
-                        <p><strong>Telefon</strong></p>
-                        <p><a href="tel:+420606321004">+420 606 321 004</a></p>
-                        <p><strong>E-mail</strong></p>
-                        <p><a href="mailto:tomas.balda@centrum.cz">tomas.balda@centrum.cz</a></p>
-                        <p><a class="mt-2" href="/ochrana-osobnich-udaju-gdpr">GDPR</a></p>
-                    </div>
+        <div id="footer" style="max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px;">
+            <div class="col">
+                <div class="editable-section" style="background: transparent; border: none; padding: 0;">
+                    <p><strong>Telefon</strong><br/><a href="tel:+420606321004">+420 606 321 004</a></p>
+                    <p><strong>E-mail</strong><br/><a href="mailto:tomas.balda@centrum.cz">tomas.balda@centrum.cz</a></p>
+                    <p><a href="/ochrana-osobnich-udaju-gdpr" style="color: var(--accent-gold);">Ochrana osobních údajů (GDPR)</a></p>
                 </div>
-                <div class="col">
-                    <div class="editable-section">
-                        <p><strong>Fakturační adresa</strong></p>
-                        <p>Tomáš Balda</p>
-                        <p>294 42 Smilovice</p>
-                        <p>Bratronice 20</p>
-                        <p>IČ: 66996112</p>
-                    </div>
+            </div>
+            <div class="col">
+                <div class="editable-section" style="background: transparent; border: none; padding: 0;">
+                    <p><strong>Fakturační adresa</strong><br/>Tomáš Balda<br/>Bratronice 20, 294 42 Smilovice<br/>IČ: 66996112</p>
                 </div>
-                <div class="col">
-                    <div><p>© Tomáš Balda 2026. Všechna práva vyhrazena.</p></div>
-                    <div>
-                        <p><a href="http://www.webstranky.cz/internetove-obchody">Tvorba e-shopů</a>, <a href="http://www.webstranky.cz/">tvorba webových stránek</a> a <a href="http://www.seo-reklama.cz/">optimalizace pro vyhledávače</a></p>
-                    </div>
-                </div>
+            </div>
+            <div class="col">
+                <div><p>© Tomáš Balda 2026. Všechna práva vyhrazena.</p></div>
             </div>
         </div>
     </footer>
 
-    <!-- SKRIPTY & COOKIE MODAL -->
+    <!-- COOKIE MODAL A SKRIPTY -->
     <script src="https://www.googletagmanager.com/gtag/js?id=UA-113549311-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+    <script>  
+        window.dataLayer = window.dataLayer || [];  
+        function gtag(){dataLayer.push(arguments);}  
         gtag('js', new Date());
         gtag('config', 'UA-113549311-1');
-    </script>
-
-    <div class="modal cookieMarketExpress" id="cookieMarketExpressModal" tabindex="-1" role="dialog">
-        <div class="modal-dialog modal-lg" role="document">
-            <form id="cookieMarketExpressForm">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title text-bold">Tento web používá cookies</h5>
-                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <p>Vaše soukromí je důležité. Můžete si vybrat z nastavení cookies níže.</p>
-                        <div id="cookie-market-express-options">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="d-flex align-items-center justify-content-between">
-                                        <label class="cookie-market-express-check-label">
-                                            <span class="cookie-market-express-checkbox-name">Nezbytné</span>
-                                            <input class="cookie-market-express-check-input cookie-market-express-check-input-always" name="cookieNecessary" id="cookiesMarketExpressNecessary" type="checkbox" checked="checked" disabled="disabled" />
-                                            <span class="cookie-market-express-checkbox-control"></span>
-                                        </label>
-                                    </div>
-                                    <p class="mb-2">Toto nastavení nelze deaktivovat. Bez nezbytných cookies nelze služby webu poskytovat.</p>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="d-flex align-items-center justify-content-between">
-                                        <label class="cookie-market-express-check-label">
-                                            <span class="cookie-market-express-checkbox-name">Marketingové</span>
-                                            <input class="cookie-market-express-check-input" name="cookieMarketing" id="cookieMarketExpressMarketing" type="checkbox" />
-                                            <span class="cookie-market-express-checkbox-control"></span>
-                                        </label>
-                                    </div>
-                                    <p class="mb-2">Tyto soubory cookies nám umožňují zlepšovat výkon webu a zobrazovat relevantní reklamu.</p>
-                                </div>
-                            </div>
-                            <div class="text-right">
-                                <button class="btn" id="cookie-market-express-btn-accept-options" type="button" data-dismiss="modal">Uložit nastavení</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <div><button class="btn" id="cookie-market-express-btn-accept-all" type="button" data-dismiss="modal">Přijmout vše</button></div>
-                        <div>
-                            <button class="btn" id="cookie-market-express-btn-options" type="button">Nastavení</button>
-                            <button class="btn" id="cookie-market-express-btn-decline-all" type="button">Odmítnout</button>
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <script>
-        $(document).ready(function() {
-            var cookieSettingStored = getCookie('cookie-setting-stored');
-            if(cookieSettingStored != "true") {
-                $('#cookieMarketExpressModal').addClass('show');
-                $('body').addClass('modal-open');
-            }
-            if(marketingCookiesAllowed()) {
-                runMarketingCookies();
-            }
-            $('#cookieMarketExpressModal .close').click(function(event) {
-                $('#cookieMarketExpressModal').removeClass('show');
-                $('body').removeClass('modal-open');
-            });
-            $('#cookie-market-express-btn-accept-all').click(function(event) {
-                allowCookies(true);
-                $('#cookieMarketExpressModal').removeClass('show');
-                $('body').removeClass('modal-open');
-            });
-            $('#cookie-market-express-btn-accept-options').click(function(event) {
-                var marketing = $('#cookieMarketExpressMarketing').is(':checked') ? true : false;
-                allowCookies(marketing);
-                $('#cookieMarketExpressModal').removeClass('show');
-                $('body').removeClass('modal-open');
-            });
-            $('#cookie-market-express-btn-decline-all').click(function(event) {
-                allowCookies(false);
-                $('#cookieMarketExpressModal').removeClass('show');
-                $('body').removeClass('modal-open');
-            });
-            $('#cookie-market-express-btn-options').click(function(event) {
-                $(this).blur();
-                event.preventDefault();
-                $('#cookie-market-express-options').toggleClass('visible');
-            });
-        });
-
-        function allowCookies(marketing) {
-            setCookie('cookie-setting-stored', true, 10000);
-            setCookie('cookie-marketing', marketing, 10000);
-            location.replace(location.href);
-        }
-
-        function runMarketingCookies() {
-            $('script[cookie-market-express="marketing"][src]').each(function(i, obj) {
-                var script = document.createElement('script');
-                script.src = obj.src;
-                document.body.appendChild(script);
-            });
-            $('script[cookie-market-express="marketing"]').each(function(i, obj) {
-                eval($(obj).html());
-                $(obj).attr('type', 'text/javascript');
-            });
-        }
-
-        function marketingCookiesAllowed() {
-            var cookieVal = getCookie('cookie-marketing');
-            return cookieVal == "true";
-        }
-
-        function setCookie(cname, cvalue, exdays) {
-            const d = new Date();
-            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-            let expires = "expires=" + d.toUTCString();
-            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-        }
-
-        function getCookie(cname) {
-            let name = cname + "=";
-            let ca = document.cookie.split(';');
-            for(let i = 0; i < ca.length; i++) {
-                let c = ca[i];
-                while (c.charAt(0) == ' ') {
-                    c = c.substring(1);
-                }
-                if (c.indexOf(name) == 0) {
-                    return c.substring(name.length, c.length);
-                }
-            }
-            return "";
-        }
-    </script>
+    </script>  
     <script src="/glm/internal/cookies-2022/cookies-2022.static.js?tmrk=9d32bee"></script>
 </body>
 </html>
