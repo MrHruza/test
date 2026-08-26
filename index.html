@@ -18,22 +18,35 @@
             overflow-x: hidden;
         }
 
-        /* Navigační lišta */
+        /* 1. Horní navigační lišta */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 20px 50px;
-            background: rgba(11, 15, 25, 0.9);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(11, 15, 25, 0.95);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
 
         .nav-logo {
-            font-size: 1.5rem;
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+
+        .nav-title {
+            font-size: 1.4rem;
             font-weight: bold;
             color: #b19cd9;
         }
@@ -44,8 +57,9 @@
         }
 
         .nav-links a {
-            color: #ccc;
+            color: #94a3b8;
             text-decoration: none;
+            font-weight: 500;
             transition: color 0.3s;
         }
 
@@ -53,47 +67,72 @@
             color: #b19cd9;
         }
 
-        /* Hero sekce (hlavní banner) */
+        /* 2. Hero sekce (Úvod s logem, animovaným pozadím a tlačítky) */
         .hero {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            /* Zde můžeš později nahradit odkaz na animované pozadí/GIF */
-            background: linear-gradient(rgba(11, 15, 25, 0.7), rgba(11, 15, 25, 0.9)), url('https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?q=80&w=1920&auto=format&fit=crop') no-repeat center center/cover;
-            padding-top: 80px;
+            /* Zde můžeš později nahradit odkaz za svůj GIF/animované pozadí */
+            background: linear-gradient(rgba(11, 15, 25, 0.75), rgba(11, 15, 25, 0.95)), url('https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?q=80&w=1920&auto=format&fit=crop') no-repeat center center/cover;
+            padding: 120px 20px 60px 20px;
+        }
+
+        .hero-main-logo {
+            width: 180px;
+            height: 180px;
+            object-fit: contain;
+            margin-bottom: 25px;
+            filter: drop-shadow(0 0 25px rgba(177, 156, 217, 0.4));
+            animation: floatLogo 4s ease-in-out infinite;
+        }
+
+        @keyframes floatLogo {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
 
         .hero h1 {
-            font-size: 4rem;
-            color: #b19cd9;
-            margin-bottom: 20px;
-            text-shadow: 0 0 20px rgba(177, 156, 217, 0.5);
+            font-size: 3.5rem;
+            color: #ffffff;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            max-width: 600px;
+            margin-bottom: 30px;
         }
 
         .hero-buttons {
             display: flex;
             gap: 15px;
-            margin-top: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         .btn {
-            padding: 12px 30px;
+            padding: 14px 30px;
             font-size: 1rem;
             font-weight: bold;
-            border-radius: 8px;
+            border-radius: 10px;
             cursor: pointer;
             border: none;
-            transition: transform 0.2s, background 0.3s;
+            transition: all 0.3s ease;
             text-decoration: none;
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .btn-primary {
             background-color: #6c5ce7;
             color: white;
+            box-shadow: 0 4px 15px rgba(108, 92, 231, 0.4);
         }
 
         .btn-primary:hover {
@@ -101,25 +140,26 @@
             transform: translateY(-2px);
         }
 
-        .btn-secondary {
-            background-color: #2d3436;
+        .btn-ip {
+            background-color: #1e293b;
             color: white;
-            border: 1px solid #636e72;
+            border: 1px solid #475569;
         }
 
-        .btn-secondary:hover {
-            background-color: #3f4749;
+        .btn-ip:hover {
+            background-color: #334155;
             transform: translateY(-2px);
         }
 
-        /* O nás sekce */
+        /* 3. O nás sekce (Text + postavička dráčka) */
         .about {
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 100px 50px;
-            gap: 50px;
-            background: #111827;
+            gap: 60px;
+            background: #0f172a;
+            flex-wrap: wrap;
         }
 
         .about-text {
@@ -129,172 +169,383 @@
         .about-text h2 {
             font-size: 2.5rem;
             margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        .about-text h2 span {
             color: #b19cd9;
         }
 
         .about-text p {
-            color: #9ca3af;
-            line-height: 1.6;
+            color: #94a3b8;
+            line-height: 1.7;
             font-size: 1.1rem;
         }
 
         .about img {
-            width: 250px;
-            filter: drop-shadow(0 0 15px rgba(108, 92, 231, 0.4));
+            width: 280px;
+            filter: drop-shadow(0 0 20px rgba(108, 92, 231, 0.3));
         }
 
-        /* Hlasovací sekce */
-        .voting {
-            padding: 80px 50px;
-            text-align: center;
+        /* 4. Hlasovací sekce (S animovaným pozadím a konfigurátorem) */
+        .vote-section {
+            position: relative;
+            padding: 100px 20px;
             background: #0b0f19;
+            overflow: hidden;
+            text-align: center;
         }
 
-        .voting h2 {
+        .vote-container-wrapper {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .vote-heading-block h2 {
             font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .vote-heading-block p {
+            color: #94a3b8;
             margin-bottom: 40px;
         }
 
         .vote-card {
-            background: #1e293b;
-            max-width: 800px;
-            margin: 0 auto;
+            background: #111827;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
             padding: 40px;
-            border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
         }
 
-        .vote-inputs {
+        .nick-row {
             display: flex;
+            align-items: center;
             justify-content: center;
             gap: 15px;
             margin-bottom: 30px;
-            flex-wrap: wrap;
+            background: #1f293d;
+            padding: 10px 20px;
+            border-radius: 12px;
+            border: 1px solid #374151;
+            max-width: 450px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .vote-inputs input {
-            padding: 12px 20px;
-            border-radius: 8px;
-            border: 1px solid #475569;
-            background: #0f172a;
+        .player-head {
+            width: 40px;
+            height: 40px;
+            border-radius: 6px;
+        }
+
+        .text-field {
+            width: 100%;
+            background: transparent;
+            border: none;
             color: white;
-            width: 250px;
-            font-size: 1rem;
+            font-size: 1.1rem;
+            outline: none;
         }
 
-        .vote-sites {
+        .text-field::placeholder {
+            color: #6b7280;
+        }
+
+        .vote-links {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 15px;
         }
 
-        .vote-btn {
-            background: #3b82f6;
+        .button-vote {
+            background: #2563eb;
             color: white;
-            padding: 12px;
-            border-radius: 8px;
+            padding: 14px;
+            border-radius: 10px;
             text-decoration: none;
             font-weight: bold;
-            transition: background 0.3s;
+            transition: background 0.3s, transform 0.2s;
+            border: none;
+            cursor: pointer;
         }
 
-        .vote-btn:hover {
-            background: #2563eb;
+        .button-vote:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
         }
 
-        /* Statistiky */
+        .vote-vyhody-text {
+            margin: 40px 0 20px 0;
+            color: #94a3b8;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .vote-benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+            z-index: 2;
+            position: relative;
+        }
+
+        .benefit-box {
+            background: #111827;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: left;
+        }
+
+        .benefit-box h3 {
+            color: #b19cd9;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .benefit-box p {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* Plovoucí pilulky s nicky na pozadí hlasování */
+        .vote-pills-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .vote-pill {
+            position: absolute;
+            padding: 8px 14px;
+            border-radius: 30px;
+            background: rgba(17, 24, 39, 0.85);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(108, 92, 231, 0.3);
+            color: #94a3b8;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            white-space: nowrap;
+        }
+
+        .vote-pill img {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+        }
+
+        /* 5. Statistiky v číslech */
         .stats {
             display: flex;
             justify-content: center;
             gap: 30px;
-            padding: 80px 50px;
-            background: #0f172a;
+            padding: 80px 20px;
+            background: #080c14;
             flex-wrap: wrap;
         }
 
         .stat-box {
-            background: #1e293b;
-            padding: 30px;
-            border-radius: 12px;
+            background: #111827;
+            padding: 35px;
+            border-radius: 15px;
             text-align: center;
-            min-width: 250px;
+            min-width: 260px;
             border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .stat-box h3 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             color: #60a5fa;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .stat-box p {
             color: #94a3b8;
+            font-weight: 500;
         }
 
-        /* Patička */
-        footer {
-            background: #090d16;
+        /* 6. Discord sekce */
+        .discord-section {
+            padding: 80px 20px;
+            background: #0f172a;
+            display: flex;
+            justify-content: center;
+        }
+
+        .discord-card {
+            background: #1e1b4b;
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 20px;
             padding: 50px;
-            text-align: center;
+            max-width: 900px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .discord-content {
+            max-width: 500px;
+        }
+
+        .discord-content h2 {
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .discord-content p {
+            color: #cbd5e1;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .btn-discord {
+            background-color: #5865F2;
+            color: white;
+            box-shadow: 0 4px 15px rgba(88, 101, 242, 0.4);
+        }
+
+        .btn-discord:hover {
+            background-color: #4752c4;
+            transform: translateY(-2px);
+        }
+
+        /* 7. Patička */
+        footer {
+            background: #06090f;
+            padding: 60px 50px;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
             color: #64748b;
         }
 
-        footer p {
-            margin-top: 10px;
+        .footer-left h3 {
+            color: white;
+            margin-bottom: 5px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #b19cd9;
+        }
+
+        @media(max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            nav { padding: 15px 20px; }
+            .nav-links { display: none; }
+            .discord-card { padding: 30px; text-align: center; justify-content: center; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigace -->
+    <!-- Navigace s logem -->
     <nav>
-        <div class="nav-logo">MystiLand</div>
+        <div class="nav-brand">
+            <img src="https://github.com/user-attachments/assets/bdd5da67-7841-40f2-a218-3483f6de0bda" alt="Logo" class="nav-logo">
+            <div class="nav-title">MystiLand</div>
+        </div>
         <div class="nav-links">
             <a href="#">Domů</a>
-            <a href="#">O nás</a>
-            <a href="#">Hlasování</a>
-            <a href="#">Discord</a>
+            <a href="#about">O nás</a>
+            <a href="#vote">Hlasování</a>
+            <a href="#discord">Discord</a>
         </div>
     </nav>
 
-    <!-- Hlavní úvodní sekce -->
+    <!-- Hero sekce s animovaným pozadím a logem -->
     <section class="hero">
+        <img src="https://github.com/user-attachments/assets/bdd5da67-7841-40f2-a218-3483f6de0bda" alt="MystiLand Logo" class="hero-main-logo">
         <h1>MystiLand</h1>
-        <p>Vítejte na našem novém Minecraft serveru! Zažijte to pravé dobrodružství.</p>
+        <p>Vítejte na našem unikátním Minecraft serveru plném skvělých zážitků, soutěží a pohodové komunity!</p>
         <div class="hero-buttons">
-            <a href="#" class="btn btn-primary">Jak začít hrát</a>
-            <button class="btn btn-secondary" onclick="navigator.clipboard.writeText('play.mystiland.cz'); alert('IP adresa byla zkopírována!');">Kopírovat IP</button>
+            <a href="#about" class="btn btn-primary">Chci jít hrát</a>
+            <button class="btn btn-ip" onclick="navigator.clipboard.writeText('play.mystiland.cz'); alert('IP adresa play.mystiland.cz byla zkopírována!');">Kopírovat IP</button>
         </div>
     </section>
 
     <!-- O nás sekce -->
-    <section class="about">
+    <section class="about" id="about">
         <div class="about-text">
-            <h2>O MystiLandu</h2>
-            <p>Jsme nový a moderní Minecraft server, který nabízí pohodové hraní, skvělé herní módy, pravidelné eventy a přátelskou komunitu. Připoj se k nám ještě dnes a vybuduj své impérium!</p>
+            <h2>O <span>MystiLandu</span></h2>
+            <p>Jsme moderní Minecraft server s bohatou historií a technologiemi. Naším cílem je nabídnout vám ten nejlepší zážitek ze hry, spoustu nezapomenutelných dobrodružství, propracované herní módy a férovou komunitu. Připoj se k nám ještě dnes!</p>
         </div>
-        <!-- Zde je reference na tvou fialovou dračí postavičku -->
+        <!-- Vložen tvůj fialový dráček -->
         <img src="ChatGPT Image 26. 8. 2026 12_25_02.png" alt="MystiLand Drak">
     </section>
 
-    <!-- Hlasování -->
-    <section class="voting">
-        <h2>Hlasovací konfigurátor</h2>
-        <div class="vote-card">
-            <div class="vote-inputs">
-                <input type="text" placeholder="Zadej svůj herní nick...">
+    <!-- Hlasovací sekce s plovoucími nicky na pozadí -->
+    <section class="vote-section" id="vote">
+        <div class="vote-pills-bg" id="votePillsContainer"></div>
+        
+        <div class="vote-container-wrapper">
+            <div class="vote-heading-block">
+                <h2>Hlasem podpoříš sebe i server</h2>
+                <p>Každé 2 hodiny můžeš hlasovat pro sebe a rychleji progresovat v našich hrách.</p>
             </div>
-            <div class="vote-sites">
-                <a href="#" class="vote-btn">CraftList.cz</a>
-                <a href="#" class="vote-btn">Czech-Craft.cz</a>
-                <a href="#" class="vote-btn">MinecraftServery.eu</a>
-                <a href="#" class="vote-btn">TopServerky.cz</a>
+
+            <div class="vote-card">
+                <div class="nick-row">
+                    <img src="https://cdn.prod.website-files.com/68828d32a4fb4696477cfc1e/695a6fa31451ea9b96070b62_steve.jpg" id="player-head-image" alt="Skin" class="player-head"/>
+                    <input type="text" class="text-field" id="player-nick-input" placeholder="Zadej svůj herní nick...">
+                </div>
+
+                <div class="vote-links">
+                    <a href="#" class="button-vote" data-vote-url="https://craftlist.org/mystiland?nickname=%p%" target="_blank">CraftList.cz</a>
+                    <a href="#" class="button-vote" data-vote-url="https://czech-craft.eu/server/mystiland/vote/?user=%p%" target="_blank">Czech-Craft.cz</a>
+                    <a href="#" class="button-vote" data-vote-url="https://minecraftservery.eu/server/mystiland/vote/%p%" target="_blank">MinecraftServery.eu</a>
+                    <a href="#" class="button-vote" data-vote-url="https://topserverky.cz/server/mystiland/vote/%p%" target="_blank">TopServerky.cz</a>
+                </div>
+            </div>
+
+            <div class="vote-vyhody-text">↓ hlasem získáš tyto herní výhody ↓</div>
+
+            <div class="vote-benefits-grid">
+                <div class="benefit-box">
+                    <h3>Hlasovací body a Obchod</h3>
+                    <p>Za každý svůj hlas dostaneš hlasovací bod, který můžeš použít k nákupu prémiových předmětů v /voteshop.</p>
+                </div>
+                <div class="benefit-box">
+                    <h3>Stupňovaný VotePass</h3>
+                    <p>Nově za každý hlas získáváš progres do speciálního měsíčního VotePassu plného hodnotných odměn.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Statistiky v číslech -->
+    <!-- Statistiky -->
     <section class="stats">
         <div class="stat-box">
             <h3>15</h3>
@@ -310,11 +561,105 @@
         </div>
     </section>
 
+    <!-- Discord sekce -->
+    <section class="discord-section" id="discord">
+        <div class="discord-card">
+            <div class="discord-content">
+                <h2>Přidej se k naší Discord komunitě!</h2>
+                <p>Naše komunita je skvělá. Najdeš tu lidi na povídání, hlasové kanály i bezpečný obchod přímo na serveru.</p>
+                <a href="https://discord.com" target="_blank" class="btn btn-discord">Připoj se hned!</a>
+            </div>
+        </div>
+    </section>
+
     <!-- Patička -->
     <footer>
-        <p>E-mail: mystiland.info@gmail.com</p>
-        <p>&copy; 2026 MystiLand. Nejedná se o oficiální produkt Minecraftu.</p>
+        <div class="footer-left">
+            <h3>MystiLand</h3>
+            <p>E-mail: mystiland.info@gmail.com</p>
+        </div>
+        <div class="footer-links">
+            <a href="#">Domů</a>
+            <a href="#about">O nás</a>
+            <a href="#vote">Hlasování</a>
+        </div>
     </footer>
 
+    <!-- JavaScript pro dynamickou hlavu a plovoucí hlasy -->
+    <script>
+        // 1. Změna hlavičky podle zadaného niku
+        const inputField = document.getElementById('player-nick-input');
+        const headImage = document.getElementById('player-head-image');
+        const voteButtons = document.querySelectorAll('[data-vote-url]');
+
+        inputField.addEventListener('input', function() {
+            const nick = this.value.trim();
+            if (nick.length > 0) {
+                headImage.src = `https://mc-heads.net/avatar/${nick}/64`;
+            } else {
+                headImage.src = 'https://cdn.prod.website-files.com/68828d32a4fb4696477cfc1e/695a6fa31451ea9b96070b62_steve.jpg';
+            }
+        });
+
+        // Ošetření kliknutí na hlasovací tlačítka s doplněním nicku
+        voteButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                const nick = inputField.value.trim();
+                const urlTemplate = this.getAttribute('data-vote-url');
+                
+                if (!nick) {
+                    alert('Prosím, zadej nejprve svůj herní nick!');
+                    inputField.focus();
+                    return;
+                }
+
+                const finalUrl = urlTemplate.replace(/%p%/g, encodeURIComponent(nick));
+                window.open(finalUrl, '_blank');
+            });
+        });
+
+        // 2. Animované plovoucí pilulky na pozadí hlasování
+        const sampleNicks = ["StemYk", "ItzSary", "MoravakVonMoravy", "maTonka", "KubaMC", "PepaCraft", "Nikitka", "Tadeas", "Honza_CZ", "Vojta"];
+        const pillsContainer = document.getElementById('votePillsContainer');
+
+        function spawnVotePill() {
+            if (!pillsContainer) return;
+            const pill = document.createElement('div');
+            pill.className = 'vote-pill';
+
+            const randomNick = sampleNicks[Math.floor(Math.random() * sampleNicks.length)];
+            const randomX = Math.random() * 85 + 5; // pozice zleva v %
+
+            pill.style.left = randomX + '%';
+            pill.style.bottom = '-40px';
+
+            pill.innerHTML = `<img src="http://cravatar.eu/avatar/${randomNick}" alt="${randomNick}"> +${randomNick} zahlasoval`;
+            pillsContainer.appendChild(pill);
+
+            let currentBottom = -40;
+            let opacity = 0;
+            let speed = Math.random() * 0.8 + 0.5;
+
+            function animatePill() {
+                currentBottom += speed;
+                // Vypočítat fade in / fade out
+                if (currentBottom < 50) opacity += 0.03;
+                if (currentBottom > 350) opacity -= 0.02;
+
+                pill.style.bottom = currentBottom + 'px';
+                pill.style.opacity = Math.max(0, Math.min(1, opacity));
+
+                if (currentBottom < 450) {
+                    requestAnimationFrame(animatePill);
+                } else {
+                    pill.remove();
+                }
+            }
+            requestAnimationFrame(animatePill);
+        }
+
+        setInterval(spawnVotePill, 2500);
+    </script>
 </body>
 </html>
