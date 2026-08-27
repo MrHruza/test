@@ -532,9 +532,8 @@
             line-height: 1.6;
         }
 
-        /* ------------------ NOVÁ SEKCE STATISTIKY ------------------ */
         .stats-section {
-            padding: 60px 20px 100px 20px;
+            padding: 60px 20px 80px 20px;
             background: #0d0f18;
             text-align: center;
         }
@@ -611,7 +610,106 @@
             color: rgba(124, 58, 237, 0.05);
             pointer-events: none;
         }
-        /* ----------------------------------------------------------- */
+
+        /* ------------------ NOVÁ DISCORD SEKCE ------------------ */
+        .discord-section {
+            padding: 40px 20px 100px 20px;
+            background: #0d0f18;
+            display: flex;
+            justify-content: center;
+        }
+
+        .discord-card {
+            background: #131622;
+            border: 1px solid rgba(139, 92, 246, 0.25);
+            border-radius: 20px;
+            max-width: 1200px;
+            width: 100%;
+            padding: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+            gap: 40px;
+            overflow: hidden;
+        }
+
+        .discord-left {
+            max-width: 700px;
+        }
+
+        .discord-badge {
+            background: #1b1f32;
+            border: 1px solid rgba(114, 137, 218, 0.3);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #b9bbbe;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 25px;
+        }
+
+        .discord-badge i {
+            color: #7289da;
+        }
+
+        .discord-card h2 {
+            font-size: 2.2rem;
+            color: #ffffff;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .discord-card p {
+            color: #94a3b8;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .discord-btn {
+            background: linear-gradient(135deg, #5865F2, #4752C4);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 12px;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 20px rgba(88, 101, 242, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .discord-btn:hover {
+            background: linear-gradient(135deg, #4752C4, #3c45a5);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(88, 101, 242, 0.6);
+        }
+
+        .discord-right {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .discord-image {
+            width: 220px;
+            height: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 0 20px rgba(88, 101, 242, 0.3));
+            animation: floatDiscord 4s ease-in-out infinite;
+        }
+
+        @keyframes floatDiscord {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        /* -------------------------------------------------------- */
 
         #copy-toast {
             position: fixed;
@@ -793,18 +891,12 @@
             nav { grid-template-columns: 1fr 1fr; }
             .nav-center { display: none; }
             .about-content-grid { flex-direction: column-reverse; }
-            .modes-grid {
-                grid-template-columns: 1fr;
-            }
-            .vote-platforms {
-                grid-template-columns: 1fr;
-            }
-            .vote-rewards-grid {
-                grid-template-columns: 1fr;
-            }
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
+            .modes-grid { grid-template-columns: 1fr; }
+            .vote-platforms { grid-template-columns: 1fr; }
+            .vote-rewards-grid { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: 1fr; }
+            .discord-card { flex-direction: column; text-align: center; padding: 30px 20px; }
+            .discord-badge { margin: 0 auto 20px auto; }
         }
     </style>
 </head>
@@ -932,7 +1024,6 @@
         </div>
     </section>
 
-    <!-- NOVÁ SEKCE: STATISTIKY -->
     <section class="stats-section">
         <div class="stats-header">
             <h2>Statistiky</h2>
@@ -977,7 +1068,25 @@
             </div>
         </div>
     </section>
-    <!-- KONEC SEKCE STATISTIKY -->
+
+    <!-- NOVÁ DISCORD SEKCE -->
+    <section class="discord-section" id="discord">
+        <div class="discord-card">
+            <div class="discord-left">
+                <div class="discord-badge">
+                    <i class="fab fa-discord"></i>
+                    <span>0 členů</span>
+                </div>
+                <h2>Přidej se k naší Discord komunitě!</h2>
+                <p>Naše komunita je zkrátka skvělá. Věříme, že i ty u nás najdeš lidi, se kterými si rád popíšeš v chatu, pokecáš ve voice kanálech, domluvíš společnou hru nebo bezpečně poobchoduješ přímo na serveru.</p>
+                <a href="https://discord.com" target="_blank" class="discord-btn">Připoj se <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="discord-right">
+                <img src="https://github.com/user-attachments/assets/bdd5da67-7841-40f2-a218-3483f6de0bda" alt="Discord Maskot" class="discord-image">
+            </div>
+        </div>
+    </section>
+    <!-- KONEC DISCORD SEKCE -->
 
     <div id="copy-toast">
         <div class="toast-icon"><i class="fas fa-check"></i></div>
