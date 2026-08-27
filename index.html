@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MystiLand - Minecraft Server</title>
+    <!-- Favicon (ikonka v záložce prohlížeče) -->
+    <link rel="icon" type="image/png" href="https://github.com/user-attachments/assets/bdd5da67-7841-40f2-a218-3483f6de0bda">
+    <!-- FontAwesome pro ikonky sociálních sítí v patičce -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             box-sizing: border-box;
@@ -18,7 +22,7 @@
             overflow-x: hidden;
         }
 
-        /* 1. Vylepšená horní navigační lišta */
+        /* 1. Navigace */
         nav {
             display: flex;
             justify-content: space-between;
@@ -104,7 +108,7 @@
             box-shadow: 0 6px 20px rgba(124, 58, 237, 0.5);
         }
 
-        /* 2. Hero sekce */
+        /* 2. Hero sekce (s novým velkým logem uprostřed) */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -119,8 +123,8 @@
         }
 
         .hero-main-logo {
-            width: 240px;
-            height: 240px;
+            width: 320px;
+            max-width: 90vw;
             object-fit: contain;
             margin-bottom: 25px;
             filter: drop-shadow(0 0 35px rgba(168, 85, 247, 0.5));
@@ -129,7 +133,7 @@
 
         @keyframes pulseLogo {
             0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.06); }
+            50% { transform: scale(1.04); }
         }
 
         .hero p {
@@ -183,6 +187,35 @@
             background-color: #21253f;
             border-color: rgba(168, 85, 247, 0.6);
             transform: translateY(-2px);
+        }
+
+        /* Elegantní vyskakovací notifikace ze strany (nahradila alert) */
+        #copy-toast {
+            position: fixed;
+            bottom: 30px;
+            right: -350px;
+            background: #16192b;
+            color: #ffffff;
+            padding: 16px 24px;
+            border-radius: 14px;
+            border: 1px solid rgba(139, 92, 246, 0.4);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            font-weight: 600;
+            font-size: 0.95rem;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: right 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        #copy-toast.show {
+            right: 30px;
+        }
+
+        #copy-toast i {
+            color: #22c55e;
+            font-size: 1.2rem;
         }
 
         /* 3. O nás sekce */
@@ -421,34 +454,126 @@
         /* 7. Patička */
         footer {
             background: #090a10;
-            padding: 60px 50px;
-            border-top: 1px solid rgba(139, 92, 246, 0.1);
+            padding: 60px 40px 30px 40px;
+            border-top: 1px solid rgba(139, 92, 246, 0.15);
+            color: #94a3b8;
+        }
+
+        .footer-top {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
             flex-wrap: wrap;
             gap: 20px;
-            color: #64748b;
         }
 
-        .footer-left h3 {
-            color: white;
-            margin-bottom: 5px;
-        }
-
-        .footer-links {
+        .footer-brand-group {
             display: flex;
-            gap: 25px;
+            align-items: center;
+            gap: 15px;
         }
 
-        .footer-links a {
+        .footer-brand-logo {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+        }
+
+        .footer-brand-texts h3 {
+            color: white;
+            font-size: 1.15rem;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-brand-texts span {
+            font-size: 0.82rem;
+            color: #64748b;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 15px;
+        }
+
+        .footer-socials a {
+            width: 38px;
+            height: 38px;
+            background: #141726;
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: #94a3b8;
             text-decoration: none;
-            transition: color 0.3s;
+            transition: all 0.3s;
         }
 
-        .footer-links a:hover {
+        .footer-socials a:hover {
+            background: #7c3aed;
+            color: white;
+            border-color: #7c3aed;
+        }
+
+        .footer-columns {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 40px;
+            padding: 40px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .footer-col h4 {
+            color: white;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .footer-col p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #818cf8;
+            margin-bottom: 15px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-col ul li a:hover {
             color: #d8b4fe;
+        }
+
+        .footer-col ul li a::before {
+            content: '•';
+            color: #7c3aed;
+            font-weight: bold;
+        }
+
+        .footer-bottom {
+            padding-top: 25px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #64748b;
         }
 
         @media(max-width: 900px) {
@@ -468,22 +593,28 @@
         <div class="nav-links">
             <a href="#">Home</a>
             <a href="#about">Pravidla</a>
-            <a href="#discord" onclick="window.open('https://discord.com', '_blank')">Admin Team</a>
+            <a href="https://discord.com" target="_blank">Admin Team</a>
             <a href="https://discord.com" target="_blank">Discord</a>
             <a href="#vote">Nábor</a>
             <a href="#modes" class="nav-store-btn">Shop</a>
         </div>
     </nav>
 
-    <!-- Hero sekce -->
+    <!-- Hero sekce s novým velkým logem -->
     <section class="hero">
-        <img src="https://github.com/user-attachments/assets/bdd5da67-7841-40f2-a218-3483f6de0bda" alt="MystiLand Logo" class="hero-main-logo">
+        <img src="https://github.com/user-attachments/assets/775b273f-837e-4146-ba75-34cd58d73fac" alt="MystiLand Logo" class="hero-main-logo">
         <p>Vítejte na našem unikátním Minecraft serveru plném skvělých zážitků, soutěží a pohodové komunity!</p>
         <div class="hero-buttons">
             <a href="#modes" class="btn btn-primary">ZAČÍT HRÁT!</a>
-            <button class="btn btn-ip" onclick="navigator.clipboard.writeText('play.mystiland.cz'); alert('IP adresa play.mystiland.cz byla zkopírována!');">KOPÍROVAT IP</button>
+            <button class="btn btn-ip" id="copyIpBtn">KOPÍROVAT IP</button>
         </div>
     </section>
+
+    <!-- Vyskakovací tabulka ze strany (Toast) -->
+    <div id="copy-toast">
+        <i class="fas fa-check-circle"></i>
+        <span>IP adresa play.mystiland.cz byla zkopírována!</span>
+    </div>
 
     <!-- O nás sekce -->
     <section class="about" id="about">
@@ -564,20 +695,73 @@
 
     <!-- Patička -->
     <footer>
-        <div class="footer-left">
-            <h3>MystiLand</h3>
-            <p>E-mail: mystiland.info@gmail.com</p>
+        <div class="footer-top">
+            <div class="footer-brand-group">
+                <img src="https://github.com/user-attachments/assets/775b273f-837e-4146-ba75-34cd58d73fac" alt="Logo" class="footer-brand-logo">
+                <div class="footer-brand-texts">
+                    <h3>MYSTILAND.CZ</h3>
+                    <span>JSME SERVER, KTERÝ MÁ ROZHODNĚ CO NABÍDNOUT.</span>
+                </div>
+            </div>
+            <div class="footer-socials">
+                <a href="https://discord.com" target="_blank"><i class="fab fa-discord"></i></a>
+                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://tiktok.com" target="_blank"><i class="fab fa-tiktok"></i></a>
+                <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+            </div>
         </div>
-        <div class="footer-links">
-            <a href="#">Domů</a>
-            <a href="#about">O nás</a>
-            <a href="#modes">Herní módy</a>
-            <a href="#vote">Hlasování</a>
+
+        <div class="footer-columns">
+            <div class="footer-col">
+                <h4>O MYSTILANDU</h4>
+                <p>Mystiland je server s bohatou historií a moderními technologiemi. Snažíme se o to, abychom vám nabídli skvělý zážitek ze hry a spoustu nezapomenutelných zážitků. U nás si můžeš zahrát Survival, Skyblock, Oneblock nebo naskočit do akčních PvP minihr. 🎮🚀</p>
+                <p style="font-size: 0.78rem; color: #64748b;">Nejedná se o oficiální produkt Minecraftu. Nejsme spojeni s Mojang Studios.</p>
+            </div>
+            <div class="footer-col">
+                <h4>NAVIGACE</h4>
+                <ul>
+                    <li><a href="#modes">Chci jít hrát</a></li>
+                    <li><a href="#about">Pravidla</a></li>
+                    <li><a href="https://discord.com" target="_blank">Tým</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>KONTAKTY</h4>
+                <ul>
+                    <li><a href="mailto:mystiland.info@gmail.com">E-mail: mystiland.info@gmail.com</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            © 2026 MystiLand.cz - Všechna práva vyhrazena.
         </div>
     </footer>
 
     <!-- JavaScript -->
     <script>
+        /* Skript pro animovanou vyskakovací tabulku (Toast) */
+        const copyBtn = document.getElementById('copyIpBtn');
+        const toast = document.getElementById('copy-toast');
+        let toastTimer = null;
+
+        copyBtn.addEventListener('click', function() {
+            navigator.clipboard.writeText('play.mystiland.cz');
+            
+            // Zobrazit tabulku
+            toast.classList.add('show');
+
+            // Pokud už běžel předchozí časovač, zrušíme ho, aby se tabulka nezavřela předčasně při opakovaném kliknutí
+            if (toastTimer) {
+                clearTimeout(toastTimer);
+            }
+
+            // Skrýt tabulku po 3 sekundách (můžeš si upravit čas, např. 3000 = 3 sekundy)
+            toastTimer = setTimeout(function() {
+                toast.classList.remove('show');
+            }, 3000);
+        });
+
         const inputField = document.getElementById('player-nick-input');
         const headImage = document.getElementById('player-head-image');
         const voteButtons = document.querySelectorAll('[data-vote-url]');
