@@ -18,13 +18,13 @@
             overflow-x: hidden;
         }
 
-        /* 1. Navigace */
+        /* 1. Horní navigační lišta (upravená podle vzoru) */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 50px;
-            background: rgba(13, 15, 24, 0.95);
+            padding: 15px 40px;
+            background: rgba(13, 15, 24, 0.85);
             border-bottom: 1px solid rgba(139, 92, 246, 0.15);
             position: fixed;
             width: 100%;
@@ -33,34 +33,52 @@
             backdrop-filter: blur(12px);
         }
 
-        .nav-brand {
+        .nav-left {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 15px;
         }
 
         .nav-logo {
-            width: 38px;
-            height: 38px;
+            width: 42px;
+            height: 42px;
             object-fit: contain;
         }
 
-        .nav-title {
-            font-size: 1.3rem;
+        .online-badge {
+            background: #1a1d2d;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
             font-weight: bold;
-            color: #d8b4fe;
-            letter-spacing: 0.5px;
+            color: #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .online-badge::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background-color: #22c55e;
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 8px #22c55e;
         }
 
         .nav-links {
             display: flex;
-            gap: 30px;
+            gap: 25px;
+            align-items: center;
         }
 
         .nav-links a {
             color: #94a3b8;
             text-decoration: none;
             font-weight: 500;
+            font-size: 0.95rem;
             transition: color 0.3s;
         }
 
@@ -68,7 +86,22 @@
             color: #d8b4fe;
         }
 
-        /* 2. Hero sekce */
+        .nav-store-btn {
+            background-color: #7c3aed;
+            color: white !important;
+            padding: 8px 18px;
+            border-radius: 8px;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+            transition: background 0.3s, transform 0.2s !important;
+        }
+
+        .nav-store-btn:hover {
+            background-color: #6d28d9 !important;
+            transform: translateY(-2px);
+        }
+
+        /* 2. Hero sekce s velkým pulzujícím logem */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -77,30 +110,23 @@
             align-items: center;
             text-align: center;
             background: linear-gradient(rgba(13, 15, 24, 0.7), rgba(13, 15, 24, 0.95)), 
-                        radial-gradient(circle at center, rgba(124, 58, 237, 0.15) 0%, transparent 70%),
+                        radial-gradient(circle at center, rgba(124, 58, 237, 0.2) 0%, transparent 70%),
                         url('https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?q=80&w=1920&auto=format&fit=crop') no-repeat center center/cover;
             padding: 120px 20px 60px 20px;
         }
 
         .hero-main-logo {
-            width: 160px;
-            height: 160px;
+            width: 240px;
+            height: 240px;
             object-fit: contain;
-            margin-bottom: 20px;
-            filter: drop-shadow(0 0 30px rgba(168, 85, 247, 0.4));
-            animation: floatLogo 4s ease-in-out infinite;
+            margin-bottom: 25px;
+            filter: drop-shadow(0 0 35px rgba(168, 85, 247, 0.5));
+            animation: pulseLogo 3s ease-in-out infinite;
         }
 
-        @keyframes floatLogo {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            color: #ffffff;
-            margin-bottom: 15px;
-            letter-spacing: 1px;
+        @keyframes pulseLogo {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.06); }
         }
 
         .hero p {
@@ -116,11 +142,12 @@
             gap: 15px;
             flex-wrap: wrap;
             justify-content: center;
+            margin-bottom: 12px;
         }
 
         .btn {
-            padding: 14px 28px;
-            font-size: 1rem;
+            padding: 15px 35px;
+            font-size: 1.05rem;
             font-weight: bold;
             border-radius: 12px;
             cursor: pointer;
@@ -143,15 +170,20 @@
             transform: translateY(-2px);
         }
 
-        .btn-ip {
-            background-color: #1e1b4b;
-            color: #e2e8f0;
-            border: 1px solid rgba(139, 92, 246, 0.3);
+        .ip-subtext {
+            color: #64748b;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
         }
 
-        .btn-ip:hover {
-            background-color: #312e81;
-            transform: translateY(-2px);
+        .ip-subtext span {
+            color: #c084fc;
+            cursor: pointer;
+        }
+
+        .ip-subtext span:hover {
+            text-decoration: underline;
         }
 
         /* 3. O nás sekce */
@@ -190,7 +222,7 @@
             filter: drop-shadow(0 0 25px rgba(124, 58, 237, 0.25));
         }
 
-        /* 4. Sekce Herní módy & Minihry */
+        /* 4. Herní módy */
         .gamemodes-section {
             padding: 100px 20px;
             background: #0d0f18;
@@ -273,7 +305,7 @@
             font-weight: 500;
         }
 
-        /* 6. Hlasovací sekce */
+        /* 6. Hlasování */
         .vote-section {
             position: relative;
             padding: 100px 20px;
@@ -355,7 +387,6 @@
             transform: translateY(-2px);
         }
 
-        /* Plovoucí nicky na pozadí hlasování */
         .vote-pills-bg {
             position: absolute;
             top: 0;
@@ -471,7 +502,6 @@
         }
 
         @media(max-width: 768px) {
-            .hero h1 { font-size: 2.4rem; }
             nav { padding: 15px 20px; }
             .nav-links { display: none; }
             .discord-card { padding: 30px; text-align: center; justify-content: center; }
@@ -480,11 +510,11 @@
 </head>
 <body>
 
-    <!-- Navigace -->
+    <!-- Navigace (bez textu u loga vlevo, s online počítadlem a store tlačítkem vpravo) -->
     <nav>
-        <div class="nav-brand">
+        <div class="nav-left">
             <img src="https://github.com/user-attachments/assets/bdd5da67-7841-40f2-a218-3483f6de0bda" alt="Logo" class="nav-logo">
-            <div class="nav-title">MystiLand</div>
+            <div class="online-badge">15 online</div>
         </div>
         <div class="nav-links">
             <a href="#">Domů</a>
@@ -492,17 +522,19 @@
             <a href="#modes">Herní módy</a>
             <a href="#vote">Hlasování</a>
             <a href="#discord">Discord</a>
+            <a href="#store" class="nav-store-btn">STORE</a>
         </div>
     </nav>
 
-    <!-- Hero sekce -->
+    <!-- Hero sekce (s větším pulzujícím logem a bez textu MystiLand pod ním) -->
     <section class="hero">
         <img src="https://github.com/user-attachments/assets/bdd5da67-7841-40f2-a218-3483f6de0bda" alt="MystiLand Logo" class="hero-main-logo">
-        <h1>MystiLand</h1>
         <p>Vítejte na našem unikátním Minecraft serveru plném skvělých zážitků, soutěží a pohodové komunity!</p>
         <div class="hero-buttons">
-            <a href="#modes" class="btn btn-primary">Chci jít hrát</a>
-            <button class="btn btn-ip" onclick="navigator.clipboard.writeText('play.mystiland.cz'); alert('IP adresa play.mystiland.cz byla zkopírována!');">Kopírovat IP</button>
+            <a href="#modes" class="btn btn-primary">ZAČÍT HRÁT!</a>
+        </div>
+        <div class="ip-subtext">
+            PŘIPOJ SE NA <span onclick="navigator.clipboard.writeText('play.mystiland.cz'); alert('IP adresa play.mystiland.cz byla zkopírována!');">PLAY.MYSTILAND.CZ</span>
         </div>
     </section>
 
@@ -515,7 +547,7 @@
         <img src="ChatGPT Image 26. 8. 2026 12_25_02.png" alt="MystiLand Drak">
     </section>
 
-    <!-- Sekce: Co u nás najdeš (Herní módy a minihry) -->
+    <!-- Herní módy -->
     <section class="gamemodes-section" id="modes">
         <div class="section-header">
             <h2>To nejlepší z MystiLandu</h2>
@@ -524,7 +556,7 @@
         <div class="gamemodes-grid">
             <div class="gamemode-card">
                 <h3>Survival</h3>
-                <p>Klasické přežití s vylepšenou ekonomikou,claimováním pozemků, questy a skvělým zázemím pro stavitele.</p>
+                <p>Klasické přežití s vylepšenou ekonomikou, claimováním pozemků, questy a skvělým zázemím pro stavitele.</p>
             </div>
             <div class="gamemode-card">
                 <h3>Skyblock</h3>
@@ -557,7 +589,7 @@
         </div>
     </section>
 
-    <!-- Hlasovací sekce -->
+    <!-- Hlasování -->
     <section class="vote-section" id="vote">
         <div class="vote-pills-bg" id="votePillsContainer"></div>
         
@@ -583,12 +615,12 @@
         </div>
     </section>
 
-    <!-- Discord sekce -->
+    <!-- Discord -->
     <section class="discord-section" id="discord">
         <div class="discord-card">
             <div class="discord-content">
                 <h2>Přidej se k naší Discord komunitě!</h2>
-                <p>Naše komunita je zkrátka skvělá. Věříme, že i ty u nás najdeš lidi, se kterými si rád popovídáš v chatu, pokecáš ve voice kanálech nebo bezpečně poobchoduješ.</p>
+                <p>Naše komunita je zkrátka skvělá. Věříme, že i ty u nás najdeš lidi, se kterými si rád popovídáš v chatu nebo pokecáš ve voice kanálech.</p>
                 <a href="https://discord.com" target="_blank" class="btn btn-discord">Připoj se hned!</a>
             </div>
         </div>
@@ -640,7 +672,7 @@
             });
         });
 
-        // Plovoucí pilulky na pozadí
+        // Plovoucí nicky na pozadí
         const sampleNicks = ["StemYk", "ItzSary", "MoravakVonMoravy", "maTonka", "KubaMC", "PepaCraft", "Nikitka", "Tadeas"];
         const pillsContainer = document.getElementById('votePillsContainer');
 
