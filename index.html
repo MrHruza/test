@@ -870,6 +870,7 @@
             font-size: 0.8rem !important;
             color: #475569 !important;
             margin-top: 15px;
+            text-align: center;
         }
 
         @media(max-width: 1024px) {
@@ -1010,7 +1011,7 @@
                 </div>
                 <div class="reward-card">
                     <h4>Stupňovaný VotePass</h4>
-                    <p>Nové za každý svůj hlas dostáváš progres do speciálního VotePassu. Jedná se o progresivní linii odměn, kterou si musíš krok za krokem odškrtávat každý měsíc.</p>
+                    <p>Nově za každý svůj hlas dostáváš progres do speciálního VotePassu. Jedná se o progresivní linii odměn, kterou si musíš krok za krokem odškrtávat každý měsíc.</p>
                 </div>
             </div>
         </div>
@@ -1044,170 +1045,156 @@
             <div class="stat-card">
                 <div class="stat-card-top">
                     <i class="fas fa-clock"></i>
-                    <span>Celkově odehraný čas</span>
+                    <span>Uptime</span>
                 </div>
-                <div class="stat-card-value">1 420 <span style="font-size: 1.2rem; font-weight: normal; color: #94a3b8;">dní</span></div>
-                <i class="fas fa-clock stat-card-icon-bg"></i>
-            </div>
-
-            <div class="stat-card">
-                <div class="stat-card-top">
-                    <i class="fas fa-check-square"></i>
-                    <span>Celkem hlasů</span>
-                </div>
-                <div class="stat-card-value">442 369</div>
-                <i class="fas fa-check-square stat-card-icon-bg"></i>
-            </div>
-        </div>
-    </section>
-
-    <section class="discord-section" id="discord">
-        <div class="discord-card">
-            <div class="discord-left">
-                <div class="discord-badge">
-                    <i class="fab fa-discord"></i>
-                    <span>Aktivní komunita</span>
-                </div>
-                <h2>Přidej se k naší Discord komunitě!</h2>
-                <p>Naše komunita je zkrátka skvělá. Věříme, že i ty u nás najdeš lidi, se kterými si rád popíšeš v chatu, pokecáš ve voice kanálech, domluvíš společnou hru nebo bezpečně poobchoduješ přímo na serveru.</p>
-                <a href="https://discord.gg/3GWM5Vy2HV" target="_blank" class="discord-btn">Připoj se <i class="fas fa-arrow-right"></i></a>
+                <div class="stat-card-value">99.9%</div>
+                <i class="fas fa-server stat-card-icon-bg"></i>
             </div>
             
+            <div class="stat-card">
+                <div class="stat-card-top">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Dní v provozu</span>
+                </div>
+                <div class="stat-card-value">365+</div>
+                <i class="fas fa-calendar-check stat-card-icon-bg"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- DISCORD SEKCE S WIDGETEM -->
+    <section class="discord-section">
+        <div class="discord-card">
+            <div class="discord-left">
+                <div class="discord-badge"><i class="fab fa-discord"></i> Oficiální Discord</div>
+                <h2>Připoj se k naší komunitě</h2>
+                <p>Najdi si nové spoluhráče, bav se s ostatními na voice chatu a buď první, kdo se dozví o všech novinkách a updatech na serveru.</p>
+                <a href="https://discord.gg/3GWM5Vy2HV" target="_blank" class="discord-btn"><i class="fab fa-discord"></i> Připojit se na Discord</a>
+            </div>
             <div class="discord-right">
                 <div class="discord-widget-box">
-                    <iframe src="https://discord.com/widget?id=TVÉ_SERVER_ID_ZDE&theme=dark" width="300" height="400" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+                    <!-- Změň 'SERVER_ID' v odkazu za své skutečné Discord Server ID pro zobrazení reálného widgetu -->
+                    <iframe src="https://discord.com/widget?id=123456789012345678&theme=dark" width="350" height="400" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- TOAST NOTIFIKACE (Kopírování IP) -->
     <div id="copy-toast">
         <div class="toast-icon"><i class="fas fa-check"></i></div>
-        <span class="toast-text">IP adresa zkopírována!</span>
+        <div class="toast-text">IP adresa zkopírována!</div>
     </div>
 
+    <!-- PATIČKA -->
     <footer>
         <div class="footer-top">
             <div class="footer-brand-group">
                 <div class="footer-brand-texts">
-                    <h3>MYSTILAND.CZ</h3>
-                    <span>JSME SERVER, KTERÝ MÁ ROZHODNĚ CO NABÍDNOUT.</span>
+                    <h3>MystiLand.cz</h3>
+                    <span>Oficiální Minecraft Server</span>
                 </div>
-                <div class="footer-copyright-inline">
-                    &copy; 2026 MystiLand.cz - Všechna práva vyhrazena.
+                <div class="footer-socials">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://discord.gg/3GWM5Vy2HV"><i class="fab fa-discord"></i></a>
                 </div>
             </div>
-            <div class="footer-socials">
-                <a href="https://discord.gg/3GWM5Vy2HV" target="_blank"><i class="fab fa-discord"></i></a>
-                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="https://tiktok.com" target="_blank"><i class="fab fa-tiktok"></i></a>
-                <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+            <div class="footer-columns">
+                <div class="footer-col">
+                    <h4>Odkazy</h4>
+                    <ul>
+                        <li><a href="#">Domů</a></li>
+                        <li><a href="#about">Pravidla</a></li>
+                        <li><a href="#store">Obchod</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Podpora</h4>
+                    <ul>
+                        <li><a href="#">Kontakt</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Admin Tým</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
-
-        <div class="footer-columns">
-            <div class="footer-col">
-                <h4>O MystiLandu</h4>
-                <p>MystiLand je moderní Minecraft server spojující propracované herní mechaniky s úžasnou a přátelskou komunitou. Ať už rád stavíš v Survivalu, plníš úkoly na Skyblocku, nebo bojuješ v PvP minihrách, u nás si najdeš to své.</p>
-                <p class="disclaimer">Nejedná se o oficiální produkt Minecraftu. Nejsme žádným způsobem spojeni se společností Mojang Studios.</p>
-            </div>
-            <div class="footer-col">
-                <h4>Rychlá navigace</h4>
-                <ul>
-                    <li><a href="#modes">Jak se připojit</a></li>
-                    <li><a href="#about">Pravidla serveru</a></li>
-                    <li><a href="#vote">Hlasování</a></li>
-                    <li><a href="https://discord.gg/3GWM5Vy2HV" target="_blank">Admin Tým</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Kontakty a Podpora</h4>
-                <ul>
-                    <li><a href="mailto:mystiland.info@gmail.com">mystiland.info@gmail.com</a></li>
-                    <li><a href="https://discord.gg/3GWM5Vy2HV" target="_blank">Discord Ticket</a></li>
-                </ul>
-            </div>
+        <div class="disclaimer">
+            Není schváleno společností Mojang AB a není s ní nijak spojeno. Minecraft je ochranná známka společnosti Mojang Synergies AB.
         </div>
     </footer>
 
+    <!-- INTERAKTIVNÍ JAVASCRIPT FUNKCE -->
     <script>
-        const copyBtn = document.getElementById('copyIpBtn');
-        const toast = document.getElementById('copy-toast');
-        let toastTimer = null;
-
-        copyBtn.addEventListener('click', function() {
-            navigator.clipboard.writeText('play.mystiland.cz');
-            toast.classList.add('show');
-            if (toastTimer) clearTimeout(toastTimer);
-            toastTimer = setTimeout(function() {
-                toast.classList.remove('show');
-            }, 3000);
+        // 1. KOPÍROVÁNÍ IP ADRESY
+        document.getElementById('copyIpBtn').addEventListener('click', function() {
+            // ZDE SI MŮŽEŠ ZMĚNIT IP ADRESU SERVERU
+            const serverIP = "play.mystiland.cz"; 
+            
+            navigator.clipboard.writeText(serverIP).then(() => {
+                const toast = document.getElementById('copy-toast');
+                toast.classList.add('show');
+                
+                // Schová toast po 3 vteřinách
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 3000);
+            }).catch(err => {
+                console.error('Nepodařilo se zkopírovat IP adresu: ', err);
+                alert("Nepodařilo se zkopírovat IP adresu.");
+            });
         });
 
+        // 2. HLASOVACÍ KONFIGURÁTOR (Změna avataru a propisování jména do odkazů)
         const nickInput = document.getElementById('playerNick');
         const avatarImg = document.getElementById('playerAvatar');
-        const voteButtons = document.querySelectorAll('[data-vote-url]');
+        const voteBtns = document.querySelectorAll('.vote-btn');
 
+        // Když hráč píše svůj nick
         nickInput.addEventListener('input', function() {
-            const nick = nickInput.value.trim();
+            const nick = this.value.trim();
+            
             if (nick.length > 0) {
-                avatarImg.src = `https://mc-heads.net/avatar/${encodeURIComponent(nick)}/40`;
+                // Načte avatar reálného hráče z mc-heads
+                avatarImg.src = `https://mc-heads.net/avatar/${nick}/40`;
+                // Uloží si nick pro příští návštěvu webu
+                localStorage.setItem('mystiland_voter_nick', nick);
             } else {
-                avatarImg.src = 'https://mc-heads.net/avatar/steve/40';
+                // Výchozí hlava Steva, pokud je pole prázdné
+                avatarImg.src = `https://mc-heads.net/avatar/steve/40`;
             }
         });
 
-        voteButtons.forEach(button => {
-            button.addEventListener('click', function(e) {
+        // Předvyplnění nicku po načtení stránky (pokud tu hráč už byl)
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedNick = localStorage.getItem('mystiland_voter_nick');
+            if (savedNick) {
+                nickInput.value = savedNick;
+                avatarImg.src = `https://mc-heads.net/avatar/${savedNick}/40`;
+            }
+        });
+
+        // Ošetření kliknutí na hlasovací tlačítka
+        voteBtns.forEach(btn => {
+            btn.addEventListener('click', function(e) {
                 e.preventDefault();
-                const nick = nickInput.value.trim();
-                const urlTemplate = this.getAttribute('data-vote-url');
+                const currentNick = nickInput.value.trim();
                 
-                if (!nick) {
-                    alert('Nejprve zadejte svůj herní nick do konfigurátoru!');
+                // Kontrola jestli hráč zadal jméno
+                if (!currentNick) {
+                    alert('Prosím, zadej nejprve svůj herní nick do pole nad tlačítky, abys mohl obdržet odměny na serveru!');
                     nickInput.focus();
                     return;
                 }
 
-                if (urlTemplate) {
-                    const finalUrl = urlTemplate.replace(/%p%/g, encodeURIComponent(nick));
-                    window.open(finalUrl, '_blank');
-                }
+                // Získá šablonu URL z data-atributu a nahradí %p% za hráčův nick
+                const baseUrl = this.getAttribute('data-vote-url');
+                const finalUrl = baseUrl.replace('%p%', encodeURIComponent(currentNick));
+                
+                // Otevře hlasovací stránku v nové záložce
+                window.open(finalUrl, '_blank');
             });
         });
-
-        const container = document.getElementById('voting-background-container');
-        if (container) {
-            const samplePlayers = ["PepaCraft", "Kuba_CZE", "MysticFan", "BuilderHonza", "EliskaMC", "MineMaster", "Kiki_cz", "Vojta123", "MysticPlayer", "CraftBoy"];
-
-            function spawnVotePill() {
-                if (container.childElementCount >= 5) return;
-
-                const pill = document.createElement('div');
-                pill.className = 'vote-pill';
-
-                const randomPlayer = samplePlayers[Math.floor(Math.random() * samplePlayers.length)];
-                
-                const isLeftSide = Math.random() < 0.5;
-                if (isLeftSide) {
-                    pill.style.left = `${Math.floor(Math.random() * 15) + 5}%`;
-                } else {
-                    pill.style.right = `${Math.floor(Math.random() * 15) + 5}%`;
-                }
-
-                pill.innerHTML = `
-                    <img src="https://mc-heads.net/avatar/${encodeURIComponent(randomPlayer)}/24" class="vote-pill-avatar" alt="">
-                    <span>${randomPlayer} hlasoval!</span>
-                `;
-
-                container.appendChild(pill);
-
-                setTimeout(() => {
-                    pill.remove();
-                }, 5000);
-            }
-
-            setInterval(spawnVotePill, 1200);
-        }
     </script>
 </body>
 </html>
