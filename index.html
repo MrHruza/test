@@ -323,11 +323,24 @@
             line-height: 1.6;
         }
 
-        /* 5. Sekce Hlasování */
+        /* 5. Sekce Hlasování (Kompletně přepracovaná dle zadání) */
         .voting-section {
             padding: 80px 20px 120px 20px;
             background: #0d0f18;
             text-align: center;
+        }
+
+        .voting-main-title {
+            font-size: 2rem;
+            color: #ffffff;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .voting-main-subtitle {
+            color: #94a3b8;
+            font-size: 1rem;
+            margin-bottom: 40px;
         }
 
         .voting-container {
@@ -336,21 +349,15 @@
             background: #131622;
             border: 1px solid rgba(139, 92, 246, 0.25);
             border-radius: 20px;
-            padding: 50px 30px;
+            padding: 40px 30px;
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
         }
 
-        .voting-container h2 {
-            font-size: 1.8rem;
+        .voting-container h3 {
+            font-size: 1.4rem;
             color: #ffffff;
-            margin-bottom: 8px;
+            margin-bottom: 25px;
             font-weight: 700;
-        }
-
-        .voting-subtitle {
-            color: #94a3b8;
-            font-size: 0.95rem;
-            margin-bottom: 30px;
         }
 
         .vote-input-group {
@@ -363,10 +370,11 @@
         }
 
         .vote-input-group img {
-            width: 40px;
-            height: 40px;
+            width: 42px;
+            height: 42px;
             border-radius: 8px;
             background: #1c2035;
+            border: 1px solid rgba(139, 92, 246, 0.3);
         }
 
         .vote-input-group input {
@@ -387,8 +395,10 @@
 
         .vote-platforms {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 15px;
+            max-width: 750px;
+            margin: 0 auto;
         }
 
         .vote-btn {
@@ -411,6 +421,46 @@
             background: linear-gradient(135deg, #6d28d9, #5b21b6);
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(124, 58, 237, 0.5);
+        }
+
+        /* Šipka k odměnám */
+        .vote-rewards-arrow {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin: 40px 0 25px 0;
+            letter-spacing: 0.5px;
+        }
+
+        /* Karty odměn pod konfigurátorem */
+        .vote-rewards-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .reward-card {
+            background: #131622;
+            border: 1px solid rgba(139, 92, 246, 0.25);
+            border-radius: 20px;
+            padding: 35px 30px;
+            text-align: left;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .reward-card h4 {
+            font-size: 1.25rem;
+            color: #ffffff;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .reward-card p {
+            color: #94a3b8;
+            font-size: 0.92rem;
+            line-height: 1.6;
         }
 
         /* 6. Notifikace (Toast) */
@@ -598,6 +648,9 @@
             .vote-platforms {
                 grid-template-columns: 1fr;
             }
+            .vote-rewards-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -687,12 +740,14 @@
 
     <!-- HLASOVACÍ SEKCE -->
     <section class="voting-section" id="vote">
+        <h2 class="voting-main-title">Hlasem podpoříš sebe i server</h2>
+        <p class="voting-main-subtitle">Každé 2 hodiny můžeš hlasovat pro sebe a rychleji progresovat v našich hrách.</p>
+
         <div class="voting-container">
-            <h2>HLASOVACÍ KONFIGURÁTOR</h2>
-            <p class="voting-subtitle">Každých 24 hodin můžeš hlasovat pro server a rychleji progresovat v našich hrách.</p>
+            <h3>Hlasovací konfigurátor</h3>
             
             <div class="vote-input-group">
-                <img src="https://api.mineatar.be/helm/steve/40" alt="Avatar" id="playerAvatar">
+                <img src="https://crafatar.com/avatars/steve?size=40&helm" alt="Avatar" id="playerAvatar">
                 <input type="text" id="playerNick" placeholder="Zadej svůj herní nick..." autocomplete="off">
             </div>
 
@@ -700,7 +755,19 @@
                 <a href="https://craftlist.cz" target="_blank" class="vote-btn">CraftList.cz</a>
                 <a href="https://czech-craft.cz" target="_blank" class="vote-btn">Czech-Craft.cz</a>
                 <a href="https://minecraftservery.eu" target="_blank" class="vote-btn">MinecraftServery.eu</a>
-                <a href="https://disboard.org" target="_blank" class="vote-btn">Další hlasování</a>
+            </div>
+        </div>
+
+        <div class="vote-rewards-arrow">↓ hlasem získáš tyto herní výhody ↓</div>
+
+        <div class="vote-rewards-grid">
+            <div class="reward-card">
+                <h4>Hlasovací body a Obchod</h4>
+                <p>Za každý svůj Hlas od serveru dostaneš jeden Hlasovací bod. Tyto body můžeš použit k nákupu prémiových předmětů ve Vote Shopu, který otevřeš pomocí /voteshop.</p>
+            </div>
+            <div class="reward-card">
+                <h4>Stupňovaný VotePass</h4>
+                <p>Nové za každý svůj hlas dostáváš progres do speciálního VotePassu. Jedná se o progresivní linii odměn, kterou si musíš krok za krokem odškrtávat každý měsíc.</p>
             </div>
         </div>
     </section>
@@ -776,16 +843,16 @@
             }, 3000);
         });
 
-        // Dynamická změna Minecraft hlavy podle zadaného nicku
+        // Dynamická změna Minecraft hlavy podle zadaného nicku (využití Crafatar API)
         const nickInput = document.getElementById('playerNick');
         const avatarImg = document.getElementById('playerAvatar');
 
         nickInput.addEventListener('input', function() {
             const nick = nickInput.value.trim();
             if (nick.length > 0) {
-                avatarImg.src = `https://api.mineatar.be/helm/${encodeURIComponent(nick)}/40`;
+                avatarImg.src = `https://crafatar.com/avatars/${encodeURIComponent(nick)}?size=40&helm`;
             } else {
-                avatarImg.src = 'https://api.mineatar.be/helm/steve/40';
+                avatarImg.src = 'https://crafatar.com/avatars/steve?size=40&helm';
             }
         });
     </script>
