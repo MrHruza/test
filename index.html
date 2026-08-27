@@ -20,7 +20,6 @@
             overflow-x: hidden;
         }
 
-        /* 1. Navigace */
         nav {
             display: grid;
             grid-template-columns: 1fr auto 1fr;
@@ -116,7 +115,6 @@
             box-shadow: 0 6px 20px rgba(124, 58, 237, 0.5);
         }
 
-        /* 2. Hero sekce */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -197,7 +195,6 @@
             transform: translateY(-2px);
         }
 
-        /* 3. Sekce O NÁS */
         .about-section {
             padding: 100px 20px;
             background: #0d0f18;
@@ -270,7 +267,6 @@
             margin-bottom: 15px;
         }
 
-        /* 4. Sekce Herní módy / Minihry s obrázky */
         .modes-section {
             padding: 80px 20px 100px 20px;
             background: #0d0f18;
@@ -334,7 +330,6 @@
             line-height: 1.6;
         }
 
-        /* 5. Sekce Hlasování s postranním plovoucím pozadím */
         .voting-section {
             position: relative;
             padding: 80px 20px 120px 20px;
@@ -343,7 +338,6 @@
             overflow: hidden;
         }
 
-        /* Plovoucí jména po stranách jedoucí nahoru */
         .votes-background-container {
             position: absolute;
             top: 0;
@@ -538,7 +532,6 @@
             line-height: 1.6;
         }
 
-        /* 6. Notifikace (Toast) */
         #copy-toast {
             position: fixed;
             bottom: 40px;
@@ -578,7 +571,6 @@
             font-size: 0.95rem;
         }
 
-        /* 7. Patička */
         footer {
             background: #090a10;
             padding: 60px 40px 40px 40px;
@@ -826,7 +818,7 @@
                 <h3>Hlasovací konfigurátor</h3>
                 
                 <div class="vote-input-group">
-                    <img src="https://crafatar.com/avatars/steve?size=40&helm" alt="Avatar" id="playerAvatar">
+                    <img src="https://mc-heads.net/avatar/steve/40" alt="Avatar" id="playerAvatar">
                     <input type="text" id="playerNick" placeholder="Zadej svůj herní nick..." autocomplete="off">
                 </div>
 
@@ -903,7 +895,6 @@
     </footer>
 
     <script>
-        // 1. Kopírování IP adresy
         const copyBtn = document.getElementById('copyIpBtn');
         const toast = document.getElementById('copy-toast');
         let toastTimer = null;
@@ -917,21 +908,20 @@
             }, 3000);
         });
 
-        // 2. Dynamická změna Minecraft hlavy podle nicku (Opraveno)
         const nickInput = document.getElementById('playerNick');
         const avatarImg = document.getElementById('playerAvatar');
         const voteButtons = document.querySelectorAll('[data-vote-url]');
 
+        // Změna hlavy v inputu pomocí mc-heads.net podle nicku
         nickInput.addEventListener('input', function() {
             const nick = nickInput.value.trim();
             if (nick.length > 0) {
-                avatarImg.src = `https://crafatar.com/avatars/${encodeURIComponent(nick)}?size=40&helm`;
+                avatarImg.src = `https://mc-heads.net/avatar/${encodeURIComponent(nick)}/40`;
             } else {
-                avatarImg.src = 'https://crafatar.com/avatars/steve?size=40&helm';
+                avatarImg.src = 'https://mc-heads.net/avatar/steve/40';
             }
         });
 
-        // 3. Otevírání hlasovacích odkazů s vloženým nickem
         voteButtons.forEach(button => {
             button.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -951,13 +941,12 @@
             });
         });
 
-        // 4. Plovoucí jména po stranách ze spodu nahoru (Max 5 naráz)
+        // Plovoucí jména po stranách se správnými skiny z mc-heads.net
         const container = document.getElementById('voting-background-container');
         if (container) {
             const samplePlayers = ["PepaCraft", "Kuba_CZE", "MysticFan", "BuilderHonza", "EliskaMC", "MineMaster", "Kiki_cz", "Vojta123", "MysticPlayer", "CraftBoy"];
 
             function spawnVotePill() {
-                // Maximálně 5 elementů najednou
                 if (container.childElementCount >= 5) return;
 
                 const pill = document.createElement('div');
@@ -965,7 +954,6 @@
 
                 const randomPlayer = samplePlayers[Math.floor(Math.random() * samplePlayers.length)];
                 
-                // Určení zda půjde vlevo nebo vpravo (strany obrazovky)
                 const isLeftSide = Math.random() < 0.5;
                 if (isLeftSide) {
                     pill.style.left = `${Math.floor(Math.random() * 15) + 5}%`;
@@ -974,13 +962,12 @@
                 }
 
                 pill.innerHTML = `
-                    <img src="https://crafatar.com/avatars/${encodeURIComponent(randomPlayer)}?size=24&helm" class="vote-pill-avatar" alt="">
+                    <img src="https://mc-heads.net/avatar/${encodeURIComponent(randomPlayer)}/24" class="vote-pill-avatar" alt="">
                     <span>${randomPlayer} hlasoval!</span>
                 `;
 
                 container.appendChild(pill);
 
-                // Po skončení animace prvek odstraníme
                 setTimeout(() => {
                     pill.remove();
                 }, 5000);
