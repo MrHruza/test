@@ -332,7 +332,7 @@
 
         .voting-section {
             position: relative;
-            padding: 80px 20px 120px 20px;
+            padding: 80px 20px 100px 20px;
             background: #0d0f18;
             text-align: center;
             overflow: hidden;
@@ -532,6 +532,87 @@
             line-height: 1.6;
         }
 
+        /* ------------------ NOVÁ SEKCE STATISTIKY ------------------ */
+        .stats-section {
+            padding: 60px 20px 100px 20px;
+            background: #0d0f18;
+            text-align: center;
+        }
+
+        .stats-header {
+            margin-bottom: 40px;
+        }
+
+        .stats-header h2 {
+            font-size: 2.2rem;
+            color: #ffffff;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            font-weight: 800;
+        }
+
+        .stats-header p {
+            color: #94a3b8;
+            font-size: 1rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .stat-card {
+            background: #131622;
+            border: 1px solid rgba(139, 92, 246, 0.25);
+            border-radius: 16px;
+            padding: 30px 20px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .stat-card-top {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            color: #94a3b8;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .stat-card-top i {
+            color: #a855f7;
+            font-size: 1rem;
+        }
+
+        .stat-card-value {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: 0.5px;
+        }
+
+        .stat-card-icon-bg {
+            position: absolute;
+            right: -10px;
+            bottom: -15px;
+            font-size: 5rem;
+            color: rgba(124, 58, 237, 0.05);
+            pointer-events: none;
+        }
+        /* ----------------------------------------------------------- */
+
         #copy-toast {
             position: fixed;
             bottom: 40px;
@@ -703,6 +784,9 @@
             .vote-platforms {
                 grid-template-columns: repeat(2, 1fr);
             }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         @media(max-width: 900px) {
@@ -716,6 +800,9 @@
                 grid-template-columns: 1fr;
             }
             .vote-rewards-grid {
+                grid-template-columns: 1fr;
+            }
+            .stats-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -845,6 +932,53 @@
         </div>
     </section>
 
+    <!-- NOVÁ SEKCE: STATISTIKY -->
+    <section class="stats-section">
+        <div class="stats-header">
+            <h2>Statistiky</h2>
+            <p>Náš projekt v číslech. Jsme hrdí na naši komunitu a růst.</p>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-card-top">
+                    <i class="fas fa-users"></i>
+                    <span>Registrováno hráčů</span>
+                </div>
+                <div class="stat-card-value">72 995</div>
+                <i class="fas fa-users stat-card-icon-bg"></i>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-card-top">
+                    <i class="fas fa-signal"></i>
+                    <span>Online hráčů</span>
+                </div>
+                <div class="stat-card-value">15</div>
+                <i class="fas fa-cube stat-card-icon-bg"></i>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-card-top">
+                    <i class="fas fa-clock"></i>
+                    <span>Celkově odehraný čas</span>
+                </div>
+                <div class="stat-card-value">1 420 <span style="font-size: 1.2rem; font-weight: normal; color: #94a3b8;">dní</span></div>
+                <i class="fas fa-clock stat-card-icon-bg"></i>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-card-top">
+                    <i class="fas fa-check-square"></i>
+                    <span>Celkem hlasů</span>
+                </div>
+                <div class="stat-card-value">442 369</div>
+                <i class="fas fa-check-square stat-card-icon-bg"></i>
+            </div>
+        </div>
+    </section>
+    <!-- KONEC SEKCE STATISTIKY -->
+
     <div id="copy-toast">
         <div class="toast-icon"><i class="fas fa-check"></i></div>
         <span class="toast-text">IP adresa zkopírována!</span>
@@ -912,7 +1046,6 @@
         const avatarImg = document.getElementById('playerAvatar');
         const voteButtons = document.querySelectorAll('[data-vote-url]');
 
-        // Změna hlavy v inputu pomocí mc-heads.net podle nicku
         nickInput.addEventListener('input', function() {
             const nick = nickInput.value.trim();
             if (nick.length > 0) {
@@ -941,7 +1074,6 @@
             });
         });
 
-        // Plovoucí jména po stranách se správnými skiny z mc-heads.net
         const container = document.getElementById('voting-background-container');
         if (container) {
             const samplePlayers = ["PepaCraft", "Kuba_CZE", "MysticFan", "BuilderHonza", "EliskaMC", "MineMaster", "Kiki_cz", "Vojta123", "MysticPlayer", "CraftBoy"];
