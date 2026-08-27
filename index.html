@@ -197,7 +197,7 @@
             transform: translateY(-2px);
         }
 
-        /* 3. Sekce O NÁS */
+        /* 3. Sekce O NÁS (Pozadí #0d0f18) */
         .about-section {
             padding: 100px 20px;
             background: #0d0f18;
@@ -258,7 +258,7 @@
 
         .about-text-side h3 {
             font-size: 2rem;
-            color: #c084fc; /* Změněno na fialovou barvu podle požadavku */
+            color: #c084fc;
             margin-bottom: 20px;
             font-weight: 700;
         }
@@ -270,10 +270,10 @@
             margin-bottom: 15px;
         }
 
-        /* 4. Sekce Herní módy / Minihry (Styl podle vzoru - 3 a 3 vedle sebe) */
+        /* 4. Sekce Herní módy / Minihry (Pozadí změněno na #0d0f18 pro jednotnost) */
         .modes-section {
-            padding: 80px 20px 120px 20px;
-            background: #090a10;
+            padding: 80px 20px 100px 20px;
+            background: #0d0f18;
             text-align: center;
         }
 
@@ -323,7 +323,97 @@
             line-height: 1.6;
         }
 
-        /* 5. Notifikace (Toast) */
+        /* 5. Sekce Hlasování (Pod minihrami) */
+        .voting-section {
+            padding: 80px 20px 120px 20px;
+            background: #0d0f18;
+            text-align: center;
+        }
+
+        .voting-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #131622;
+            border: 1px solid rgba(139, 92, 246, 0.25);
+            border-radius: 20px;
+            padding: 50px 30px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .voting-container h2 {
+            font-size: 1.8rem;
+            color: #ffffff;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .voting-subtitle {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            margin-bottom: 30px;
+        }
+
+        .vote-input-group {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 35px;
+            flex-wrap: wrap;
+        }
+
+        .vote-input-group img {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            background: #1c2035;
+        }
+
+        .vote-input-group input {
+            background: #0d0f18;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 12px;
+            padding: 12px 20px;
+            color: white;
+            font-size: 1rem;
+            width: 280px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .vote-input-group input:focus {
+            border-color: #a855f7;
+        }
+
+        .vote-platforms {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .vote-btn {
+            background: linear-gradient(135deg, #7c3aed, #6d28d9);
+            color: white;
+            text-decoration: none;
+            padding: 14px 15px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .vote-btn:hover {
+            background: linear-gradient(135deg, #6d28d9, #5b21b6);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(124, 58, 237, 0.5);
+        }
+
+        /* 6. Notifikace (Toast) */
         #copy-toast {
             position: fixed;
             bottom: 40px;
@@ -363,10 +453,10 @@
             font-size: 0.95rem;
         }
 
-        /* 6. Patička */
+        /* 7. Patička (Copyright hned pod sloganem, žádné logo v patičce) */
         footer {
             background: #090a10;
-            padding: 60px 40px 30px 40px;
+            padding: 60px 40px 40px 40px;
             border-top: 1px solid rgba(139, 92, 246, 0.15);
             color: #94a3b8;
         }
@@ -374,7 +464,7 @@
         .footer-top {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-start;
             padding-bottom: 40px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.06);
             flex-wrap: wrap;
@@ -384,13 +474,14 @@
         .footer-brand-group {
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 12px;
         }
 
         .footer-brand-texts h3 {
             color: white;
             font-size: 1.15rem;
             letter-spacing: 0.5px;
+            margin-bottom: 4px;
         }
 
         .footer-brand-texts span {
@@ -398,6 +489,14 @@
             color: #64748b;
             font-weight: 600;
             letter-spacing: 0.5px;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        /* Copyright přesunutý hned pod text pod sebou */
+        .footer-copyright-inline {
+            font-size: 0.85rem;
+            color: #475569;
         }
 
         .footer-socials {
@@ -429,8 +528,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 40px;
-            padding: 40px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 40px 0 20px 0;
         }
 
         .footer-col h4 {
@@ -482,15 +580,11 @@
             margin-top: 15px;
         }
 
-        .footer-bottom {
-            padding-top: 25px;
-            text-align: center;
-            font-size: 0.85rem;
-            color: #475569;
-        }
-
         @media(max-width: 1024px) {
             .modes-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .vote-platforms {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
@@ -500,6 +594,9 @@
             .nav-center { display: none; }
             .about-content-grid { flex-direction: column-reverse; }
             .modes-grid {
+                grid-template-columns: 1fr;
+            }
+            .vote-platforms {
                 grid-template-columns: 1fr;
             }
         }
@@ -546,7 +643,6 @@
 
         <div class="about-content-grid">
             <div class="about-text-side">
-                <!-- Nadpis O MYSTILANDU je nyní fialový -->
                 <h3>O MYSTILANDU</h3>
                 <p>MystiLand je novodobý Minecraft server, který se zaměřuje na oddechové hraní těch nejpropracovanějších miniher a herních módů. V momentální chvíli jsme jeden z nejnavštěvovanějších serverů na české a slovenské scéně.</p>
                 <p>Po připojení máte na výběr mezi hracími módy – Survival, Skyblock, Oneblock a PvP minihrami, kde hráči zakládají klany, staví a opevňují své základny, dobývají území a obchodují. Můžete se taktéž těšit na pravidelné eventy, které si pro vás připravuje náš aktivní a ochotný admin tým!</p>
@@ -558,12 +654,11 @@
         </div>
     </section>
 
-    <!-- SEKCE MINIHRY / MÓDY (3 vedle sebe, celkem 6 ks rozdělených 3 a 3) -->
+    <!-- SEKCE MINIHRY / MÓDY -->
     <section class="modes-section" id="modes">
         <h2 class="modes-title">TO NEJLEPŠÍ Z MYSTILANDU</h2>
         
         <div class="modes-grid">
-            <!-- 1. řada (3 moduly) -->
             <div class="mode-card">
                 <h3>Survival</h3>
                 <p>Klasické přežití s vylepšenou ekonomikou, claimováním pozemků, questy a skvělým zázemím pro stavitele a komunitu.</p>
@@ -576,8 +671,6 @@
                 <h3>Skyblock</h3>
                 <p>Postav svůj ostrov od základu, plň výzvy, obchoduj s ostatními hráči a staň se majitelem nejbohatšího ostrova.</p>
             </div>
-
-            <!-- 2. řada (3 moduly) -->
             <div class="mode-card">
                 <h3>EggWars</h3>
                 <p>Chraň své vejce a zároveň nič vejce soupeřů. Pomocí generátorů získávate suroviny na nákup vybavení a stavbu obrany.</p>
@@ -589,6 +682,26 @@
             <div class="mode-card">
                 <h3>Minihry & Duel</h3>
                 <p>Kromě klasických módů nabízíme tréninkové módy, duely na férovku a speciální varianty jako The Bridge, SkyWars a další!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- HLASOVACÍ SEKCE (Pod minihrami) -->
+    <section class="voting-section" id="vote">
+        <div class="voting-container">
+            <h2>HLASOVACÍ KONFIGURÁTOR</h2>
+            <p class="voting-subtitle">Každých 24 hodin můžeš hlasovat pro server a rychleji progresovat v našich hrách.</p>
+            
+            <div class="vote-input-group">
+                <img src="https://api.mineatar.be/helm/steve/40" alt="Avatar" id="playerAvatar">
+                <input type="text" id="playerNick" placeholder="Zadej svůj herní nick..." autocomplete="off">
+            </div>
+
+            <div class="vote-platforms">
+                <a href="https://craftlist.cz" target="_blank" class="vote-btn">CraftList.cz</a>
+                <a href="https://czech-craft.cz" target="_blank" class="vote-btn">Czech-Craft.cz</a>
+                <a href="https://minecraftservery.eu" target="_blank" class="vote-btn">MinecraftServery.eu</a>
+                <a href="https://disboard.org" target="_blank" class="vote-btn">Další hlasování</a>
             </div>
         </div>
     </section>
@@ -606,6 +719,10 @@
                 <div class="footer-brand-texts">
                     <h3>MYSTILAND.CZ</h3>
                     <span>JSME SERVER, KTERÝ MÁ ROZHODNĚ CO NABÍDNOUT.</span>
+                </div>
+                <!-- Copyright přesunut hned pod text nahoru do patičky -->
+                <div class="footer-copyright-inline">
+                    &copy; 2026 MystiLand.cz - Všechna práva vyhrazena.
                 </div>
             </div>
             <div class="footer-socials">
@@ -627,7 +744,7 @@
                 <ul>
                     <li><a href="#modes">Jak se připojit</a></li>
                     <li><a href="#about">Pravidla serveru</a></li>
-                    <li><a href="#wiki">Wiki a Návody</a></li>
+                    <li><a href="#vote">Hlasování</a></li>
                     <li><a href="https://discord.com">Admin Tým</a></li>
                 </ul>
             </div>
@@ -639,13 +756,9 @@
                 </ul>
             </div>
         </div>
-
-        <div class="footer-bottom">
-            &copy; 2026 MystiLand.cz - Všechna práva vyhrazena.
-        </div>
     </footer>
 
-    <!-- JavaScript pro notifikaci -->
+    <!-- JavaScript pro notifikaci a dynamický skin v konfigurátoru -->
     <script>
         const copyBtn = document.getElementById('copyIpBtn');
         const toast = document.getElementById('copy-toast');
@@ -663,6 +776,19 @@
             toastTimer = setTimeout(function() {
                 toast.classList.remove('show');
             }, 3000);
+        });
+
+        // Dynamická změna Minecraft hlavy podle zadaného nicku
+        const nickInput = document.getElementById('playerNick');
+        const avatarImg = document.getElementById('playerAvatar');
+
+        nickInput.addEventListener('input', function() {
+            const nick = nickInput.value.trim();
+            if (nick.length > 0) {
+                avatarImg.src = `https://api.mineatar.be/helm/${encodeURIComponent(nick)}/40`;
+            } else {
+                avatarImg.src = 'https://api.mineatar.be/helm/steve/40';
+            }
         });
     </script>
 </body>
