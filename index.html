@@ -18,19 +18,20 @@
             overflow-x: hidden;
         }
 
-        /* 1. Horní navigační lišta (upravená podle vzoru) */
+        /* 1. Vylepšená horní navigační lišta */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 40px;
-            background: rgba(13, 15, 24, 0.85);
-            border-bottom: 1px solid rgba(139, 92, 246, 0.15);
+            padding: 12px 40px;
+            background: rgba(13, 15, 24, 0.9);
+            border-bottom: 1px solid rgba(139, 92, 246, 0.2);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            backdrop-filter: blur(12px);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         }
 
         .nav-left {
@@ -40,22 +41,23 @@
         }
 
         .nav-logo {
-            width: 42px;
-            height: 42px;
+            width: 44px;
+            height: 44px;
             object-fit: contain;
+            filter: drop-shadow(0 0 8px rgba(168, 85, 247, 0.4));
         }
 
         .online-badge {
-            background: #1a1d2d;
+            background: #16192b;
             border: 1px solid rgba(139, 92, 246, 0.3);
-            padding: 6px 12px;
+            padding: 6px 14px;
             border-radius: 20px;
             font-size: 0.85rem;
             font-weight: bold;
             color: #e2e8f0;
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
         }
 
         .online-badge::before {
@@ -65,12 +67,12 @@
             background-color: #22c55e;
             border-radius: 50%;
             display: inline-block;
-            box-shadow: 0 0 8px #22c55e;
+            box-shadow: 0 0 10px #22c55e;
         }
 
         .nav-links {
             display: flex;
-            gap: 25px;
+            gap: 22px;
             align-items: center;
         }
 
@@ -78,8 +80,8 @@
             color: #94a3b8;
             text-decoration: none;
             font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.3s;
+            font-size: 0.92rem;
+            transition: color 0.3s ease;
         }
 
         .nav-links a:hover {
@@ -87,21 +89,22 @@
         }
 
         .nav-store-btn {
-            background-color: #7c3aed;
+            background: linear-gradient(135deg, #7c3aed, #6d28d9);
             color: white !important;
-            padding: 8px 18px;
-            border-radius: 8px;
+            padding: 9px 20px;
+            border-radius: 10px;
             font-weight: bold;
-            box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
-            transition: background 0.3s, transform 0.2s !important;
+            box-shadow: 0 4px 15px rgba(124, 58, 237, 0.35);
+            transition: all 0.3s ease !important;
         }
 
         .nav-store-btn:hover {
-            background-color: #6d28d9 !important;
+            background: linear-gradient(135deg, #6d28d9, #5b21b6);
             transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(124, 58, 237, 0.5);
         }
 
-        /* 2. Hero sekce s velkým pulzujícím logem */
+        /* 2. Hero sekce */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -142,11 +145,10 @@
             gap: 15px;
             flex-wrap: wrap;
             justify-content: center;
-            margin-bottom: 12px;
         }
 
         .btn {
-            padding: 15px 35px;
+            padding: 15px 32px;
             font-size: 1.05rem;
             font-weight: bold;
             border-radius: 12px;
@@ -156,7 +158,7 @@
             text-decoration: none;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
         }
 
         .btn-primary {
@@ -170,20 +172,17 @@
             transform: translateY(-2px);
         }
 
-        .ip-subtext {
-            color: #64748b;
-            font-size: 0.9rem;
-            font-weight: 600;
-            letter-spacing: 0.5px;
+        .btn-ip {
+            background-color: #16192b;
+            color: #e2e8f0;
+            border: 1px solid rgba(139, 92, 246, 0.35);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         }
 
-        .ip-subtext span {
-            color: #c084fc;
-            cursor: pointer;
-        }
-
-        .ip-subtext span:hover {
-            text-decoration: underline;
+        .btn-ip:hover {
+            background-color: #21253f;
+            border-color: rgba(168, 85, 247, 0.6);
+            transform: translateY(-2px);
         }
 
         /* 3. O nás sekce */
@@ -419,56 +418,7 @@
             border-radius: 50%;
         }
 
-        /* 7. Discord sekce */
-        .discord-section {
-            padding: 80px 20px;
-            background: #11131f;
-            display: flex;
-            justify-content: center;
-        }
-
-        .discord-card {
-            background: #171b2d;
-            border: 1px solid rgba(99, 102, 241, 0.25);
-            border-radius: 20px;
-            padding: 50px;
-            max-width: 900px;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-
-        .discord-content {
-            max-width: 500px;
-        }
-
-        .discord-content h2 {
-            font-size: 2rem;
-            color: white;
-            margin-bottom: 12px;
-        }
-
-        .discord-content p {
-            color: #94a3b8;
-            line-height: 1.6;
-            margin-bottom: 25px;
-        }
-
-        .btn-discord {
-            background-color: #5865F2;
-            color: white;
-            box-shadow: 0 4px 15px rgba(88, 101, 242, 0.35);
-        }
-
-        .btn-discord:hover {
-            background-color: #4752c4;
-            transform: translateY(-2px);
-        }
-
-        /* 8. Patička */
+        /* 7. Patička */
         footer {
             background: #090a10;
             padding: 60px 50px;
@@ -501,40 +451,37 @@
             color: #d8b4fe;
         }
 
-        @media(max-width: 768px) {
-            nav { padding: 15px 20px; }
+        @media(max-width: 900px) {
+            nav { padding: 12px 20px; }
             .nav-links { display: none; }
-            .discord-card { padding: 30px; text-align: center; justify-content: center; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigace (bez textu u loga vlevo, s online počítadlem a store tlačítkem vpravo) -->
+    <!-- Navigace -->
     <nav>
         <div class="nav-left">
             <img src="https://github.com/user-attachments/assets/bdd5da67-7841-40f2-a218-3483f6de0bda" alt="Logo" class="nav-logo">
             <div class="online-badge">15 online</div>
         </div>
         <div class="nav-links">
-            <a href="#">Domů</a>
-            <a href="#about">O nás</a>
-            <a href="#modes">Herní módy</a>
-            <a href="#vote">Hlasování</a>
-            <a href="#discord">Discord</a>
-            <a href="#store" class="nav-store-btn">STORE</a>
+            <a href="#">Home</a>
+            <a href="#about">Pravidla</a>
+            <a href="#discord" onclick="window.open('https://discord.com', '_blank')">Admin Team</a>
+            <a href="https://discord.com" target="_blank">Discord</a>
+            <a href="#vote">Nábor</a>
+            <a href="#modes" class="nav-store-btn">Shop</a>
         </div>
     </nav>
 
-    <!-- Hero sekce (s větším pulzujícím logem a bez textu MystiLand pod ním) -->
+    <!-- Hero sekce -->
     <section class="hero">
         <img src="https://github.com/user-attachments/assets/bdd5da67-7841-40f2-a218-3483f6de0bda" alt="MystiLand Logo" class="hero-main-logo">
         <p>Vítejte na našem unikátním Minecraft serveru plném skvělých zážitků, soutěží a pohodové komunity!</p>
         <div class="hero-buttons">
             <a href="#modes" class="btn btn-primary">ZAČÍT HRÁT!</a>
-        </div>
-        <div class="ip-subtext">
-            PŘIPOJ SE NA <span onclick="navigator.clipboard.writeText('play.mystiland.cz'); alert('IP adresa play.mystiland.cz byla zkopírována!');">PLAY.MYSTILAND.CZ</span>
+            <button class="btn btn-ip" onclick="navigator.clipboard.writeText('play.mystiland.cz'); alert('IP adresa play.mystiland.cz byla zkopírována!');">KOPÍROVAT IP</button>
         </div>
     </section>
 
@@ -611,17 +558,6 @@
                     <a href="#" class="button-vote" data-vote-url="https://minecraftservery.eu/server/mystiland/vote/%p%" target="_blank">MinecraftServery.eu</a>
                     <a href="#" class="button-vote" data-vote-url="https://topserverky.cz/server/mystiland/vote/%p%" target="_blank">TopServerky.cz</a>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Discord -->
-    <section class="discord-section" id="discord">
-        <div class="discord-card">
-            <div class="discord-content">
-                <h2>Přidej se k naší Discord komunitě!</h2>
-                <p>Naše komunita je zkrátka skvělá. Věříme, že i ty u nás najdeš lidi, se kterými si rád popovídáš v chatu nebo pokecáš ve voice kanálech.</p>
-                <a href="https://discord.com" target="_blank" class="btn btn-discord">Připoj se hned!</a>
             </div>
         </div>
     </section>
