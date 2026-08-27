@@ -323,11 +323,57 @@
             line-height: 1.6;
         }
 
-        /* 5. Sekce Hlasování (Kompletně přepracovaná dle zadání) */
+        /* 5. Sekce Hlasování s plovoucím pozadím */
         .voting-section {
+            position: relative;
             padding: 80px 20px 120px 20px;
             background: #0d0f18;
             text-align: center;
+            overflow: hidden;
+        }
+
+        /* Plovoucí jména v pozadí hlasování */
+        .votes-background-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .vote-pill {
+            position: absolute;
+            padding: 8px 14px;
+            border-radius: 50px;
+            background: rgba(18, 29, 60, 0.75);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(47, 63, 96, 0.5);
+            color: #a5b4fc;
+            font-size: 13px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            white-space: nowrap;
+            transition: transform 0.5s linear, opacity 0.5s ease-in-out;
+            opacity: 0.7;
+        }
+
+        .vote-pill-avatar {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid rgba(93, 110, 155, 0.5);
+        }
+
+        .voting-content-wrapper {
+            position: relative;
+            z-index: 2;
         }
 
         .voting-main-title {
@@ -375,6 +421,7 @@
             border-radius: 8px;
             background: #1c2035;
             border: 1px solid rgba(139, 92, 246, 0.3);
+            object-fit: cover;
         }
 
         .vote-input-group input {
@@ -395,9 +442,9 @@
 
         .vote-platforms {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 15px;
-            max-width: 750px;
+            max-width: 850px;
             margin: 0 auto;
         }
 
@@ -408,13 +455,15 @@
             padding: 14px 15px;
             border-radius: 12px;
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
+            border: none;
+            cursor: pointer;
         }
 
         .vote-btn:hover {
@@ -656,7 +705,6 @@
 </head>
 <body>
 
-    <!-- Navigace -->
     <nav>
         <div class="nav-left">
             <img src="https://github.com/user-attachments/assets/bdd5da67-7841-40f2-a218-3483f6de0bda" alt="Logo" class="nav-logo">
@@ -676,7 +724,6 @@
         </div>
     </nav>
 
-    <!-- Hero sekce -->
     <section class="hero">
         <img src="https://github.com/user-attachments/assets/775b273f-837e-4146-ba75-34cd58d73fac" alt="MystiLand Logo" class="hero-main-logo">
         <p>Vítejte na našem unikátním Minecraft serveru plném skvělých zážitků, soutěží a pohodové komunity!</p>
@@ -686,7 +733,6 @@
         </div>
     </section>
 
-    <!-- O NÁS SEKCE -->
     <section class="about-section" id="about">
         <div class="about-header">
             <h2>O NÁS</h2>
@@ -706,7 +752,6 @@
         </div>
     </section>
 
-    <!-- SEKCE MINIHRY / MÓDY -->
     <section class="modes-section" id="modes">
         <h2 class="modes-title">TO NEJLEPŠÍ Z MYSTILANDU</h2>
         
@@ -738,47 +783,49 @@
         </div>
     </section>
 
-    <!-- HLASOVACÍ SEKCE -->
     <section class="voting-section" id="vote">
-        <h2 class="voting-main-title">Hlasem podpoříš sebe i server</h2>
-        <p class="voting-main-subtitle">Každé 2 hodiny můžeš hlasovat pro sebe a rychleji progresovat v našich hrách.</p>
+        <div class="votes-background-container" id="voting-background-container"></div>
 
-        <div class="voting-container">
-            <h3>Hlasovací konfigurátor</h3>
-            
-            <div class="vote-input-group">
-                <img src="https://crafatar.com/avatars/steve?size=40&helm" alt="Avatar" id="playerAvatar">
-                <input type="text" id="playerNick" placeholder="Zadej svůj herní nick..." autocomplete="off">
+        <div class="voting-content-wrapper">
+            <h2 class="voting-main-title">Hlasem podpoříš sebe i server</h2>
+            <p class="voting-main-subtitle">Každé 2 hodiny můžeš hlasovat pro sebe a rychleji progresovat v našich hrách.</p>
+
+            <div class="voting-container">
+                <h3>Hlasovací konfigurátor</h3>
+                
+                <div class="vote-input-group">
+                    <img src="https://crafatar.com/avatars/steve?size=40&helm" alt="Avatar" id="playerAvatar">
+                    <input type="text" id="playerNick" placeholder="Zadej svůj herní nick..." autocomplete="off">
+                </div>
+
+                <div class="vote-platforms">
+                    <a href="#" data-vote-url="https://craftlist.org/therapiecz?nickname=%p%" class="vote-btn">CraftList.cz</a>
+                    <a href="#" data-vote-url="https://czech-craft.eu/server/therapie-cz/vote/?user=%p%" class="vote-btn">Czech-Craft.cz</a>
+                    <a href="#" data-vote-url="https://minecraftservery.eu/server/therapiecz/vote/%p%" class="vote-btn">MinecraftServery.eu</a>
+                    <a href="#" data-vote-url="https://www.minecraft-list.cz/server/therapie-cz/vote?nickname=%p%" class="vote-btn">Minecraft-List.cz</a>
+                </div>
             </div>
 
-            <div class="vote-platforms">
-                <a href="https://craftlist.cz" target="_blank" class="vote-btn">CraftList.cz</a>
-                <a href="https://czech-craft.cz" target="_blank" class="vote-btn">Czech-Craft.cz</a>
-                <a href="https://minecraftservery.eu" target="_blank" class="vote-btn">MinecraftServery.eu</a>
-            </div>
-        </div>
+            <div class="vote-rewards-arrow">↓ hlasem získáš tyto herní výhody ↓</div>
 
-        <div class="vote-rewards-arrow">↓ hlasem získáš tyto herní výhody ↓</div>
-
-        <div class="vote-rewards-grid">
-            <div class="reward-card">
-                <h4>Hlasovací body a Obchod</h4>
-                <p>Za každý svůj Hlas od serveru dostaneš jeden Hlasovací bod. Tyto body můžeš použit k nákupu prémiových předmětů ve Vote Shopu, který otevřeš pomocí /voteshop.</p>
-            </div>
-            <div class="reward-card">
-                <h4>Stupňovaný VotePass</h4>
-                <p>Nové za každý svůj hlas dostáváš progres do speciálního VotePassu. Jedná se o progresivní linii odměn, kterou si musíš krok za krokem odškrtávat každý měsíc.</p>
+            <div class="vote-rewards-grid">
+                <div class="reward-card">
+                    <h4>Hlasovací body a Obchod</h4>
+                    <p>Za každý svůj Hlas od serveru dostaneš jeden Hlasovací bod. Tyto body můžeš použit k nákupu prémiových předmětů ve Vote Shopu, který otevřeš pomocí /voteshop.</p>
+                </div>
+                <div class="reward-card">
+                    <h4>Stupňovaný VotePass</h4>
+                    <p>Nové za každý svůj hlas dostáváš progres do speciálního VotePassu. Jedná se o progresivní linii odměn, kterou si musíš krok za krokem odškrtávat každý měsíc.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Vyskakovací tabulka ze strany -->
     <div id="copy-toast">
         <div class="toast-icon"><i class="fas fa-check"></i></div>
         <span class="toast-text">IP adresa zkopírována!</span>
     </div>
 
-    <!-- Patička -->
     <footer>
         <div class="footer-top">
             <div class="footer-brand-group">
@@ -823,29 +870,25 @@
         </div>
     </footer>
 
-    <!-- JavaScript pro notifikaci a dynamický skin v konfigurátoru -->
     <script>
+        // 1. Kopírování IP adresy
         const copyBtn = document.getElementById('copyIpBtn');
         const toast = document.getElementById('copy-toast');
         let toastTimer = null;
 
         copyBtn.addEventListener('click', function() {
             navigator.clipboard.writeText('play.mystiland.cz');
-            
             toast.classList.add('show');
-
-            if (toastTimer) {
-                clearTimeout(toastTimer);
-            }
-
+            if (toastTimer) clearTimeout(toastTimer);
             toastTimer = setTimeout(function() {
                 toast.classList.remove('show');
             }, 3000);
         });
 
-        // Dynamická změna Minecraft hlavy podle zadaného nicku (využití Crafatar API)
+        // 2. Dynamická změna Minecraft hlavy podle nicku
         const nickInput = document.getElementById('playerNick');
         const avatarImg = document.getElementById('playerAvatar');
+        const voteButtons = document.querySelectorAll('[data-vote-url]');
 
         nickInput.addEventListener('input', function() {
             const nick = nickInput.value.trim();
@@ -855,6 +898,61 @@
                 avatarImg.src = 'https://crafatar.com/avatars/steve?size=40&helm';
             }
         });
+
+        // 3. Otevírání hlasovacích odkazů s vloženým nickem
+        voteButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                const nick = nickInput.value.trim();
+                const urlTemplate = this.getAttribute('data-vote-url');
+                
+                if (!nick) {
+                    alert('Nejprve zadejte svůj herní nick do konfigurátoru!');
+                    nickInput.focus();
+                    return;
+                }
+
+                if (urlTemplate) {
+                    const finalUrl = urlTemplate.replace(/%p%/g, encodeURIComponent(nick));
+                    window.open(finalUrl, '_blank');
+                }
+            });
+        });
+
+        // 4. Plovoucí jména hráčů v pozadí hlasovací sekce
+        const container = document.getElementById('voting-background-container');
+        if (container) {
+            const samplePlayers = ["PepaCraft", "Kuba_CZE", "TherapieFan", "BuilderHonza", "EliskaMC", "MineMaster", "Kiki_cz", "Vojta123", "MysticPlayer", "CraftBoy"];
+
+            function spawnVotePill() {
+                if (container.childElementCount > 12) return;
+
+                const pill = document.createElement('div');
+                pill.className = 'vote-pill';
+
+                const randomPlayer = samplePlayers[Math.floor(Math.random() * samplePlayers.length)];
+                const randomX = Math.random() * (container.clientWidth - 180);
+                const randomY = Math.random() * (container.clientHeight - 60);
+
+                pill.style.left = `${randomX}px`;
+                pill.style.top = `${randomY}px`;
+
+                pill.innerHTML = `
+                    <img src="https://crafatar.com/avatars/${encodeURIComponent(randomPlayer)}?size=24&helm" class="vote-pill-avatar" alt="">
+                    <span>${randomPlayer} hlasoval!</span>
+                `;
+
+                container.appendChild(pill);
+
+                setTimeout(() => {
+                    pill.style.opacity = '0';
+                    pill.style.transform = 'translateY(-25px)';
+                    setTimeout(() => pill.remove(), 500);
+                }, 4000);
+            }
+
+            setInterval(spawnVotePill, 1500);
+        }
     </script>
 </body>
 </html>
