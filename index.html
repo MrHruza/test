@@ -611,7 +611,7 @@
             pointer-events: none;
         }
 
-        /* ------------------ NOVÁ DISCORD SEKCE ------------------ */
+        /* ------------------ DISCORD SEKCE (S AKTIVNÍM WIDGETEM) ------------------ */
         .discord-section {
             padding: 40px 20px 100px 20px;
             background: #0d0f18;
@@ -636,7 +636,7 @@
         }
 
         .discord-left {
-            max-width: 700px;
+            max-width: 650px;
         }
 
         .discord-badge {
@@ -695,19 +695,16 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-shrink: 0;
         }
 
-        .discord-image {
-            width: 220px;
-            height: auto;
-            object-fit: contain;
-            filter: drop-shadow(0 0 20px rgba(88, 101, 242, 0.3));
-            animation: floatDiscord 4s ease-in-out infinite;
-        }
-
-        @keyframes floatDiscord {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+        /* Styl pro Discord widget */
+        .discord-widget-box {
+            background: #11131c;
+            border: 1px solid rgba(88, 101, 242, 0.3);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
         /* -------------------------------------------------------- */
 
@@ -876,15 +873,9 @@
         }
 
         @media(max-width: 1024px) {
-            .modes-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .vote-platforms {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+            .modes-grid { grid-template-columns: repeat(2, 1fr); }
+            .vote-platforms { grid-template-columns: repeat(2, 1fr); }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
         @media(max-width: 900px) {
@@ -897,6 +888,7 @@
             .stats-grid { grid-template-columns: 1fr; }
             .discord-card { flex-direction: column; text-align: center; padding: 30px 20px; }
             .discord-badge { margin: 0 auto 20px auto; }
+            .discord-right { width: 100%; }
         }
     </style>
 </head>
@@ -912,8 +904,8 @@
             <a href="#">Domů</a>
             <a href="#about">Pravidla</a>
             <a href="#wiki">Wiki</a>
-            <a href="https://discord.com" target="_blank">Tým</a>
-            <a href="https://discord.com" target="_blank">Discord</a>
+            <a href="https://discord.gg/3GWM5Vy2HV" target="_blank">Tým</a>
+            <a href="https://discord.gg/3GWM5Vy2HV" target="_blank">Discord</a>
         </div>
 
         <div class="nav-right">
@@ -1069,25 +1061,25 @@
         </div>
     </section>
 
-    <!-- NOVÁ DISCORD SEKCE -->
     <section class="discord-section" id="discord">
         <div class="discord-card">
             <div class="discord-left">
                 <div class="discord-badge">
                     <i class="fab fa-discord"></i>
-                    <span>0 členů</span>
+                    <span>Aktivní komunita</span>
                 </div>
                 <h2>Přidej se k naší Discord komunitě!</h2>
                 <p>Naše komunita je zkrátka skvělá. Věříme, že i ty u nás najdeš lidi, se kterými si rád popíšeš v chatu, pokecáš ve voice kanálech, domluvíš společnou hru nebo bezpečně poobchoduješ přímo na serveru.</p>
-                <a href="https://discord.com" target="_blank" class="discord-btn">Připoj se <i class="fas fa-arrow-right"></i></a>
+                <a href="https://discord.gg/3GWM5Vy2HV" target="_blank" class="discord-btn">Připoj se <i class="fas fa-arrow-right"></i></a>
             </div>
+            
             <div class="discord-right">
-                <img src="https://github.com/user-attachments/assets/bdd5da67-7841-40f2-a218-3483f6de0bda" alt="Discord Maskot" class="discord-image">
+                <div class="discord-widget-box">
+                    <iframe src="https://discord.com/widget?id=TVÉ_SERVER_ID_ZDE&theme=dark" width="300" height="400" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+                </div>
             </div>
         </div>
     </section>
-    <!-- KONEC DISCORD SEKCE -->
-
     <div id="copy-toast">
         <div class="toast-icon"><i class="fas fa-check"></i></div>
         <span class="toast-text">IP adresa zkopírována!</span>
@@ -1105,7 +1097,7 @@
                 </div>
             </div>
             <div class="footer-socials">
-                <a href="https://discord.com" target="_blank"><i class="fab fa-discord"></i></a>
+                <a href="https://discord.gg/3GWM5Vy2HV" target="_blank"><i class="fab fa-discord"></i></a>
                 <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
                 <a href="https://tiktok.com" target="_blank"><i class="fab fa-tiktok"></i></a>
                 <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
@@ -1124,14 +1116,14 @@
                     <li><a href="#modes">Jak se připojit</a></li>
                     <li><a href="#about">Pravidla serveru</a></li>
                     <li><a href="#vote">Hlasování</a></li>
-                    <li><a href="https://discord.com">Admin Tým</a></li>
+                    <li><a href="https://discord.gg/3GWM5Vy2HV" target="_blank">Admin Tým</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h4>Kontakty a Podpora</h4>
                 <ul>
                     <li><a href="mailto:mystiland.info@gmail.com">mystiland.info@gmail.com</a></li>
-                    <li><a href="https://discord.com">Discord Ticket</a></li>
+                    <li><a href="https://discord.gg/3GWM5Vy2HV" target="_blank">Discord Ticket</a></li>
                 </ul>
             </div>
         </div>
