@@ -178,7 +178,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 35px;
-            padding-top: 30px; /* Místo nahoře pro vykukující postavu */
+            padding-top: 20px;
         }
 
         @media (max-width: 768px) {
@@ -193,19 +193,18 @@
             }
         }
 
-        /* KARTA ČLENA (Styl podle nového vzoru s polovičním tělem nahoře) */
+        /* KARTA ČLENA (Postavička je nyní komplet uvnitř karty) */
         .member-card {
             background: #120921;
             border: 1px solid #281547;
             border-radius: 20px;
-            padding: 35px 25px 25px 25px;
+            padding: 25px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.5);
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
             position: relative;
-            margin-top: 35px;
             transition: transform 0.3s ease, border-color 0.3s ease;
         }
 
@@ -215,28 +214,30 @@
         }
 
         .member-avatar-container {
-            position: absolute;
-            top: -55px;
-            width: 90px;
-            height: 95px;
+            width: 75px;
+            height: 90px;
             overflow: hidden;
             display: flex;
             justify-content: center;
-            filter: drop-shadow(0 8px 10px rgba(0,0,0,0.6));
+            align-items: center;
+            margin-bottom: 12px;
+            background: rgba(18, 9, 33, 0.6);
+            border-radius: 12px;
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.4));
         }
 
         .member-avatar-container img {
-            width: 90px;
-            height: auto;
-            object-fit: cover;
-            object-position: top;
+            height: 80px;
+            width: auto;
+            object-fit: contain;
         }
 
         .member-name {
             font-size: 20px;
             font-weight: 700;
             color: #ffffff;
-            margin-top: 25px;
+            margin-top: 5px;
             letter-spacing: 0.5px;
         }
 
@@ -634,7 +635,6 @@
                     <li><a href="wiki.html">› Wiki</a></li>
                     <li><a href="pravidla.html">› Pravidla</a></li>
                     <li><a href="admin-tym.html">› Admin tým</a></li>
-                    <li><a href="https://discord.gg/3GWM5Vy2HV" target="_blank">› Discord</a></li>
                 </ul>
             </div>
 
