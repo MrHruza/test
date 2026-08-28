@@ -317,7 +317,7 @@
         .vote-wrapper-section {
             position: relative;
             background: transparent;
-            padding: 50px 20px 70px 20px;
+            padding: 50px 20px 50px 20px;
             overflow: hidden;
             border-top: none;
         }
@@ -431,11 +431,11 @@
             transform: none;
         }
 
-        /* NOVÁ SEKCE: Statistiky serveru (přesně podle vzoru MineHub v číslech) */
+        /* SEKCE: Statistiky serveru – BEZ čáry a napojeno plynule na vote */
         .stats-wrapper-section {
-            background: #0d0614;
-            padding: 90px 20px;
-            border-top: 1px solid #231242;
+            background: transparent;
+            padding: 20px 20px 70px 20px;
+            border-top: none;
         }
 
         .stats-container {
@@ -544,6 +544,73 @@
             margin-top: 3px;
         }
 
+        /* NOVÁ SEKCE: Discord sekce pod statistikami – text, tlačítko a nový obrázek */
+        .discord-wrapper-section {
+            background: transparent;
+            padding: 20px 20px 90px 20px;
+            text-align: center;
+        }
+
+        .discord-box {
+            max-width: 850px;
+            margin: 0 auto;
+            background: #130a24;
+            border: 1px solid #231242;
+            border-radius: 20px;
+            padding: 50px 40px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .discord-image {
+            width: 90px;
+            height: 90px;
+            object-fit: contain;
+            filter: drop-shadow(0 8px 16px rgba(88, 101, 242, 0.4));
+            animation: floatLogo 4s ease-in-out infinite;
+        }
+
+        .discord-box h2 {
+            font-size: 30px;
+            color: #ffffff;
+            font-weight: 800;
+        }
+
+        .discord-box p {
+            font-size: 15px;
+            color: #b7a9ce;
+            line-height: 1.6;
+            max-width: 550px;
+        }
+
+        .btn-discord {
+            background: linear-gradient(135deg, #5865F2, #4752C4);
+            color: white;
+            padding: 14px 36px;
+            font-size: 15px;
+            font-weight: bold;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            text-transform: uppercase;
+            box-shadow: 0 6px 20px rgba(88, 101, 242, 0.4);
+            transition: all 0.2s ease;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-discord:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(88, 101, 242, 0.6);
+            background: linear-gradient(135deg, #6c79ff, #5865F2);
+        }
+
         /* Plovoucí notifikační pilulky na stranách */
         .vote-pill {
             position: absolute;
@@ -581,10 +648,6 @@
             .stats-intro {
                 max-width: 100%;
             }
-            .stats-intro h2::after {
-                left: 50%;
-                transform: translateX(-50%);
-            }
             .stats-cards-grid {
                 justify-content: center;
                 width: 100%;
@@ -621,12 +684,10 @@
 </head>
 <body>
 
-    <!-- Načítací kolečko -->
     <div id="loader">
         <div class="spinner"></div>
     </div>
 
-    <!-- Horní panel -->
     <header>
         <div class="logo-container">
             <img src="https://github.com/user-attachments/assets/bdd5da67-7841-40f2-a218-3483f6de0bda" alt="MystiLand Logo">
@@ -646,7 +707,6 @@
         <div style="width: 100px;"></div>
     </header>
 
-    <!-- Úvodní sekce -->
     <section class="hero">
         <img src="https://github.com/user-attachments/assets/775b273f-837e-4146-ba75-34cd58d73fac" alt="MystiLand Hlavní Logo" class="hero-logo">
         <p class="hero-subtitle">Vítejte na oficiálním webu Minecraft serveru MystiLand!</p>
@@ -656,9 +716,7 @@
         </div>
     </section>
 
-    <!-- Společná sekce pro O nás i Minihry -->
     <div class="unified-section-bg">
-        <!-- Sekce O nás -->
         <section id="onas" class="about-section">
             <div class="about-content">
                 <h2>O našem serveru</h2>
@@ -668,7 +726,6 @@
             <img src="https://github.com/user-attachments/assets/23d44b0f-e1d7-4a2b-8294-914d88fcc7c9" alt="O nás postavička" class="about-image">
         </section>
 
-        <!-- Sekce Minihry -->
         <section class="minigames-section">
             <h2>Co vám můžeme nabídnout - Minihry</h2>
             <div class="minigames-grid">
@@ -695,7 +752,6 @@
         </section>
     </div>
 
-    <!-- Hlasovací sekce (Vote) -->
     <section id="vote" class="vote-wrapper-section">
         <div class="avg-web-con-vote">
             <div class="div-block-9">
@@ -720,7 +776,6 @@
         </div>
     </section>
 
-    <!-- NOVÁ SEKCE: Statistiky serveru (přesně podle designu MineHubu) -->
     <section class="stats-wrapper-section">
         <div class="stats-container">
             <div class="stats-intro">
@@ -730,7 +785,6 @@
             </div>
             
             <div class="stats-cards-grid">
-                <!-- Karta 1: Zaregistrovaných hráčů -->
                 <div class="stat-card">
                     <div class="stat-icon-box">
                         <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
@@ -742,7 +796,6 @@
                     <div class="stat-sublabel">Celkem vytvořených účtů</div>
                 </div>
 
-                <!-- Karta 2: Celkem nahráno hodin -->
                 <div class="stat-card">
                     <div class="stat-icon-box">
                         <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
@@ -754,7 +807,6 @@
                     <div class="stat-sublabel">Společně strávený čas</div>
                 </div>
 
-                <!-- Karta 3: Členů na Discordu (napojeno živě na invite kód 3GWM5Vy2HV) -->
                 <div class="stat-card">
                     <div class="stat-icon-box">
                         <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg>
@@ -769,7 +821,17 @@
         </div>
     </section>
 
-    <!-- Notifikace zkopírování IP -->
+    <section class="discord-wrapper-section">
+        <div class="discord-box">
+            <img src="https://cdn.prod.website-files.com/68828d32a4fb4696477cfc1e/69660a0f8393547fac5bbd33_4a76b23846b00cd730d7b2c5dd5594b8_Frame%20odznak.png" alt="Discord ikona" class="discord-image">
+            <h2>Připoj se na náš Discord!</h2>
+            <p>Staň se součástí naší rostoucí komunity, získej informace o novinkách jako první, soutěž o ceny nebo si přijď popovídat s ostatními hráči a admin týmem.</p>
+            <a href="https://discord.gg/3GWM5Vy2HV" target="_blank" class="btn-discord">
+                💬 Připojit se na Discord (<span id="discord-count-btn">3 002</span> členů)
+            </a>
+        </div>
+    </section>
+
     <div id="notification" class="notification">
         <span>✨</span> IP adresa byla úspěšně zkopírována do schránky!
     </div>
@@ -883,7 +945,9 @@
                 if (response.ok) {
                     const data = await response.json();
                     if (data && data.approximate_member_count) {
-                        document.getElementById('stat-discord').textContent = data.approximate_member_count.toLocaleString('cs-CZ');
+                        const formattedCount = data.approximate_member_count.toLocaleString('cs-CZ');
+                        document.getElementById('stat-discord').textContent = formattedCount;
+                        document.getElementById('discord-count-btn').textContent = formattedCount;
                     }
                 }
             } catch (err) {
@@ -891,9 +955,8 @@
             }
         }
 
-        // Ukázkové načtení statistik herního serveru (registrace a hodiny)
+        // Ukázkové načtení statistik herního serveru
         function fetchServerStats() {
-            // Zde lze napojit reálnou API endpoint tvého Minecraft serveru, prozatím ukázková čísla s animací
             document.getElementById('stat-registered').textContent = "14 285";
             document.getElementById('stat-hours').textContent = "86 420";
         }
