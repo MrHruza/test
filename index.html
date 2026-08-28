@@ -104,15 +104,23 @@
             transform: translateY(-1px);
         }
 
+        /* Vylepšená animace pro Obchod */
         .store-btn {
             background: linear-gradient(135deg, #7c3aed, #6d28d9);
             color: white !important;
             padding: 10px 24px;
             border-radius: 20px;
             box-shadow: 0 4px 15px rgba(124, 58, 237, 0.4);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
         }
 
-        /* Úvodní sekce s novým pozadím */
+        .store-btn:hover {
+            transform: translateY(-4px) scale(1.05) !important;
+            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.7);
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+        }
+
+        /* Úvodní sekce */
         .hero {
             height: 100vh;
             background: linear-gradient(rgba(13, 6, 20, 0.6), rgba(13, 6, 20, 0.85)), url('https://github.com/user-attachments/assets/5ac66448-a179-4d92-abe1-9c3d60e2a089') no-repeat center center/cover;
@@ -236,12 +244,64 @@
             margin-bottom: 15px;
         }
 
+        /* Zmenšený obrázek bez rámečku */
         .about-image {
-            max-width: 450px;
+            max-width: 300px;
             width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Sekce Minihry */
+        .minigames-section {
+            padding: 80px 50px;
+            background-color: #0b0512;
+            text-align: center;
+        }
+
+        .minigames-section h2 {
+            font-size: 32px;
+            color: #ffffff;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .minigames-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .game-card {
+            background: #130a24;
+            border: 1px solid #231242;
             border-radius: 16px;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
-            border: 2px solid rgba(139, 92, 246, 0.2);
+            padding: 30px;
+            width: 350px;
+            text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(124, 58, 237, 0.2);
+            border-color: #7c3aed;
+        }
+
+        .game-card h3 {
+            font-size: 20px;
+            color: #ffffff;
+            margin-bottom: 12px;
+        }
+
+        .game-card p {
+            font-size: 14px;
+            color: #b7a9ce;
+            line-height: 1.6;
         }
 
         /* Notifikační rámeček */
@@ -287,7 +347,7 @@
         
         <nav>
             <ul>
-                <li><a href="#" class="active">Úvod</a></li>
+                <li><a href="#" class="active">Home</a></li>
                 <li><a href="#">Pravidla</a></li>
                 <li><a href="#" class="store-btn">Obchod</a></li>
                 <li><a href="#">Wiki</a></li>
@@ -317,8 +377,27 @@
             <p>Vítejte na MystiLand, jedinečném Minecraft serveru, který vám přináší nezapomenutelný herní zážitek! Naše komunity staví na přátelském prostředí, skvělém admin týmu a neustále vylepšovaných herních módech.</p>
             <p>Připojte se k nám ještě dnes, objevujte nová dobrodružství, stavte své vysněné stavby a ukažte všem, co ve vás je. Těšíme se na vás ve hře!</p>
         </div>
-        <!-- Obrázek pro sekci O nás -->
+        <!-- Zmenšený obrázek bez rámečku -->
         <img src="https://github.com/user-attachments/assets/23d44b0f-e1d7-4a2b-8294-914d88fcc7c9" alt="O nás obrázek" class="about-image">
+    </section>
+
+    <!-- Sekce Minihry -->
+    <section class="minigames-section">
+        <h2>Co vám můžeme nabídnout - Minihry</h2>
+        <div class="minigames-grid">
+            <div class="game-card">
+                <h3>Survival</h3>
+                <p>Klasický survival zážitek s vylepšenou ekonomikou, ochranou pozemků, questy a skvělou komunitou hráčů.</p>
+            </div>
+            <div class="game-card">
+                <h3>OneBlock</h3>
+                <p>Začni na jediném bloku, těš ho pro získání surovin, rozšiřuj svůj ostrov a plň zajímavé výzvy.</p>
+            </div>
+            <div class="game-card">
+                <h3>SkyBlock</h3>
+                <p>Postav svůj ostrov od základu ve vzduchu, plň úkoly, obchoduj s ostatními a staň se nejlepším hráčem.</p>
+            </div>
+        </div>
     </section>
 
     <!-- Oznámení o zkopírování -->
