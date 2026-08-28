@@ -14,23 +14,20 @@
         }
 
         body {
-            background: linear-gradient(to bottom, #0d0614, #150924 30%, #0b0412 70%, #06020a);
-            color: #ffffff;
+            background: linear-gradient(to bottom, #09060f, #0d0a14 50%, #06040a);
+            color: #e2dff0;
             overflow-x: hidden;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            scroll-behavior: smooth;
         }
 
         header {
-            background-color: #130a24;
+            background-color: #0e0a17;
             height: 70px;
             display: flex;
             align-items: center;
             justify-content: space-between;
             padding: 0 50px;
-            border-bottom: 2px solid #231242;
+            border-bottom: 1px solid #1f1830;
             position: fixed;
             top: 0;
             width: 100%;
@@ -45,12 +42,12 @@
         }
 
         .logo-container img {
-            height: 38px;
+            height: 36px;
             object-fit: contain;
         }
 
         .logo-container span {
-            font-weight: 700;
+            font-weight: 600;
             font-size: 18px;
             color: #ffffff;
             letter-spacing: 0.5px;
@@ -65,270 +62,218 @@
 
         nav ul li a {
             text-decoration: none;
-            color: #b7a9ce;
-            font-weight: 600;
+            color: #9a90b3;
+            font-weight: 500;
             font-size: 14px;
-            text-transform: uppercase;
-            transition: color 0.2s, transform 0.2s;
+            transition: color 0.2s;
         }
 
         nav ul li a:hover, nav ul li a.active {
             color: #ffffff;
-            transform: translateY(-1px);
         }
 
         .store-btn {
-            background: linear-gradient(135deg, #7c3aed, #6d28d9);
+            background: #6d42c7;
             color: white !important;
-            padding: 10px 24px;
-            border-radius: 20px;
+            padding: 8px 20px;
+            border-radius: 8px;
+            transition: background 0.2s !important;
         }
 
-        .page-content {
-            max-width: 1200px;
-            margin: 140px auto 80px auto;
+        .store-btn:hover {
+            background: #7c4fd6 !important;
+        }
+
+        .connect-container {
+            max-width: 900px;
+            margin: 130px auto 80px auto;
             padding: 0 20px;
-            width: 100%;
         }
 
-        .connect-wrapper-section {
-            width: 100%;
-            background: #130a24;
-            border: 1px solid #231242;
-            border-radius: 24px;
-            padding: 50px 40px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
-        }
-
-        .connect-header {
+        .connect-intro {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
         }
 
-        .connect-header h2 {
-            font-size: 36px;
+        .connect-intro h1 {
+            font-size: 34px;
             color: #ffffff;
-            font-weight: 800;
-            margin-bottom: 10px;
-        }
-
-        .connect-header p {
-            font-size: 14px;
-            color: #b7a9ce;
-        }
-
-        .connect-step-title {
-            font-size: 14px;
-            font-weight: 700;
-            color: #8b5cf6;
             margin-bottom: 15px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            font-weight: 700;
         }
 
-        .connect-options-row {
+        .connect-intro p {
+            font-size: 15px;
+            color: #9a90b3;
+            line-height: 1.6;
+            max-width: 700px;
+            margin: 0 auto 30px auto;
+        }
+
+        .intro-video-wrapper {
+            width: 100%;
+            max-width: 750px;
+            margin: 0 auto;
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid #1f1830;
+            background: #0e0a17;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .intro-video-wrapper video,
+        .intro-video-wrapper iframe {
+            width: 100%;
+            height: 420px;
+            display: block;
+            border: none;
+        }
+
+        .platforms-section {
             display: flex;
+            flex-direction: column;
             gap: 20px;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
         }
 
-        .connect-option-card {
-            flex: 1;
-            min-width: 250px;
-            background: #1c0f33;
-            border: 2px solid #32185c;
-            border-radius: 16px;
-            padding: 20px;
+        .platform-dropdown {
+            background: #110d1c;
+            border: 1px solid #1f1830;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: border-color 0.2s;
+        }
+
+        .platform-dropdown:hover {
+            border-color: #3b2d5c;
+        }
+
+        .platform-header {
+            padding: 22px 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
             cursor: pointer;
-            transition: all 0.2s ease;
+            user-select: none;
+        }
+
+        .platform-title-area {
             display: flex;
             align-items: center;
             gap: 15px;
         }
 
-        .connect-option-card:hover {
-            border-color: #8b5cf6;
+        .platform-icon {
+            width: 28px;
+            height: 28px;
+            object-fit: contain;
         }
 
-        .connect-option-card.active {
-            background: linear-gradient(135deg, #4c2885, #32185c);
-            border-color: #8b5cf6;
-            box-shadow: 0 6px 20px rgba(139, 92, 246, 0.3);
-        }
-
-        .connect-option-icon {
-            font-size: 24px;
-            background: rgba(139, 92, 246, 0.2);
-            width: 45px;
-            height: 45px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 10px;
-        }
-
-        .connect-option-info h3 {
-            font-size: 16px;
-            color: #ffffff;
-            font-weight: 700;
-        }
-
-        .connect-option-info p {
-            font-size: 12px;
-            color: #b7a9ce;
-            margin-top: 3px;
-        }
-
-        .connect-panels-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-        }
-
-        @media (max-width: 900px) {
-            .connect-panels-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .connect-box {
-            background: #190c2e;
-            border: 1px solid #2e1752;
-            border-radius: 16px;
-            padding: 30px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .connect-box-content h3 {
+        .platform-header h2 {
             font-size: 18px;
             color: #ffffff;
-            margin-bottom: 8px;
-            font-weight: 700;
+            font-weight: 600;
         }
 
-        .connect-box-content > p {
-            font-size: 13px;
-            color: #b7a9ce;
-            margin-bottom: 20px;
+        .arrow-icon {
+            color: #9a90b3;
+            font-size: 16px;
+            transition: transform 0.3s ease;
         }
 
-        .steps-list {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            margin-bottom: 25px;
+        .platform-dropdown.active .arrow-icon {
+            transform: rotate(180deg);
         }
 
-        .steps-list li {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            font-size: 13px;
-            color: #d1c4e9;
-            line-height: 1.5;
+        .platform-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            background: #0d0916;
+            padding: 0 25px;
         }
 
-        .step-num {
-            background: #8b5cf6;
-            color: white;
-            width: 22px;
-            height: 22px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 11px;
-            font-weight: bold;
-            flex-shrink: 0;
-            margin-top: 1px;
+        .platform-dropdown.active .platform-content {
+            max-height: 500px;
+            padding: 0 25px 25px 25px;
+            border-top: 1px solid #1f1830;
         }
 
-        .connect-input-group {
-            background: #130a24;
-            border: 1px solid #32185c;
-            border-radius: 12px;
-            padding: 12px 16px;
+        .platform-content p {
+            font-size: 14px;
+            color: #9a90b3;
+            line-height: 1.6;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        .ip-box-inline {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 12px;
+            background: #151024;
+            border: 1px solid #281e42;
+            padding: 12px 18px;
+            border-radius: 8px;
+            margin-top: 10px;
         }
 
-        .connect-input-label {
-            font-size: 11px;
-            font-weight: 700;
-            color: #8a79a8;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .connect-input-val {
-            font-size: 14px;
-            color: #ffffff;
-            font-weight: 600;
+        .ip-text {
             font-family: monospace;
+            font-size: 15px;
+            color: #dcd6ed;
         }
 
-        .btn-copy-small {
-            background: #8b5cf6;
+        .copy-btn {
+            background: #5b35ad;
             color: white;
             border: none;
             padding: 6px 14px;
-            border-radius: 8px;
-            font-size: 12px;
-            font-weight: 600;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 500;
             cursor: pointer;
+            transition: background 0.2s;
         }
 
-        .btn-link-action {
-            display: inline-block;
-            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
-            color: white;
-            text-align: center;
-            padding: 12px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 14px;
-            margin-top: 15px;
+        .copy-btn:hover {
+            background: #6a3fc4;
         }
 
-        footer.main-footer {
-            background-color: #0b0412;
-            border-top: 2px solid #231242;
-            padding: 40px 50px 20px 50px;
+        footer {
+            background-color: #08050d;
+            border-top: 1px solid #1f1830;
+            padding: 40px 20px;
             text-align: center;
             font-size: 12px;
-            color: #7a6a95;
+            color: #6e638a;
+            margin-top: 80px;
         }
 
         .notification {
             position: fixed;
-            bottom: 35px;
-            right: 35px;
-            background: linear-gradient(135deg, #7c3aed, #6d28d9);
+            bottom: 30px;
+            right: 30px;
+            background: #5b35ad;
             color: white;
-            padding: 14px 26px;
-            border-radius: 10px;
-            box-shadow: 0 10px 25px rgba(124, 58, 237, 0.4);
-            font-weight: 600;
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transform: translateY(120px);
+            padding: 12px 22px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 500;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transform: translateY(100px);
             opacity: 0;
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease;
-            z-index: 1000;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            z-index: 1100;
         }
 
         .notification.show {
             transform: translateY(0);
             opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            header { padding: 0 20px; }
+            .intro-video-wrapper video, .intro-video-wrapper iframe { height: 240px; }
         }
     </style>
 </head>
@@ -339,205 +284,113 @@
             <img src="https://github.com/user-attachments/assets/bdd5da67-7841-40f2-a218-3483f6de0bda" alt="MystiLand Logo">
             <span>MystiLand</span>
         </a>
+        
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="pripojit.html" class="active">Jak se připojit</a></li>
+                <li><a href="wiki.html">Wiki</a></li>
                 <li><a href="index.html#vote">Hlasovat</a></li>
                 <li><a href="#" class="store-btn">Obchod</a></li>
             </ul>
         </nav>
-        <div style="width: 100px;"></div>
     </header>
 
-    <div class="page-content">
-        <section class="connect-wrapper-section">
-            <div class="connect-header">
-                <h2>Jak se připojit</h2>
-                <p>Vyber si, na čem hraješ, a my ti ukážeme přesný postup. Za pár vteřin jsi na serveru.</p>
+    <div class="connect-container">
+        
+        <div class="connect-intro">
+            <h1>Jak se připojit na server?</h1>
+            <p>Vítej v návodu pro připojení na MystiLand! Ať už hraješ na počítači přes klasickou Java edici nebo na telefonu/konzoli přes Bedrock, zde najdeš vše potřebné. Nejdříve si můžeš pustit naše ukázkové video ze serveru.</p>
+            
+            <div class="intro-video-wrapper">
+                <!-- Zde můžeš nahradit odkaz za své vlastní video nebo embed (např. YouTube) -->
+                <video controls poster="https://github.com/user-attachments/assets/5ac66448-a179-4d92-abe1-9c3d60e2a089">
+                    <source src="SEM_VLOZ_ODKAZ_NA_VIDEO.mp4" type="video/mp4">
+                    Tvůj prohlížeč nepodporuje přehrávání videa.
+                </video>
             </div>
+        </div>
 
-            <div class="connect-step-title">1. Jakou verzi Minecraftu hraješ?</div>
-            <div class="connect-options-row">
-                <div class="connect-option-card active" id="tab-java" onclick="switchVersion('java')">
-                    <div class="connect-option-icon">💻</div>
-                    <div class="connect-option-info">
-                        <h3>Java Edition</h3>
-                        <p>Klasická verze pro PC z launcheru</p>
+        <div class="platforms-section">
+            
+            <!-- Java Edice (Zavřená) -->
+            <div class="platform-dropdown" id="java-dropdown">
+                <div class="platform-header" onclick="toggleDropdown('java-dropdown')">
+                    <div class="platform-title-area">
+                        <!-- Ikona pro Java edici -->
+                        <img src="https://github.com/user-attachments/assets/bdd5da67-7841-40f2-a218-3483f6de0bda" alt="Java" class="platform-icon">
+                        <h2>Minecraft Java Edition (PC / Mac / Linux)</h2>
                     </div>
+                    <span class="arrow-icon">▼</span>
                 </div>
-                <div class="connect-option-card" id="tab-bedrock" onclick="switchVersion('bedrock')">
-                    <div class="connect-option-icon">📱</div>
-                    <div class="connect-option-info">
-                        <h3>Bedrock Edition</h3>
-                        <p>Mobil, konzole a Windows 10/11</p>
+                <div class="platform-content">
+                    <p>1. Zapni svou hru Minecraft Java Edition (doporučujeme verze od 1.20 výše).</p>
+                    <p>2. V hlavní nabídce klikni na <strong>Multiplayer (Hra pro více hráčů)</strong>.</p>
+                    <p>3. Klikni dole na tlačítko <strong>Přidat server (Add Server)</strong>.</p>
+                    <p>4. Do kolonky Adresa serveru zadej následující text:</p>
+                    <div class="ip-box-inline">
+                        <span class="ip-text" id="java-ip">play.mystiland.eu</span>
+                        <button class="copy-btn" onclick="copyToClipboard('play.mystiland.eu')">Kopírovat IP</button>
                     </div>
-                </div>
-            </div>
-
-            <div id="bedrock-device-selection" style="display: none;">
-                <div class="connect-step-title">2. Na jakém zařízení hraješ?</div>
-                <div class="connect-options-row">
-                    <div class="connect-option-card active" id="dev-pc" onclick="switchBedrockDevice('pc')">
-                        <div class="connect-option-icon">🖥️</div>
-                        <div class="connect-option-info">
-                            <h3>Počítač</h3>
-                            <p>Windows 10/11 (Bedrock)</p>
-                        </div>
-                    </div>
-                    <div class="connect-option-card" id="dev-mobile" onclick="switchBedrockDevice('mobile')">
-                        <div class="connect-option-icon">📱</div>
-                        <div class="connect-option-info">
-                            <h3>Mobil / Tablet</h3>
-                            <p>Android a iOS</p>
-                        </div>
-                    </div>
+                    <p>5. Potvrď tlačítko Hotovo a můžeš se připojit dvojklikem na server v seznamu!</p>
                 </div>
             </div>
 
-            <div class="connect-panels-grid">
-                <div class="connect-box">
-                    <div class="connect-box-content" id="instructions-container"></div>
-                </div>
-
-                <div class="connect-box">
-                    <div class="connect-box-content">
-                        <h3>Propojení Java & Bedrock účtu</h3>
-                        <p>Zachovej si nick, rank i statistiky – hraj odkudkoliv se stejným postupem.</p>
-                        <ul class="steps-list">
-                            <li><span class="step-num">1</span>Otevři Geyser Global Linking web.</li>
-                            <li><span class="step-num">2</span>Přihlas se svým Microsoft účtem.</li>
-                            <li><span class="step-num">3</span>Potvrď propojení a máš hotovo!</li>
-                            <li><span class="step-num">4</span>Od teď používáš svůj účet z Javy i z Bedrocku.</li>
-                        </ul>
+            <!-- Bedrock Edice (Zavřená) -->
+            <div class="platform-dropdown" id="bedrock-dropdown">
+                <div class="platform-header" onclick="toggleDropdown('bedrock-dropdown')">
+                    <div class="platform-title-area">
+                        <!-- Ikona pro Bedrock edici -->
+                        <img src="https://github.com/user-attachments/assets/bdd5da67-7841-40f2-a218-3483f6de0bda" alt="Bedrock" class="platform-icon">
+                        <h2>Minecraft Bedrock Edition (Mobily, Tablety, Konzole)</h2>
                     </div>
-                    <a href="https://link.geysermc.org/" target="_blank" class="btn-link-action">Propojit účet</a>
+                    <span class="arrow-icon">▼</span>
+                </div>
+                <div class="platform-content">
+                    <p>1. Spusť Minecraft a v menu klikni na tlačítko <strong>Hrát (Play)</strong>.</p>
+                    <p>2. Přepni se v záložkách nahoru na sekci <strong>Server</strong>.</p>
+                    <p>3. Sjeď úplně dolů a klikni na <strong>Přidat server (Add Server)</strong>.</p>
+                    <p>4. Vyplň údaje podle údajů níže:</p>
+                    <ul style="list-style: none; margin: 10px 0; font-size: 14px; color: #9a90b3; line-height: 1.8;">
+                        <li>• <strong>Název serveru:</strong> MystiLand</li>
+                        <li>• <strong>Adresa serveru:</strong> play.mystiland.eu</li>
+                        <li>• <strong>Port:</strong> 19132 (výchozí)</li>
+                    </ul>
+                    <div class="ip-box-inline" style="margin-top: 15px;">
+                        <span class="ip-text">IP: play.mystiland.eu | Port: 19132</span>
+                        <button class="copy-btn" onclick="copyToClipboard('play.mystiland.eu')">Kopírovat IP</button>
+                    </div>
+                    <p style="margin-top: 15px;">5. Klikni na Uložit a následně se připoj do hry.</p>
                 </div>
             </div>
-        </section>
+
+        </div>
+
     </div>
 
-    <footer class="main-footer">
-        © 2026 MystiLand.eu. Všechna práva vyhrazena.
+    <footer>
+        © 2026 MystiLand.eu. Všechna práva vyhrazena. Nejedná se o oficiální produkt Minecraftu.
     </footer>
 
     <div id="notification" class="notification">
-        <span>✨</span> Zkopírováno do schránky!
+        IP adresa byla zkopírována do schránky!
     </div>
 
     <script>
-        window.addEventListener('load', () => {
-            renderInstructions('java');
-        });
+        function toggleDropdown(id) {
+            const element = document.getElementById(id);
+            // Zavře ostatní, pokud bys chtěl, aby byl otevřený vždy jen jeden, nebo je necháme nezávislé
+            element.classList.toggle('active');
+        }
 
-        function copyText(text) {
+        function copyToClipboard(text) {
             navigator.clipboard.writeText(text).then(() => {
                 const notification = document.getElementById("notification");
                 notification.classList.add("show");
-                setTimeout(() => { notification.classList.remove("show"); }, 3500);
+                setTimeout(() => {
+                    notification.classList.remove("show");
+                }, 3000);
             });
-        }
-
-        let currentVersion = 'java';
-        let currentBedrockDevice = 'pc';
-
-        function switchVersion(ver) {
-            currentVersion = ver;
-            document.getElementById('tab-java').classList.toggle('active', ver === 'java');
-            document.getElementById('tab-bedrock').classList.toggle('active', ver === 'bedrock');
-            
-            const bedrockDeviceRow = document.getElementById('bedrock-device-selection');
-            if (ver === 'bedrock') {
-                bedrockDeviceRow.style.display = 'block';
-            } else {
-                bedrockDeviceRow.style.display = 'none';
-            }
-            renderInstructions(ver);
-        }
-
-        function switchBedrockDevice(dev) {
-            currentBedrockDevice = dev;
-            document.getElementById('dev-pc').classList.toggle('active', dev === 'pc');
-            document.getElementById('dev-mobile').classList.toggle('active', dev === 'mobile');
-            renderInstructions('bedrock');
-        }
-
-        function renderInstructions(type) {
-            const container = document.getElementById('instructions-container');
-            if (type === 'java') {
-                container.innerHTML = `
-                    <h3>Minecraft: Java Edition</h3>
-                    <p>PC – Windows, macOS, Linux</p>
-                    <ul class="steps-list">
-                        <li><span class="step-num">1</span>Spusť Minecraft: Java Edition.</li>
-                        <li><span class="step-num">2</span>V hlavním menu klikni na „Hra pro více hráčů“.</li>
-                        <li><span class="step-num">3</span>Dole zvol „Přidat server“.</li>
-                        <li><span class="step-num">4</span>Jako název napiš <strong>MystiLand</strong> a do adresy vlož IP.</li>
-                        <li><span class="step-num">5</span>Ulož nastavení a připoj se dvojklikem.</li>
-                    </ul>
-                    <div class="connect-input-group">
-                        <div>
-                            <div class="connect-input-label">IP Adresa</div>
-                            <div class="connect-input-val">play.mystiland.eu</div>
-                        </div>
-                        <button class="btn-copy-small" onclick="copyText('play.mystiland.eu')">Kopírovat</button>
-                    </div>
-                `;
-            } else {
-                if (currentBedrockDevice === 'pc') {
-                    container.innerHTML = `
-                        <h3>Bedrock na počítači</h3>
-                        <p>Windows 10/11</p>
-                        <ul class="steps-list">
-                            <li><span class="step-num">1</span>Spusť Minecraft Bedrock Edition.</li>
-                            <li><span class="step-num">2</span>Klikni na „Hrát“ a záložku „Servery“.</li>
-                            <li><span class="step-num">3</span>Klikni na „Přidat server“.</li>
-                            <li><span class="step-num">4</span>Vyplň název, adresu a port níže.</li>
-                            <li><span class="step-num">5</span>Ulož a připoj se.</li>
-                        </ul>
-                        <div class="connect-input-group">
-                            <div>
-                                <div class="connect-input-label">Adresa</div>
-                                <div class="connect-input-val">bedrock.mystiland.eu</div>
-                            </div>
-                            <button class="btn-copy-small" onclick="copyText('bedrock.mystiland.eu')">Kopírovat</button>
-                        </div>
-                        <div class="connect-input-group">
-                            <div>
-                                <div class="connect-input-label">Port</div>
-                                <div class="connect-input-val">19132</div>
-                            </div>
-                            <button class="btn-copy-small" onclick="copyText('19132')">Kopírovat</button>
-                        </div>
-                    `;
-                } else {
-                    container.innerHTML = `
-                        <h3>Bedrock na mobilu / tabletu</h3>
-                        <p>Android a iOS</p>
-                        <ul class="steps-list">
-                            <li><span class="step-num">1</span>Spusť Minecraft na mobilu.</li>
-                            <li><span class="step-num">2</span>Ťukni na „Hrát“ a záložku „Servery“.</li>
-                            <li><span class="step-num">3</span>Ťukni na „Přidat server“.</li>
-                            <li><span class="step-num">4</span>Vyplň údaje dle konfiguračních polí níže.</li>
-                            <li><span class="step-num">5</span>Ulož a spusť hru.</li>
-                        </ul>
-                        <div class="connect-input-group">
-                            <div>
-                                <div class="connect-input-label">Adresa</div>
-                                <div class="connect-input-val">bedrock.mystiland.eu</div>
-                            </div>
-                            <button class="btn-copy-small" onclick="copyText('bedrock.mystiland.eu')">Kopírovat</button>
-                        </div>
-                        <div class="connect-input-group">
-                            <div>
-                                <div class="connect-input-label">Port</div>
-                                <div class="connect-input-val">19132</div>
-                            </div>
-                            <button class="btn-copy-small" onclick="copyText('19132')">Kopírovat</button>
-                        </div>
-                    `;
-                }
-            }
         }
     </script>
 </body>
