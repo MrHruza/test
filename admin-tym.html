@@ -20,7 +20,7 @@
             scroll-behavior: smooth;
         }
 
-        /* HLAVIČKA (Stejná jako na hlavní stránce) */
+        /* HLAVIČKA */
         header {
             background-color: #130a24;
             height: 70px;
@@ -96,7 +96,7 @@
             background: linear-gradient(135deg, #8b5cf6, #7c3aed);
         }
 
-        /* ADMIN TÝM HERO SEKCE S POSTAVAMI */
+        /* HERO SEKCE */
         .admin-hero {
             padding-top: 140px;
             padding-bottom: 60px;
@@ -120,7 +120,6 @@
             margin-bottom: 40px;
         }
 
-        /* Interaktivní postavičky vedle sebe */
         .characters-row {
             display: flex;
             justify-content: center;
@@ -149,26 +148,26 @@
             transform: translateY(-15px) scale(1.05);
         }
 
-        /* OBSAH - TÝMY A KARTY ČLENŮ */
+        /* OBSAH - TÝMY A KARTY */
         .admin-container {
             max-width: 1100px;
             margin: 0 auto;
             padding: 60px 20px;
             display: flex;
             flex-direction: column;
-            gap: 50px;
+            gap: 60px;
         }
 
         .team-section {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 25px;
         }
 
         .team-title {
             font-size: 24px;
             font-weight: 700;
-            color: #a78bfa;
+            color: #ffffff;
             border-left: 4px solid #8b5cf6;
             padding-left: 12px;
             text-transform: uppercase;
@@ -177,8 +176,9 @@
 
         .members-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(520px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 35px;
+            padding-top: 30px; /* Místo nahoře pro vykukující postavu */
         }
 
         @media (max-width: 768px) {
@@ -193,113 +193,115 @@
             }
         }
 
-        /* KARTA ČLENA (Styl podle vzoru) */
+        /* KARTA ČLENA (Styl podle nového vzoru s polovičním tělem nahoře) */
         .member-card {
-            background: #130a24;
-            border: 1px solid #231242;
-            border-radius: 16px;
-            padding: 25px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            background: #120921;
+            border: 1px solid #281547;
+            border-radius: 20px;
+            padding: 35px 25px 25px 25px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            align-items: center;
+            text-align: center;
             position: relative;
-            transition: border-color 0.2s;
+            margin-top: 35px;
+            transition: transform 0.3s ease, border-color 0.3s ease;
         }
 
         .member-card:hover {
-            border-color: #8b5cf6;
+            transform: translateY(-5px);
+            border-color: rgba(139, 92, 246, 0.5);
         }
 
-        .member-header {
+        .member-avatar-container {
+            position: absolute;
+            top: -55px;
+            width: 90px;
+            height: 95px;
+            overflow: hidden;
             display: flex;
-            align-items: center;
-            justify-content: space-between;
+            justify-content: center;
+            filter: drop-shadow(0 8px 10px rgba(0,0,0,0.6));
         }
 
-        .member-info-left {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .member-head-img {
-            width: 55px;
-            height: 55px;
-            border-radius: 10px;
+        .member-avatar-container img {
+            width: 90px;
+            height: auto;
             object-fit: cover;
-            border: 1px solid #32185c;
-            background: #1c0f33;
+            object-position: top;
         }
 
-        .member-details h3 {
-            font-size: 18px;
+        .member-name {
+            font-size: 20px;
             font-weight: 700;
             color: #ffffff;
+            margin-top: 25px;
             letter-spacing: 0.5px;
         }
 
-        .member-details span {
+        .member-date {
             font-size: 13px;
             color: #8a79a8;
+            margin-top: 4px;
+            margin-bottom: 12px;
         }
 
         .member-role-badge {
-            background: rgba(139, 92, 246, 0.1);
-            border: 1px solid rgba(139, 92, 246, 0.3);
-            color: #d1c4e9;
-            padding: 6px 14px;
-            border-radius: 8px;
-            font-size: 12px;
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-size: 11px;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            margin-bottom: 15px;
         }
 
         .member-bio {
-            font-size: 14px;
-            color: #b7a9ce;
-            line-height: 1.6;
-            border-top: 1px solid #1c0f33;
-            padding-top: 15px;
-        }
-
-        .member-footer {
-            display: flex;
-            gap: 15px;
-        }
-
-        .btn-card-action {
-            flex: 1;
-            background: rgba(139, 92, 246, 0.08);
-            border: 1px solid rgba(139, 92, 246, 0.2);
-            color: #e2d9f3;
-            padding: 10px;
-            border-radius: 10px;
             font-size: 13px;
-            font-weight: 600;
-            text-align: center;
+            color: #b7a9ce;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            min-height: 40px;
+        }
+
+        .discord-btn {
+            background: rgba(88, 101, 242, 0.1);
+            border: 1px solid rgba(88, 101, 242, 0.3);
+            color: #ffffff;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-decoration: none;
             transition: all 0.2s ease;
         }
 
-        .btn-card-action:hover {
-            background: rgba(139, 92, 246, 0.2);
-            border-color: rgba(139, 92, 246, 0.5);
-            color: #ffffff;
+        .discord-btn:hover {
+            background: rgba(88, 101, 242, 0.3);
+            border-color: rgba(88, 101, 242, 0.7);
+            transform: scale(1.1);
         }
 
-        .btn-card-action.discord-act {
-            background: rgba(88, 101, 242, 0.1);
-            border-color: rgba(88, 101, 242, 0.3);
+        .discord-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: #7289da;
         }
 
-        .btn-card-action.discord-act:hover {
-            background: rgba(88, 101, 242, 0.25);
-            border-color: rgba(88, 101, 242, 0.6);
-        }
+        /* BARVY ROLÍ PODLE DISCORDU */
+        .badge-vedeni { background: rgba(220, 20, 60, 0.15); color: #ff4d6d; border: 1px solid rgba(220, 20, 60, 0.3); }
+        .badge-dev { background: rgba(139, 92, 246, 0.15); color: #a78bfa; border: 1px solid rgba(139, 92, 246, 0.3); }
+        .badge-builder { background: rgba(46, 204, 113, 0.15); color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.3); }
+        .badge-technik { background: rgba(230, 126, 34, 0.15); color: #e67e22; border: 1px solid rgba(230, 126, 34, 0.3); }
+        .badge-helper { background: rgba(52, 152, 219, 0.15); color: #3498db; border: 1px solid rgba(52, 152, 219, 0.3); }
+        .badge-creator { background: rgba(233, 30, 99, 0.15); color: #e91e63; border: 1px solid rgba(233, 30, 99, 0.3); }
+        .badge-grafik { background: rgba(155, 89, 182, 0.15); color: #bb8fce; border: 1px solid rgba(155, 89, 182, 0.3); }
 
-        /* PATIČKA (Stejná jako na hlavní stránce) */
+        /* PATIČKA */
         footer.main-footer {
             background-color: #0b0412;
             border-top: 2px solid #231242;
@@ -463,66 +465,52 @@
         <div style="width: 100px;"></div>
     </header>
 
-    <!-- HERO SEKCE S POSTAVAMI -->
+    <!-- HERO SEKCE -->
     <section class="admin-hero">
         <h1>Admin Tým</h1>
         <p>Lidé, kteří se starají o chod, rozvoj a bezpečí serveru MystiLand.</p>
         
         <div class="characters-row">
-            <div class="character-item"><img src="https://mc-heads.net/body/Lolkocz/left" alt="Postava 1"></div>
-            <div class="character-item"><img src="https://mc-heads.net/body/Chad_Broflowski/left" alt="Postava 2"></div>
-            <div class="character-item"><img src="https://mc-heads.net/body/MrHruza/left" alt="Postava 3"></div>
-            <div class="character-item"><img src="https://mc-heads.net/body/Steve/left" alt="Postava 4"></div>
-            <div class="character-item"><img src="https://mc-heads.net/body/Alex/left" alt="Postava 5"></div>
+            <div class="character-item"><img src="https://mc-heads.net/body/Lolkocz/left" alt="Postava"></div>
+            <div class="character-item"><img src="https://mc-heads.net/body/Chad_Broflowski/left" alt="Postava"></div>
+            <div class="character-item"><img src="https://mc-heads.net/body/MrHruza/left" alt="Postava"></div>
+            <div class="character-item"><img src="https://mc-heads.net/body/Steve/left" alt="Postava"></div>
+            <div class="character-item"><img src="https://mc-heads.net/body/Alex/left" alt="Postava"></div>
         </div>
     </section>
 
-    <!-- HLAVNÍ OBSAH - ROZDĚLENÍ TÝMŮ A ČLENŮ -->
+    <!-- OBSAH - VŠECHNY TÝMY -->
     <div class="admin-container">
 
-        <!-- Vedení Tým -->
+        <!-- Vedení & Manažeři -->
         <div class="team-section">
-            <div class="team-title">Vedení Tým</div>
+            <div class="team-title">Vedení & Manažeři</div>
             <div class="members-grid">
                 
                 <div class="member-card">
-                    <div class="member-header">
-                        <div class="member-info-left">
-                            <img src="https://mc-heads.net/avatar/Lolkocz/64" alt="Hlava" class="member-head-img">
-                            <div class="member-details">
-                                <h3>Lolkocz</h3>
-                                <span>od 01/2021 · Vlastník</span>
-                            </div>
-                        </div>
-                        <div class="member-role-badge">Vedení</div>
+                    <div class="member-avatar-container">
+                        <img src="https://mc-heads.net/body/Lolkocz" alt="Lolkocz">
                     </div>
-                    <div class="member-bio">
-                        Hlavní zakladatel a majitel projektu MystiLand. Starám se o celkový chod serveru, směřování a nové nápady.
-                    </div>
-                    <div class="member-footer">
-                        <a href="https://discord.gg/3GWM5Vy2HV" target="_blank" class="btn-card-action discord-act">Discord</a>
-                        <div class="btn-card-action">1900 DNÍ VE FUNKCI</div>
-                    </div>
+                    <div class="member-name">Lolkocz</div>
+                    <div class="member-date">Členem od 01.01.2021</div>
+                    <div class="member-role-badge badge-vedeni">Vedení</div>
+                    <div class="member-bio">Hlavní zakladatel a majitel projektu MystiLand. Starám se o celkový chod serveru a jeho směřování.</div>
+                    <a href="https://discord.gg/3GWM5Vy2HV" target="_blank" class="discord-btn" title="Discord">
+                        <svg viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.927 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+                    </a>
                 </div>
 
                 <div class="member-card">
-                    <div class="member-header">
-                        <div class="member-info-left">
-                            <img src="https://mc-heads.net/avatar/Chad_Broflowski/64" alt="Hlava" class="member-head-img">
-                            <div class="member-details">
-                                <h3>CHAD_BROFLOWSKI</h3>
-                                <span>od 05/2021 · 25 let</span>
-                            </div>
-                        </div>
-                        <div class="member-role-badge">Manažer</div>
+                    <div class="member-avatar-container">
+                        <img src="https://mc-heads.net/body/Chad_Broflowski" alt="CHAD_BROFLOWSKI">
                     </div>
-                    <div class="member-bio">
-                        Jsem Lolkovou pravou rukou už několik let – starám se o pořádek, pohodu a taky o náš Instagram. Na samotném serveru mě sice moc často nepotkáte, ale v zákulisí hlídám, aby všechno běželo tak, jak má.
-                    </div>
-                    <div class="member-footer">
-                        <a href="https://discord.gg/3GWM5Vy2HV" target="_blank" class="btn-card-action discord-act">Discord</a>
-                        <div class="btn-card-action">1942 DNÍ VE FUNKCI</div>
-                    </div>
+                    <div class="member-name">CHAD_BROFLOWSKI</div>
+                    <div class="member-date">Členem od 05.05.2021</div>
+                    <div class="member-role-badge badge-vedeni">Manažer</div>
+                    <div class="member-bio">Pravá ruka vedení, hlídám pořádek v zákulisí, řeším komunitní záležitosti a sociální sítě.</div>
+                    <a href="https://discord.gg/3GWM5Vy2HV" target="_blank" class="discord-btn" title="Discord">
+                        <svg viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.927 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+                    </a>
                 </div>
 
             </div>
@@ -534,23 +522,37 @@
             <div class="members-grid">
                 
                 <div class="member-card">
-                    <div class="member-header">
-                        <div class="member-info-left">
-                            <img src="https://mc-heads.net/avatar/MrHruza/64" alt="Hlava" class="member-head-img">
-                            <div class="member-details">
-                                <h3>MrHruza</h3>
-                                <span>od 03/2023</span>
-                            </div>
-                        </div>
-                        <div class="member-role-badge">Hl. Developer</div>
+                    <div class="member-avatar-container">
+                        <img src="https://mc-heads.net/body/MrHruza" alt="MrHruza">
                     </div>
-                    <div class="member-bio">
-                        Starám se o programování pluginů, kódování webu a technické zázemí celého herního světa.
+                    <div class="member-name">MrHruza</div>
+                    <div class="member-date">Členem od 15.03.2023</div>
+                    <div class="member-role-badge badge-dev">Hl. Developer</div>
+                    <div class="member-bio">Programování herních pluginů, správa kódů a technického zázemí serveru.</div>
+                    <a href="https://discord.gg/3GWM5Vy2HV" target="_blank" class="discord-btn" title="Discord">
+                        <svg viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.927 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Technik Tým -->
+        <div class="team-section">
+            <div class="team-title">Technik Tým</div>
+            <div class="members-grid">
+                
+                <div class="member-card">
+                    <div class="member-avatar-container">
+                        <img src="https://mc-heads.net/body/Alex" alt="TechnikUser">
                     </div>
-                    <div class="member-footer">
-                        <a href="https://discord.gg/3GWM5Vy2HV" target="_blank" class="btn-card-action discord-act">Discord</a>
-                        <div class="btn-card-action">1200 DNÍ VE FUNKCI</div>
-                    </div>
+                    <div class="member-name">TechnikUser</div>
+                    <div class="member-date">Členem od 10.01.2024</div>
+                    <div class="member-role-badge badge-technik">Hl. Technik</div>
+                    <div class="member-bio">Správa serverových strojů, optimalizace výkonu a dohled nad plynulostí hraní.</div>
+                    <a href="https://discord.gg/3GWM5Vy2HV" target="_blank" class="discord-btn" title="Discord">
+                        <svg viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.927 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+                    </a>
                 </div>
 
             </div>
@@ -562,23 +564,37 @@
             <div class="members-grid">
                 
                 <div class="member-card">
-                    <div class="member-header">
-                        <div class="member-info-left">
-                            <img src="https://mc-heads.net/avatar/BuilderName/64" alt="Hlava" class="member-head-img">
-                            <div class="member-details">
-                                <h3>BuilderUser</h3>
-                                <span>od 06/2024</span>
-                            </div>
-                        </div>
-                        <div class="member-role-badge">Hl. Builder</div>
+                    <div class="member-avatar-container">
+                        <img src="https://mc-heads.net/body/Steve" alt="BuilderName">
                     </div>
-                    <div class="member-bio">
-                        Navrhuji a stavím spawnerové zóny, eventová místa a hlavní lobby pro hráče.
+                    <div class="member-name">BuilderName</div>
+                    <div class="member-date">Členem od 20.06.2024</div>
+                    <div class="member-role-badge badge-builder">Hl. Builder</div>
+                    <div class="member-bio">Navrhuji a stavím překrásné stavby, eventové mapy a herní zóny.</div>
+                    <a href="https://discord.gg/3GWM5Vy2HV" target="_blank" class="discord-btn" title="Discord">
+                        <svg viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.927 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Helper & Moderátor Tým -->
+        <div class="team-section">
+            <div class="team-title">Helper & Moderátor Tým</div>
+            <div class="members-grid">
+                
+                <div class="member-card">
+                    <div class="member-avatar-container">
+                        <img src="https://mc-heads.net/body/Stefoo420" alt="Stefoo420">
                     </div>
-                    <div class="member-footer">
-                        <a href="https://discord.gg/3GWM5Vy2HV" target="_blank" class="btn-card-action discord-act">Discord</a>
-                        <div class="btn-card-action">800 DNÍ VE FUNKCI</div>
-                    </div>
+                    <div class="member-name">Stefoo420</div>
+                    <div class="member-date">Členem od 16.09.2025</div>
+                    <div class="member-role-badge badge-helper">Moderátor</div>
+                    <div class="member-bio">Hlídám pořádek ve hře, pomáhám hráčům s dotazy a řeším nahlášené problémy.</div>
+                    <a href="https://discord.gg/3GWM5Vy2HV" target="_blank" class="discord-btn" title="Discord">
+                        <svg viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.927 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+                    </a>
                 </div>
 
             </div>
