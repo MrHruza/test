@@ -96,7 +96,7 @@
             background: linear-gradient(135deg, #8b5cf6, #7c3aed);
         }
 
-        /* HERO SEKCE */
+        /* HERO SEKCE - 3 HLAVY BEZ RÁMEČKU */
         .admin-hero {
             padding-top: 140px;
             padding-bottom: 60px;
@@ -123,32 +123,37 @@
         .characters-row {
             display: flex;
             justify-content: center;
-            align-items: flex-end;
-            gap: 15px;
+            align-items: center;
+            gap: 20px;
             max-width: 1000px;
             margin: 0 auto;
             padding: 0 20px;
-            height: 120px;
+            height: 90px;
         }
 
         .character-item {
-            height: 80px;
+            height: 75px;
             transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             cursor: pointer;
             filter: drop-shadow(0 10px 15px rgba(0,0,0,0.6));
+            background: transparent !important;
+            border: none !important;
         }
 
         .character-item img {
             height: 100%;
             width: auto;
             object-fit: contain;
+            background: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
         }
 
         .character-item:hover {
-            transform: translateY(-10px) scale(1.05);
+            transform: translateY(-8px) scale(1.05);
         }
 
-        /* OBSAH - TÝMY A KARTY */
+        /* OBSAH - TÝMY A KARTY (S VLASTNÍMI OBRÁZKY PRO 3 HLAVNÍ ČLENY) */
         .admin-container {
             max-width: 1100px;
             margin: 0 auto;
@@ -186,14 +191,15 @@
                 grid-template-columns: 1fr;
             }
             .characters-row {
-                height: 100px;
+                height: 75px;
+                gap: 15px;
             }
             .character-item {
-                height: 60px;
+                height: 55px;
             }
         }
 
-        /* KARTA ČLENA */
+        /* KARTA ČLENA - BEZ RÁMEČKU KOLEM HLAV */
         .member-card {
             background: #120921;
             border: 1px solid #281547;
@@ -221,8 +227,9 @@
             justify-content: center;
             align-items: center;
             margin-bottom: 12px;
-            background: transparent;
-            border: none;
+            background: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
             filter: drop-shadow(0 4px 6px rgba(0,0,0,0.4));
         }
 
@@ -230,6 +237,9 @@
             height: 65px;
             width: auto;
             object-fit: contain;
+            background: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
         }
 
         .member-name {
@@ -272,10 +282,8 @@
         .badge-builder { background: rgba(46, 204, 113, 0.15); color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.3); }
         .badge-technik { background: rgba(230, 126, 34, 0.15); color: #e67e22; border: 1px solid rgba(230, 126, 34, 0.3); }
         .badge-helper { background: rgba(52, 152, 219, 0.15); color: #3498db; border: 1px solid rgba(52, 152, 219, 0.3); }
-        .badge-creator { background: rgba(233, 30, 99, 0.15); color: #e91e63; border: 1px solid rgba(233, 30, 99, 0.3); }
-        .badge-grafik { background: rgba(155, 89, 182, 0.15); color: #bb8fce; border: 1px solid rgba(155, 89, 182, 0.3); }
 
-        /* PATIČKA */
+        /* PATIČKA (BEZ IKONY DISCORDU) */
         footer.main-footer {
             background-color: #0b0412;
             border-top: 2px solid #231242;
@@ -322,33 +330,6 @@
         .footer-socials {
             display: flex;
             gap: 15px;
-        }
-
-        .footer-social-icon {
-            width: 38px;
-            height: 38px;
-            background: #150924;
-            border: 1px solid #231242;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #b7a9ce;
-            text-decoration: none;
-            transition: all 0.2s ease;
-        }
-
-        .footer-social-icon:hover {
-            background: #8b5cf6;
-            color: #ffffff;
-            border-color: #8b5cf6;
-            transform: translateY(-2px);
-        }
-
-        .footer-social-icon svg {
-            width: 18px;
-            height: 18px;
-            fill: currentColor;
         }
 
         .footer-columns {
@@ -439,21 +420,19 @@
         <div style="width: 100px;"></div>
     </header>
 
-    <!-- HERO SEKCE -->
+    <!-- HERO SEKCE - 3 SPRÁVNÉ OBRÁZKY (HLAVY) MÍSTO 5 PŮVODNÍCH, BEZ RÁMEČKU -->
     <section class="admin-hero">
         <h1>Admin Tým</h1>
         <p>Lidé, kteří se starají o chod, rozvoj a bezpečí serveru MystiLand.</p>
         
         <div class="characters-row">
-            <div class="character-item"><img src="https://mc-heads.net/avatar/Lolkocz" alt="Hlava"></div>
-            <div class="character-item"><img src="https://mc-heads.net/avatar/Chad_Broflowski" alt="Hlava"></div>
-            <div class="character-item"><img src="https://mc-heads.net/avatar/MrHruza" alt="Hlava"></div>
-            <div class="character-item"><img src="https://mc-heads.net/avatar/Steve" alt="Hlava"></div>
-            <div class="character-item"><img src="https://mc-heads.net/avatar/Alex" alt="Hlava"></div>
+            <div class="character-item"><img src="https://github.com/user-attachments/assets/d9e2727e-0b92-4483-a943-1f1788b208b6" alt="První od leva"></div>
+            <div class="character-item"><img src="https://github.com/user-attachments/assets/78a27d2c-2b8b-4a5a-87f9-06e6f9581425" alt="Prostředek"></div>
+            <div class="character-item"><img src="https://github.com/user-attachments/assets/2cd8e574-2572-47cf-a5d5-f74b593f5b42" alt="První od prava"></div>
         </div>
     </section>
 
-    <!-- OBSAH - VŠECHNY TÝMY -->
+    <!-- OBSAH - TÝMY A KARTY (TAKÉ BEZ RÁMEČKU KOLEM HLAV) -->
     <div class="admin-container">
 
         <!-- Vedení & Manažeři -->
@@ -463,7 +442,6 @@
                 
                 <div class="member-card">
                     <div class="member-avatar-container">
-                        <!-- Zde si můžeš nahradit URL za svůj vlastní obrázek pro prvního člena -->
                         <img src="https://github.com/user-attachments/assets/d9e2727e-0b92-4483-a943-1f1788b208b6" alt="Lolkocz">
                     </div>
                     <div class="member-name">Lolkocz</div>
@@ -474,7 +452,6 @@
 
                 <div class="member-card">
                     <div class="member-avatar-container">
-                        <!-- Zde si můžeš nahradit URL za svůj vlastní obrázek pro druhého člena (prostředek) -->
                         <img src="https://github.com/user-attachments/assets/78a27d2c-2b8b-4a5a-87f9-06e6f9581425" alt="CHAD_BROFLOWSKI">
                     </div>
                     <div class="member-name">CHAD_BROFLOWSKI</div>
@@ -493,7 +470,6 @@
                 
                 <div class="member-card">
                     <div class="member-avatar-container">
-                        <!-- Zde si můžeš nahradit URL za svůj vlastní obrázek pro třetího člena (první od prava) -->
                         <img src="https://github.com/user-attachments/assets/2cd8e574-2572-47cf-a5d5-f74b593f5b42" alt="MrHruza">
                     </div>
                     <div class="member-name">MrHruza</div>
@@ -561,7 +537,7 @@
 
     </div>
 
-    <!-- PATIČKA -->
+    <!-- PATIČKA (BEZ IKONY DISCORDU) -->
     <footer class="main-footer">
         <div class="footer-top">
             <div class="footer-logo-area">
@@ -573,9 +549,7 @@
             </div>
             
             <div class="footer-socials">
-                <a href="https://discord.gg/3GWM5Vy2HV" target="_blank" class="footer-social-icon" title="Discord">
-                    <svg viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.927 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
-                </a>
+                <!-- Discord ikona kompletně odstraněna dle tvého přání -->
             </div>
         </div>
 
