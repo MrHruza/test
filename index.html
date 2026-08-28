@@ -777,10 +777,10 @@
         <nav>
             <ul>
                 <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="pripojit.html">Jak se připojit</a></li>
                 <li><a href="wiki.html">Wiki</a></li>
-                <li><a href="#vote">Hlasovat</a></li>
                 <li><a href="#" class="store-btn">Obchod</a></li>
+                <li><a href="pravidla.html">Pravidla</a></li>
+                <li><a href="admin-tym.html">Admin tým</a></li>
             </ul>
         </nav>
         
@@ -949,9 +949,10 @@
             <div class="footer-col">
                 <h4>Navigace</h4>
                 <ul>
-                    <li><a href="pripojit.html">› Chci jít hrát!</a></li>
+                    <li><a href="index.html">› Home</a></li>
                     <li><a href="wiki.html">› Wiki</a></li>
-                    <li><a href="#vote">› Hlasování</a></li>
+                    <li><a href="pravidla.html">› Pravidla</a></li>
+                    <li><a href="admin-tym.html">› Admin tým</a></li>
                     <li><a href="https://discord.gg/3GWM5Vy2HV" target="_blank">› Discord</a></li>
                 </ul>
             </div>
@@ -989,21 +990,23 @@
         const voteButtons = document.querySelectorAll('[data-vote-url]');
         const defaultHeadSrc = "https://cdn.prod.website-files.com/68828d32a4fb4696477cfc1e/695a6fa31451ea9b96070b62_steve.jpg";
 
-        inputField.addEventListener('input', function() {
-            const nick = this.value.trim();
-            if (nick.length > 0) {
-                headImage.src = `https://mc-heads.net/avatar/${nick}/64`;
-                voteButtons.forEach(btn => btn.disabled = false);
-            } else {
-                headImage.src = defaultHeadSrc;
-                voteButtons.forEach(btn => btn.disabled = true);
-            }
-        });
+        if(inputField) {
+            inputField.addEventListener('input', function() {
+                const nick = this.value.trim();
+                if (nick.length > 0) {
+                    headImage.src = `https://mc-heads.net/avatar/${nick}/64`;
+                    voteButtons.forEach(btn => btn.disabled = false);
+                } else {
+                    headImage.src = defaultHeadSrc;
+                    voteButtons.forEach(btn => btn.disabled = true);
+                }
+            });
+        }
 
         voteButtons.forEach(button => {
             button.addEventListener('click', function(e) {
                 e.preventDefault();
-                const nick = inputField.value.trim();
+                const nick = inputField ? inputField.value.trim() : '';
                 const urlTemplate = this.getAttribute('data-vote-url');
                 if (!nick || !urlTemplate) return;
                 window.open(urlTemplate.replace(/%p%/g, nick), '_blank');
@@ -1011,18 +1014,22 @@
         });
 
         function fetchServerStats() {
-            document.getElementById('stat-registered').textContent = "14 285";
-            document.getElementById('stat-hours').textContent = "86 420";
+            const regEl = document.getElementById('stat-registered');
+            const hoursEl = document.getElementById('stat-hours');
+            const discordEl = document.getElementById('stat-discord');
+
+            if(regEl) regEl.textContent = "14 285";
+            if(hoursEl) hoursEl.textContent = "86 420";
 
             fetch("https://discord.com/api/guilds/123456789012345678/widget.json")
                 .then(response => response.json())
                 .then(data => {
-                    if (data && data.approximate_member_count) {
-                        document.getElementById('stat-discord').textContent = data.approximate_member_count.toLocaleString('cs-CZ');
+                    if (data && data.approximate_member_count && discordEl) {
+                        discordEl.textContent = data.approximate_member_count.toLocaleString('cs-CZ');
                     }
                 })
                 .catch(() => {
-                    document.getElementById('stat-discord').textContent = "3 002";
+                    if(discordEl) discordEl.textContent = "3 002";
                 });
         }
     </script>
