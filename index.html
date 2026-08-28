@@ -17,9 +17,10 @@
             background-color: #0d0614;
             color: #ffffff;
             overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
-        /* Načítací obrazovka s točícím se kolečkem */
+        /* Načítací obrazovka */
         #loader {
             position: fixed;
             top: 0;
@@ -82,7 +83,6 @@
             letter-spacing: 0.5px;
         }
 
-        /* Navigace */
         nav ul {
             display: flex;
             list-style: none;
@@ -112,10 +112,10 @@
             box-shadow: 0 4px 15px rgba(124, 58, 237, 0.4);
         }
 
-        /* Hlavní úvodní sekce (Tmavě fialový styl) */
+        /* Úvodní sekce s novým pozadím */
         .hero {
             height: 100vh;
-            background: radial-gradient(circle at center, #231242 0%, #0d0614 70%);
+            background: linear-gradient(rgba(13, 6, 20, 0.6), rgba(13, 6, 20, 0.85)), url('https://github.com/user-attachments/assets/5ac66448-a179-4d92-abe1-9c3d60e2a089') no-repeat center center/cover;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -132,10 +132,10 @@
         }
 
         .hero-logo {
-            max-width: 280px; /* Zmenšené logo uprostřed */
+            max-width: 280px;
             width: 100%;
             margin-bottom: 15px;
-            filter: drop-shadow(0 10px 20px rgba(109, 40, 217, 0.3));
+            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
             animation: floatLogo 4s ease-in-out infinite;
         }
 
@@ -144,6 +144,7 @@
             color: #d1c4e9;
             margin-bottom: 30px;
             font-weight: 400;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
         }
 
         .hero-buttons {
@@ -193,6 +194,54 @@
             border-color: rgba(139, 92, 246, 0.6);
             transform: translateY(-2px);
             color: #ffffff;
+        }
+
+        /* Sekce "O nás" */
+        .about-section {
+            padding: 100px 50px;
+            background: linear-gradient(to bottom, #0d0614, #130a24);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        .about-content {
+            max-width: 550px;
+        }
+
+        .about-content h2 {
+            font-size: 32px;
+            color: #ffffff;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .about-content h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 60px;
+            height: 3px;
+            background: #8b5cf6;
+            border-radius: 2px;
+        }
+
+        .about-content p {
+            font-size: 15px;
+            color: #b7a9ce;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .about-image {
+            max-width: 450px;
+            width: 100%;
+            border-radius: 16px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+            border: 2px solid rgba(139, 92, 246, 0.2);
         }
 
         /* Notifikační rámeček */
@@ -246,7 +295,6 @@
             </ul>
         </nav>
         
-        <!-- Prázdný element pro vyvážení flexboxu vpravo -->
         <div style="width: 100px;"></div>
     </header>
 
@@ -257,9 +305,20 @@
         <p class="hero-subtitle">Vítejte na oficiálním webu Minecraft serveru MystiLand!</p>
         
         <div class="hero-buttons">
-            <a href="#zacit" class="btn-primary">Chci jít hrát!</a>
+            <a href="#onas" class="btn-primary">Chci jít hrát!</a>
             <button class="btn-ip" onclick="copyIP()">📋 play.mystiland.eu</button>
         </div>
+    </section>
+
+    <!-- Sekce O nás -->
+    <section id="onas" class="about-section">
+        <div class="about-content">
+            <h2>O našem serveru</h2>
+            <p>Vítejte na MystiLand, jedinečném Minecraft serveru, který vám přináší nezapomenutelný herní zážitek! Naše komunity staví na přátelském prostředí, skvělém admin týmu a neustále vylepšovaných herních módech.</p>
+            <p>Připojte se k nám ještě dnes, objevujte nová dobrodružství, stavte své vysněné stavby a ukažte všem, co ve vás je. Těšíme se na vás ve hře!</p>
+        </div>
+        <!-- Obrázek pro sekci O nás -->
+        <img src="https://github.com/user-attachments/assets/23d44b0f-e1d7-4a2b-8294-914d88fcc7c9" alt="O nás obrázek" class="about-image">
     </section>
 
     <!-- Oznámení o zkopírování -->
@@ -268,7 +327,6 @@
     </div>
 
     <script>
-        // Skrýt načítací kolečko po načtení stránky
         window.addEventListener('load', () => {
             const loader = document.getElementById('loader');
             loader.style.opacity = '0';
