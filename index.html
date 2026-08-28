@@ -207,13 +207,13 @@
         .content-wrapper {
             display: flex;
             flex-direction: column;
-            gap: 100px; /* Požadovaná mezera mezi jednotlivými sekcemi */
-            padding: 90px 20px 100px 20px;
+            gap: 120px; /* Větší mezery mezi sekcemi podle požadavku */
+            padding: 120px 20px 120px 20px;
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        /* Sekce O nás */
+        /* Sekce O nás (zmenšený obrázek) */
         .about-section {
             display: flex;
             align-items: center;
@@ -253,7 +253,7 @@
         }
 
         .about-image {
-            max-width: 280px;
+            max-width: 170px; /* Zmenšený obrázek o nás */
             width: 100%;
             height: auto;
             background: transparent;
@@ -309,9 +309,10 @@
             line-height: 1.6;
         }
 
-        /* Sekce Hlasování (Vote) */
+        /* Sekce Hlasování (Vote) – s plovoucími hlasy přímo u hlasování */
         .vote-wrapper-section {
             width: 100%;
+            position: relative; /* Pro správné uchycení plovoucích hlasů */
         }
 
         .avg-web-con-vote {
@@ -532,33 +533,40 @@
             margin-top: 3px;
         }
 
-        /* SEKCE: Discord – zarovnaný vpravo, s novým textem, tlačítkem a novým obrázkem */
+        /* SEKCE: Discord – zarovnaný vpravo, BEZ RÁMEČKU, obrázek vlevo od textu */
         .discord-wrapper-section {
             width: 100%;
             display: flex;
-            justify-content: flex-end; /* Přesunuto zcela na pravou stranu */
+            justify-content: flex-end; /* Vpravo */
         }
 
         .discord-box {
-            max-width: 550px;
+            max-width: 600px;
             width: 100%;
-            background: #130a24;
-            border: 1px solid #231242;
-            border-radius: 20px;
-            padding: 45px 40px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            background: transparent; /* Zrušen rámeček a pozadí */
+            border: none;
+            box-shadow: none;
+            padding: 0;
             display: flex;
-            flex-direction: column;
-            align-items: flex-start; /* Zarovnání obsahu vlevo uvnitř boxu */
-            gap: 20px;
+            align-items: center; /* Zarovnání na střed výšky */
+            gap: 25px;
+            text-align: left;
         }
 
         .discord-image {
-            width: 75px;
-            height: 75px;
+            width: 90px;
+            height: 90px;
             object-fit: contain;
+            flex-shrink: 0;
             filter: drop-shadow(0 6px 12px rgba(88, 101, 242, 0.4));
             animation: floatLogo 4s ease-in-out infinite;
+        }
+
+        .discord-text-content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 12px;
         }
 
         .discord-box h2 {
@@ -576,8 +584,8 @@
         .btn-discord {
             background: linear-gradient(135deg, #5865F2, #4752C4);
             color: white;
-            padding: 14px 32px;
-            font-size: 15px;
+            padding: 12px 26px;
+            font-size: 14px;
             font-weight: bold;
             border: none;
             border-radius: 12px;
@@ -598,7 +606,7 @@
             background: linear-gradient(135deg, #6c79ff, #5865F2);
         }
 
-        /* Plovoucí notifikační pilulky na stranách */
+        /* Plovoucí notifikační pilulky – zobrazují se přímo u sekce hlasování */
         .vote-pill {
             position: absolute;
             padding: 10px 18px;
@@ -643,8 +651,12 @@
                 justify-content: center;
             }
             .discord-box {
+                flex-direction: column;
                 align-items: center;
                 text-align: center;
+            }
+            .discord-text-content {
+                align-items: center;
             }
             .vote-pill { display: none !important; }
         }
@@ -678,10 +690,12 @@
 </head>
 <body>
 
+    <!-- Načítací kolečko -->
     <div id="loader">
         <div class="spinner"></div>
     </div>
 
+    <!-- Horní panel -->
     <header>
         <div class="logo-container">
             <img src="https://github.com/user-attachments/assets/bdd5da67-7841-40f2-a218-3483f6de0bda" alt="MystiLand Logo">
@@ -701,6 +715,7 @@
         <div style="width: 100px;"></div>
     </header>
 
+    <!-- Úvodní sekce -->
     <section class="hero">
         <img src="https://github.com/user-attachments/assets/775b273f-837e-4146-ba75-34cd58d73fac" alt="MystiLand Hlavní Logo" class="hero-logo">
         <p class="hero-subtitle">Vítejte na oficiálním webu Minecraft serveru MystiLand!</p>
@@ -710,8 +725,10 @@
         </div>
     </section>
 
+    <!-- HLAVNÍ OBSAHOVÝ KONTEJNER SE VŠEMI SEKCEMI A MEZERAMI -->
     <div class="content-wrapper">
 
+        <!-- Sekce O nás (se zmenšeným obrázkem) -->
         <section id="onas" class="about-section">
             <div class="about-content">
                 <h2>O našem serveru</h2>
@@ -721,6 +738,7 @@
             <img src="https://github.com/user-attachments/assets/23d44b0f-e1d7-4a2b-8294-914d88fcc7c9" alt="O nás postavička" class="about-image">
         </section>
 
+        <!-- Sekce Minihry -->
         <section class="minigames-section">
             <h2>Co vám můžeme nabídnout - Minihry</h2>
             <div class="minigames-grid">
@@ -743,6 +761,7 @@
             </div>
         </section>
 
+        <!-- Hlasovací sekce (Vote) – plovoucí hlasy jsou nyní zde -->
         <section id="vote" class="vote-wrapper-section">
             <div class="avg-web-con-vote">
                 <div class="div-block-9">
@@ -767,6 +786,7 @@
             </div>
         </section>
 
+        <!-- SEKCE: Statistiky serveru -->
         <section class="stats-wrapper-section">
             <div class="stats-container">
                 <div class="stats-intro">
@@ -776,6 +796,7 @@
                 </div>
                 
                 <div class="stats-cards-grid">
+                    <!-- Karta 1: Zaregistrovaných hráčů -->
                     <div class="stat-card">
                         <div class="stat-icon-box">
                             <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
@@ -787,6 +808,7 @@
                         <div class="stat-sublabel">Celkem vytvořených účtů</div>
                     </div>
 
+                    <!-- Karta 2: Celkem nahráno hodin -->
                     <div class="stat-card">
                         <div class="stat-icon-box">
                             <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
@@ -798,6 +820,7 @@
                         <div class="stat-sublabel">Společně strávený čas</div>
                     </div>
 
+                    <!-- Karta 3: Členů na Discordu -->
                     <div class="stat-card">
                         <div class="stat-icon-box">
                             <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg>
@@ -812,19 +835,23 @@
             </div>
         </section>
 
+        <!-- SEKCE: Discord (vpravo, bez rámečku, obrázek vlevo) -->
         <section class="discord-wrapper-section">
             <div class="discord-box">
                 <img src="https://github.com/user-attachments/assets/775b273f-837e-4146-ba75-34cd58d73fac" alt="Discord ikona" class="discord-image">
-                <h2>Připoj se na náš Discord!</h2>
-                <p>Staň se součástí naší rostoucí komunity, získej informace o novinkách jako první, soutěž o ceny nebo si přijď popovídat s ostatními hráči a admin týmem.</p>
-                <a href="https://discord.gg/3GWM5Vy2HV" target="_blank" class="btn-discord">
-                    💬 Připojit se na Discord (<span id="discord-count-btn">3 002</span> členů)
-                </a>
+                <div class="discord-text-content">
+                    <h2>Připoj se na náš Discord!</h2>
+                    <p>Staň se součástí naší rostoucí komunity, získej informace o novinkách jako první, soutěž o ceny nebo si přijď popovídat s ostatními hráči a admin týmem.</p>
+                    <a href="https://discord.gg/3GWM5Vy2HV" target="_blank" class="btn-discord">
+                        💬 Připojit se na Discord (<span id="discord-count-btn">3 002</span> členů)
+                    </a>
+                </div>
             </div>
         </section>
 
     </div>
 
+    <!-- Notifikace zkopírování IP -->
     <div id="notification" class="notification">
         <span>✨</span> IP adresa byla úspěšně zkopírována do schránky!
     </div>
@@ -875,7 +902,7 @@
             });
         });
 
-        // Plovoucí animace hlasujících hráčů po stranách
+        // Plovoucí animace hlasujících hráčů přímo u sekce Hlasování
         const sampleNicks = ["StemYk", "ItzSary", "maTonka", "MoravakVonMoravy", "KubaCraft", "PixelBoy", "Anetka", "Tadeas"];
         const voteSection = document.getElementById('vote');
 
@@ -913,7 +940,7 @@
                     return;
                 }
 
-                let newY = progress * 450;
+                let newY = progress * 350;
                 pill.style.bottom = `${newY}px`;
 
                 if (progress < 0.1) {
