@@ -15,3 +15,12 @@ discord : <img width="218" height="226" alt="633976902-43f15886-1644-447a-a847-0
 pr. <img width="306" height="630" alt="image" src="https://github.com/user-attachments/assets/2cd8e574-2572-47cf-a5d5-f74b593f5b42" />
 lv. <img width="329" height="629" alt="image" src="https://github.com/user-attachments/assets/d9e2727e-0b92-4483-a943-1f1788b208b6" />
 pros. <img width="335" height="613" alt="image" src="https://github.com/user-attachments/assets/78a27d2c-2b8b-4a5a-87f9-06e6f9581425" />
+
+
+
+survival 
+<img width="1024" height="195" alt="image" src="https://github.com/user-attachments/assets/b695f826-c19d-4409-8322-6152414997c7" />
+
+již br.
+<img width="1024" height="287" alt="image" src="https://github.com/user-attachments/assets/2c2f3677-662f-4037-9729-01afbfc8244d" />
+<img width="1024" height="288" alt="image" src="https://github.com/user-attachments/assets/5ea79781-a81f-4efd-8678-1d302e8d636e" />
