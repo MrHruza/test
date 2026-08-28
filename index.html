@@ -14,7 +14,8 @@
         }
 
         body {
-            background-color: #0d0614;
+            /* Fialové tmavé přechodové pozadí celé stránky */
+            background: linear-gradient(to bottom, #0d0614, #150924 30%, #0b0412 70%, #06020a);
             color: #ffffff;
             overflow-x: hidden;
             scroll-behavior: smooth;
@@ -203,16 +204,16 @@
             color: #ffffff;
         }
 
-        /* Jednotné pozadí pro sekci O nás i Minihry */
+        /* Společný kontejner pro O nás i Minihry - bez dělicích čar */
         .unified-section-bg {
-            background: #0d0614;
+            background: transparent;
             padding: 90px 20px;
         }
 
         /* Sekce "O nás" bez rámečku na obrázku */
         .about-section {
             max-width: 1100px;
-            margin: 0 auto 80px auto;
+            margin: 0 auto 90px auto;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -258,7 +259,7 @@
             border: none;
         }
 
-        /* Sekce Minihry - bez rámečků, s vlastními obrázky namísto textu */
+        /* Sekce Minihry - bez rámečků, bez tlačítek "Chci vědět více" */
         .minigames-section {
             max-width: 1200px;
             margin: 0 auto;
@@ -314,33 +315,13 @@
             line-height: 1.6;
         }
 
-        .h-card-btn {
-            background: rgba(139, 92, 246, 0.15);
-            border: 1px solid rgba(139, 92, 246, 0.4);
-            color: white;
-            padding: 12px 20px;
-            border-radius: 10px;
-            text-align: center;
-            font-weight: 600;
-            font-size: 14px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .h-card-btn:hover {
-            background: rgba(139, 92, 246, 0.3);
-            border-color: #8b5cf6;
-        }
-
-        /* Sekce Hlasování (Vote) s plovoucími postranními animacemi */
+        /* Sekce Hlasování (Vote) - bez jakékoliv dělicí čáry nad ní */
         .vote-wrapper-section {
             position: relative;
-            background: #0d0614;
-            padding: 80px 20px;
+            background: transparent;
+            padding: 50px 20px 100px 20px;
             overflow: hidden;
-            border-top: 1px solid #1f1035;
+            border-top: none; /* Odstraněna jakákoliv dřívější čára */
         }
 
         .avg-web-con-vote {
@@ -425,10 +406,10 @@
         }
 
         .button-vote {
-            padding: 12px 24px;
+            padding: 12px 20px;
             border-radius: 10px;
             font-weight: 600;
-            font-size: 14px;
+            font-size: 13px;
             text-decoration: none;
             color: white;
             transition: transform 0.2s, opacity 0.2s;
@@ -439,6 +420,7 @@
         .craftlist-design { background: #3b82f6; }
         .czechcraft-design { background: #f97316; }
         .minecraftservery-design { background: #8b5cf6; }
+        .minecraftlist-design { background: #10b981; } /* Čtvrtá hlasovací stránka */
 
         .button-vote:hover {
             transform: translateY(-2px);
@@ -547,7 +529,7 @@
         </div>
     </section>
 
-    <!-- Společná sekce pro O nás i Minihry se stejným pozadím -->
+    <!-- Společná sekce pro O nás i Minihry (plynulé tmavě fialové pozadí, bez čar) -->
     <div class="unified-section-bg">
         <!-- Sekce O nás -->
         <section id="onas" class="about-section">
@@ -560,40 +542,34 @@
             <img src="https://github.com/user-attachments/assets/23d44b0f-e1d7-4a2b-8294-914d88fcc7c9" alt="O nás postavička" class="about-image">
         </section>
 
-        <!-- Sekce Minihry - bez rámečků, s vlastními obrázky namísto textu -->
+        <!-- Sekce Minihry - bez tlačítek "Chci vědět více", bez rámečků -->
         <section class="minigames-section">
             <h2>Co vám můžeme nabídnout - Minihry</h2>
             <div class="minigames-grid">
                 
                 <div class="game-card">
                     <img src="https://cdn.prod.website-files.com/6960358238e60855e0241576/69660106586025b7e2d0c53a_Frame%2053.png" loading="lazy" alt="Survival" class="image-card-h">
-                    <!-- Zde místo textu vkládáš soubor jako obrázek názvu -->
                     <img src="https://cdn.prod.website-files.com/68828d32a4fb4696477cfc1e/69660a1cef21fdc37b8f6193_0f536b696f1e072848c725fcc16c28a8_Frame%2054.png" alt="Survival Nadpis" class="card-heading-img">
                     <p class="text-block-4">Zkoumej zákoutí úplně nového světa, vybuduj si s kamarády obydlí a překonávej ostatní!</p>
-                    <a href="#" class="h-card-btn">Chci vědět více...</a>
                 </div>
 
                 <div class="game-card">
                     <img src="https://cdn.prod.website-files.com/6960358238e60855e0241576/696601b3e52b309916863284_Frame%2052.png" loading="lazy" alt="OneBlock" class="image-card-h">
-                    <!-- Zde místo textu vkládáš soubor jako obrázek názvu (můžeš vyměnit src za vlastní obrázek názvu) -->
                     <img src="https://cdn.prod.website-files.com/68828d32a4fb4696477cfc1e/69660a0f8393547fac5bbd33_4a76b23846b00cd730d7b2c5dd5594b8_Frame%20odznak.png" alt="OneBlock Nadpis" class="card-heading-img">
                     <p class="text-block-4">Na tomto módu dokážeš z jednoho jediného blocku vybudovat obří impérium.</p>
-                    <a href="#" class="h-card-btn">Chci vědět více...</a>
                 </div>
 
                 <div class="game-card">
                     <img src="https://cdn.prod.website-files.com/6960358238e60855e0241576/696be04a8d05bb84b06b8587_SMP.png" loading="lazy" alt="SkyBlock" class="image-card-h">
-                    <!-- Zde místo textu vkládáš soubor jako obrázek názvu -->
                     <img src="https://cdn.prod.website-files.com/68828d32a4fb4696477cfc1e/69660a1cef21fdc37b8f6193_0f536b696f1e072848c725fcc16c28a8_Frame%2054.png" alt="SkyBlock Nadpis" class="card-heading-img">
                     <p class="text-block-4">Postav svůj ostrov od základu ve vzduchu, plň úkoly, obchoduj s ostatními a staň se nejlepším.</p>
-                    <a href="#" class="h-card-btn">Chci vědět více...</a>
                 </div>
 
             </div>
         </section>
     </div>
 
-    <!-- Hlasovací sekce s plovoucími postranními hráči -->
+    <!-- Hlasovací sekce (Vote) - plynule navazuje bez jakékoliv dělicí čáry -->
     <section id="vote" class="vote-wrapper-section">
         <div class="avg-web-con-vote">
             <div class="div-block-9">
@@ -612,6 +588,8 @@
                     <button data-vote-url="https://craftlist.org/mystiland?nickname=%p%" class="button-vote craftlist-design" disabled>CraftList.cz</button>
                     <button data-vote-url="https://czech-craft.eu/server/mystiland/vote/?user=%p%" class="button-vote czechcraft-design" disabled>Czech-Craft.cz</button>
                     <button data-vote-url="https://minecraftservery.eu/server/mystiland/vote/%p%" class="button-vote minecraftservery-design" disabled>MinecraftServery.eu</button>
+                    <!-- Čtvrtá hlasovací stránka -->
+                    <button data-vote-url="https://www.minecraft-list.cz/server/mystiland/vote?nick=%p%" class="button-vote minecraftlist-design" disabled>Minecraft-List.cz</button>
                 </div>
             </div>
         </div>
@@ -666,7 +644,7 @@
             });
         });
 
-        // Plovoucí animace hlasujících hráčů po stranách (ukázkové jména)
+        // Plovoucí animace hlasujících hráčů po stranách
         const sampleNicks = ["StemYk", "ItzSary", "maTonka", "MoravakVonMoravy", "KubaCraft", "PixelBoy", "Anetka", "Tadeas"];
         const voteSection = document.getElementById('vote');
 
@@ -674,7 +652,7 @@
             const pill = document.createElement('div');
             const nick = sampleNicks[Math.floor(Math.random() * sampleNicks.length)];
             const isLeft = Math.random() > 0.5;
-            const xPos = isLeft ? Math.random() * 18 + 2 : Math.random() * 18 + 80; // Pozice na levém či pravém okraji
+            const xPos = isLeft ? Math.random() * 18 + 2 : Math.random() * 18 + 80;
 
             pill.className = 'vote-pill';
             pill.style.left = `${xPos}%`;
@@ -693,7 +671,7 @@
             voteSection.appendChild(pill);
 
             let startTime = Date.now();
-            let duration = 14000; // Trvání animace výstupu nahoru
+            let duration = 14000;
 
             function animatePill() {
                 let elapsed = Date.now() - startTime;
@@ -704,10 +682,9 @@
                     return;
                 }
 
-                let newY = progress * 450; // Výška, kam až vyjede
+                let newY = progress * 450;
                 pill.style.bottom = `${newY}px`;
 
-                // Plynulý fade-in a fade-out
                 if (progress < 0.1) {
                     pill.style.opacity = progress * 10;
                 } else if (progress > 0.8) {
@@ -721,7 +698,6 @@
             animatePill();
         }
 
-        // Spouštění nových plovoucích bublin v intervalu
         setInterval(createVotePill, 3500);
     </script>
 </body>
