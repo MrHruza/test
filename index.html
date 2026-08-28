@@ -104,7 +104,6 @@
             transform: translateY(-1px);
         }
 
-        /* Vylepšená animace pro Obchod */
         .store-btn {
             background: linear-gradient(135deg, #7c3aed, #6d28d9);
             color: white !important;
@@ -204,10 +203,16 @@
             color: #ffffff;
         }
 
-        /* Sekce "O nás" */
+        /* Jednotné pozadí pro sekci O nás i Minihry */
+        .unified-section-bg {
+            background: #0d0614;
+            padding: 90px 20px;
+        }
+
+        /* Sekce "O nás" bez rámečku na obrázku */
         .about-section {
-            padding: 100px 50px;
-            background: linear-gradient(to bottom, #0d0614, #130a24);
+            max-width: 1100px;
+            margin: 0 auto 80px auto;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -244,25 +249,26 @@
             margin-bottom: 15px;
         }
 
-        /* Zmenšený obrázek bez rámečku */
         .about-image {
-            max-width: 300px;
+            max-width: 280px;
             width: 100%;
-            border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            height: auto;
+            background: transparent;
+            box-shadow: none;
+            border: none;
         }
 
-        /* Sekce Minihry */
+        /* Sekce Minihry - bez rámečků, s vlastními obrázky namísto textu */
         .minigames-section {
-            padding: 80px 50px;
-            background-color: #0b0512;
+            max-width: 1200px;
+            margin: 0 auto;
             text-align: center;
         }
 
         .minigames-section h2 {
             font-size: 32px;
             color: #ffffff;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
@@ -272,39 +278,212 @@
             justify-content: center;
             gap: 30px;
             flex-wrap: wrap;
-            max-width: 1200px;
-            margin: 0 auto;
         }
 
         .game-card {
-            background: #130a24;
-            border: 1px solid #231242;
-            border-radius: 16px;
-            padding: 30px;
+            background: transparent;
+            border: none;
+            box-shadow: none;
+            padding: 0;
             width: 350px;
             text-align: left;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
         }
 
-        .game-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(124, 58, 237, 0.2);
-            border-color: #7c3aed;
+        .game-card img.image-card-h {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            display: block;
+            background: transparent;
+            box-shadow: none;
         }
 
-        .game-card h3 {
-            font-size: 20px;
-            color: #ffffff;
-            margin-bottom: 12px;
+        .game-card .card-heading-img {
+            max-height: 35px;
+            width: auto;
+            object-fit: contain;
+            align-self: flex-start;
         }
 
-        .game-card p {
+        .game-card p.text-block-4 {
             font-size: 14px;
             color: #b7a9ce;
             line-height: 1.6;
         }
 
-        /* Notifikační rámeček */
+        .h-card-btn {
+            background: rgba(139, 92, 246, 0.15);
+            border: 1px solid rgba(139, 92, 246, 0.4);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .h-card-btn:hover {
+            background: rgba(139, 92, 246, 0.3);
+            border-color: #8b5cf6;
+        }
+
+        /* Sekce Hlasování (Vote) s plovoucími postranními animacemi */
+        .vote-wrapper-section {
+            position: relative;
+            background: #0d0614;
+            padding: 80px 20px;
+            overflow: hidden;
+            border-top: 1px solid #1f1035;
+        }
+
+        .avg-web-con-vote {
+            max-width: 850px;
+            margin: 0 auto;
+            background: #130a24;
+            border: 1px solid #231242;
+            border-radius: 20px;
+            padding: 40px;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+        }
+
+        .div-block-9 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .heading-3 {
+            font-size: 26px;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        .text-block-6 {
+            color: #b7a9ce;
+            font-size: 14px;
+        }
+
+        .vote-player {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .vote-heading {
+            font-size: 18px;
+            color: #ffffff;
+        }
+
+        .nick-row {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: #1c0f33;
+            padding: 10px 20px;
+            border-radius: 14px;
+            border: 1px solid #32185c;
+            width: 100%;
+            max-width: 450px;
+        }
+
+        .player-head {
+            width: 40px;
+            height: 40px;
+            border-radius: 6px;
+            object-fit: cover;
+        }
+
+        .text-field {
+            width: 100%;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 15px;
+            outline: none;
+        }
+
+        .text-field::placeholder {
+            color: #8a79a8;
+        }
+
+        .vote-links {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .button-vote {
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 14px;
+            text-decoration: none;
+            color: white;
+            transition: transform 0.2s, opacity 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .craftlist-design { background: #3b82f6; }
+        .czechcraft-design { background: #f97316; }
+        .minecraftservery-design { background: #8b5cf6; }
+
+        .button-vote:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+
+        .button-vote:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Plovoucí notifikační pilulky na stranách */
+        .vote-pill {
+            position: absolute;
+            padding: 10px 18px;
+            border-radius: 50px;
+            background: rgba(25, 15, 45, 0.85);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            color: #d1c4e9;
+            font-size: 13px;
+            font-weight: 500;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .vote-pill-avatar {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid #8b5cf6;
+        }
+
+        @media (max-width: 1100px) {
+            .vote-pill { display: none !important; }
+        }
+
+        /* Notifikace zkopírování IP */
         .notification {
             position: fixed;
             bottom: 35px;
@@ -361,70 +540,189 @@
     <!-- Úvodní sekce -->
     <section class="hero">
         <img src="https://github.com/user-attachments/assets/775b273f-837e-4146-ba75-34cd58d73fac" alt="MystiLand Hlavní Logo" class="hero-logo">
-        
         <p class="hero-subtitle">Vítejte na oficiálním webu Minecraft serveru MystiLand!</p>
-        
         <div class="hero-buttons">
             <a href="#onas" class="btn-primary">Chci jít hrát!</a>
             <button class="btn-ip" onclick="copyIP()">📋 play.mystiland.eu</button>
         </div>
     </section>
 
-    <!-- Sekce O nás -->
-    <section id="onas" class="about-section">
-        <div class="about-content">
-            <h2>O našem serveru</h2>
-            <p>Vítejte na MystiLand, jedinečném Minecraft serveru, který vám přináší nezapomenutelný herní zážitek! Naše komunity staví na přátelském prostředí, skvělém admin týmu a neustále vylepšovaných herních módech.</p>
-            <p>Připojte se k nám ještě dnes, objevujte nová dobrodružství, stavte své vysněné stavby a ukažte všem, co ve vás je. Těšíme se na vás ve hře!</p>
+    <!-- Společná sekce pro O nás i Minihry se stejným pozadím -->
+    <div class="unified-section-bg">
+        <!-- Sekce O nás -->
+        <section id="onas" class="about-section">
+            <div class="about-content">
+                <h2>O našem serveru</h2>
+                <p>Vítejte na MystiLand, jedinečném Minecraft serveru, který vám přináší nezapomenutelný herní zážitek! Naše komunita staví na přátelském prostředí, skvělém admin týmu a neustále vylepšovaných herních módech.</p>
+                <p>Připojte se k nám ještě dnes, objevujte nová dobrodružství, stavte své vysněné stavby a ukažte všem, co ve vás je. Těšíme se na vás ve hře!</p>
+            </div>
+            <!-- Obrázek postavičky zcela bez rámečku -->
+            <img src="https://github.com/user-attachments/assets/23d44b0f-e1d7-4a2b-8294-914d88fcc7c9" alt="O nás postavička" class="about-image">
+        </section>
+
+        <!-- Sekce Minihry - bez rámečků, s vlastními obrázky namísto textu -->
+        <section class="minigames-section">
+            <h2>Co vám můžeme nabídnout - Minihry</h2>
+            <div class="minigames-grid">
+                
+                <div class="game-card">
+                    <img src="https://cdn.prod.website-files.com/6960358238e60855e0241576/69660106586025b7e2d0c53a_Frame%2053.png" loading="lazy" alt="Survival" class="image-card-h">
+                    <!-- Zde místo textu vkládáš soubor jako obrázek názvu -->
+                    <img src="https://cdn.prod.website-files.com/68828d32a4fb4696477cfc1e/69660a1cef21fdc37b8f6193_0f536b696f1e072848c725fcc16c28a8_Frame%2054.png" alt="Survival Nadpis" class="card-heading-img">
+                    <p class="text-block-4">Zkoumej zákoutí úplně nového světa, vybuduj si s kamarády obydlí a překonávej ostatní!</p>
+                    <a href="#" class="h-card-btn">Chci vědět více...</a>
+                </div>
+
+                <div class="game-card">
+                    <img src="https://cdn.prod.website-files.com/6960358238e60855e0241576/696601b3e52b309916863284_Frame%2052.png" loading="lazy" alt="OneBlock" class="image-card-h">
+                    <!-- Zde místo textu vkládáš soubor jako obrázek názvu (můžeš vyměnit src za vlastní obrázek názvu) -->
+                    <img src="https://cdn.prod.website-files.com/68828d32a4fb4696477cfc1e/69660a0f8393547fac5bbd33_4a76b23846b00cd730d7b2c5dd5594b8_Frame%20odznak.png" alt="OneBlock Nadpis" class="card-heading-img">
+                    <p class="text-block-4">Na tomto módu dokážeš z jednoho jediného blocku vybudovat obří impérium.</p>
+                    <a href="#" class="h-card-btn">Chci vědět více...</a>
+                </div>
+
+                <div class="game-card">
+                    <img src="https://cdn.prod.website-files.com/6960358238e60855e0241576/696be04a8d05bb84b06b8587_SMP.png" loading="lazy" alt="SkyBlock" class="image-card-h">
+                    <!-- Zde místo textu vkládáš soubor jako obrázek názvu -->
+                    <img src="https://cdn.prod.website-files.com/68828d32a4fb4696477cfc1e/69660a1cef21fdc37b8f6193_0f536b696f1e072848c725fcc16c28a8_Frame%2054.png" alt="SkyBlock Nadpis" class="card-heading-img">
+                    <p class="text-block-4">Postav svůj ostrov od základu ve vzduchu, plň úkoly, obchoduj s ostatními a staň se nejlepším.</p>
+                    <a href="#" class="h-card-btn">Chci vědět více...</a>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+    <!-- Hlasovací sekce s plovoucími postranními hráči -->
+    <section id="vote" class="vote-wrapper-section">
+        <div class="avg-web-con-vote">
+            <div class="div-block-9">
+                <h2 class="heading-3">Hlasem podpoříš sebe i server</h2>
+                <div class="text-block-6">Každé 2 hodiny můžeš hlasovat pro sebe a rychleji progresovat v našich hrách.</div>
+            </div>
+            
+            <div class="vote-player">
+                <h3 class="vote-heading">Hlasovací konfigurátor</h3>
+                <div class="nick-row">
+                    <img src="https://cdn.prod.website-files.com/68828d32a4fb4696477cfc1e/695a6fa31451ea9b96070b62_steve.jpg" id="player-head-image" alt="Hlava" class="player-head"/>
+                    <input class="text-field" maxlength="256" placeholder="Zadej svůj herní nick" type="text" id="player-nick-input"/>
+                </div>
+                
+                <div class="vote-links">
+                    <button data-vote-url="https://craftlist.org/mystiland?nickname=%p%" class="button-vote craftlist-design" disabled>CraftList.cz</button>
+                    <button data-vote-url="https://czech-craft.eu/server/mystiland/vote/?user=%p%" class="button-vote czechcraft-design" disabled>Czech-Craft.cz</button>
+                    <button data-vote-url="https://minecraftservery.eu/server/mystiland/vote/%p%" class="button-vote minecraftservery-design" disabled>MinecraftServery.eu</button>
+                </div>
+            </div>
         </div>
-        <!-- Zmenšený obrázek bez rámečku -->
-        <img src="https://github.com/user-attachments/assets/23d44b0f-e1d7-4a2b-8294-914d88fcc7c9" alt="O nás obrázek" class="about-image">
     </section>
 
-    <!-- Sekce Minihry -->
-    <section class="minigames-section">
-        <h2>Co vám můžeme nabídnout - Minihry</h2>
-        <div class="minigames-grid">
-            <div class="game-card">
-                <h3>Survival</h3>
-                <p>Klasický survival zážitek s vylepšenou ekonomikou, ochranou pozemků, questy a skvělou komunitou hráčů.</p>
-            </div>
-            <div class="game-card">
-                <h3>OneBlock</h3>
-                <p>Začni na jediném bloku, těš ho pro získání surovin, rozšiřuj svůj ostrov a plň zajímavé výzvy.</p>
-            </div>
-            <div class="game-card">
-                <h3>SkyBlock</h3>
-                <p>Postav svůj ostrov od základu ve vzduchu, plň úkoly, obchoduj s ostatními a staň se nejlepším hráčem.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Oznámení o zkopírování -->
+    <!-- Notifikace zkopírování IP -->
     <div id="notification" class="notification">
         <span>✨</span> IP adresa byla úspěšně zkopírována do schránky!
     </div>
 
     <script>
+        // Odstranění loaderu
         window.addEventListener('load', () => {
             const loader = document.getElementById('loader');
             loader.style.opacity = '0';
-            setTimeout(() => {
-                loader.style.display = 'none';
-            }, 500);
+            setTimeout(() => { loader.style.display = 'none'; }, 500);
         });
 
+        // Kopírování IP
         function copyIP() {
-            const ip = "play.mystiland.eu";
-            navigator.clipboard.writeText(ip).then(() => {
+            navigator.clipboard.writeText("play.mystiland.eu").then(() => {
                 const notification = document.getElementById("notification");
                 notification.classList.add("show");
-                
-                setTimeout(() => {
-                    notification.classList.remove("show");
-                }, 3500);
+                setTimeout(() => { notification.classList.remove("show"); }, 3500);
             });
         }
+
+        // Hlasovací konfigurátor – změna hlavy a aktivace tlačítek podle nicku
+        const inputField = document.getElementById('player-nick-input');
+        const headImage = document.getElementById('player-head-image');
+        const voteButtons = document.querySelectorAll('[data-vote-url]');
+        const defaultHeadSrc = "https://cdn.prod.website-files.com/68828d32a4fb4696477cfc1e/695a6fa31451ea9b96070b62_steve.jpg";
+
+        inputField.addEventListener('input', function() {
+            const nick = this.value.trim();
+            if (nick.length > 0) {
+                headImage.src = `https://mc-heads.net/avatar/${nick}/64`;
+                voteButtons.forEach(btn => btn.disabled = false);
+            } else {
+                headImage.src = defaultHeadSrc;
+                voteButtons.forEach(btn => btn.disabled = true);
+            }
+        });
+
+        voteButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                const nick = inputField.value.trim();
+                const urlTemplate = this.getAttribute('data-vote-url');
+                if (!nick || !urlTemplate) return;
+                window.open(urlTemplate.replace(/%p%/g, nick), '_blank');
+            });
+        });
+
+        // Plovoucí animace hlasujících hráčů po stranách (ukázkové jména)
+        const sampleNicks = ["StemYk", "ItzSary", "maTonka", "MoravakVonMoravy", "KubaCraft", "PixelBoy", "Anetka", "Tadeas"];
+        const voteSection = document.getElementById('vote');
+
+        function createVotePill() {
+            const pill = document.createElement('div');
+            const nick = sampleNicks[Math.floor(Math.random() * sampleNicks.length)];
+            const isLeft = Math.random() > 0.5;
+            const xPos = isLeft ? Math.random() * 18 + 2 : Math.random() * 18 + 80; // Pozice na levém či pravém okraji
+
+            pill.className = 'vote-pill';
+            pill.style.left = `${xPos}%`;
+            pill.style.bottom = '0px';
+            pill.style.opacity = '0';
+
+            const img = document.createElement('img');
+            img.className = 'vote-pill-avatar';
+            img.src = `https://mc-heads.net/avatar/${nick}/32`;
+
+            const text = document.createElement('span');
+            text.textContent = `+${nick} zahlasoval`;
+
+            pill.appendChild(img);
+            pill.appendChild(text);
+            voteSection.appendChild(pill);
+
+            let startTime = Date.now();
+            let duration = 14000; // Trvání animace výstupu nahoru
+
+            function animatePill() {
+                let elapsed = Date.now() - startTime;
+                let progress = elapsed / duration;
+
+                if (progress >= 1) {
+                    pill.remove();
+                    return;
+                }
+
+                let newY = progress * 450; // Výška, kam až vyjede
+                pill.style.bottom = `${newY}px`;
+
+                // Plynulý fade-in a fade-out
+                if (progress < 0.1) {
+                    pill.style.opacity = progress * 10;
+                } else if (progress > 0.8) {
+                    pill.style.opacity = (1 - progress) * 5;
+                } else {
+                    pill.style.opacity = '1';
+                }
+
+                requestAnimationFrame(animatePill);
+            }
+            animatePill();
+        }
+
+        // Spouštění nových plovoucích bublin v intervalu
+        setInterval(createVotePill, 3500);
     </script>
 </body>
 </html>
