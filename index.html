@@ -69,6 +69,7 @@
             display: flex;
             align-items: center;
             gap: 12px;
+            text-decoration: none;
         }
 
         .logo-container img {
@@ -814,18 +815,17 @@
 
     <!-- Horní panel -->
     <header>
-        <div class="logo-container">
+        <a href="index.html" class="logo-container">
             <img src="https://github.com/user-attachments/assets/bdd5da67-7841-40f2-a218-3483f6de0bda" alt="MystiLand Logo">
             <span>MystiLand</span>
-        </div>
+        </a>
         
         <nav>
             <ul>
-                <li><a href="#" class="active">Home</a></li>
-                <li><a href="#">Pravidla</a></li>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="pripojit.html">Jak se připojit</a></li>
+                <li><a href="#vote">Hlasovat</a></li>
                 <li><a href="#" class="store-btn">Obchod</a></li>
-                <li><a href="#">Wiki</a></li>
-                <li><a href="#">Admin Team</a></li>
             </ul>
         </nav>
         
@@ -837,7 +837,8 @@
         <img src="https://github.com/user-attachments/assets/775b273f-837e-4146-ba75-34cd58d73fac" alt="MystiLand Hlavní Logo" class="hero-logo">
         <p class="hero-subtitle">Vítejte na oficiálním webu Minecraft serveru MystiLand!</p>
         <div class="hero-buttons">
-            <a href="#onas" class="btn-primary">Chci jít hrát!</a>
+            <!-- TLAČÍTKO "CHCI JÍT HRÁT!" ODKAZUJÍCÍ NA PRIPOJIT.HTML -->
+            <a href="pripojit.html" class="btn-primary">Chci jít hrát!</a>
             <button class="btn-ip" onclick="copyIP()">📋 play.mystiland.eu</button>
         </div>
     </section>
@@ -940,7 +941,6 @@
                             <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg>
                         </div>
                         <div>
-                            <!-- Zde ID pro dynamické načítání členů z Discordu -->
                             <div class="stat-number" id="stat-discord">...</div>
                             <div class="stat-label">Členů na Discordu</div>
                         </div>
@@ -1003,10 +1003,10 @@
             <div class="footer-col">
                 <h4>Navigace</h4>
                 <ul>
-                    <li><a href="#onas">› Chci jít hrát!</a></li>
-                    <li><a href="#">› Pravidla</a></li>
-                    <li><a href="#">› Wiki</a></li>
-                    <li><a href="#">› Admin Team</a></li>
+                    <!-- ODKAZ V PATIČCE NA PRIPOJIT.HTML -->
+                    <li><a href="pripojit.html">› Chci jít hrát!</a></li>
+                    <li><a href="#vote">› Hlasování</a></li>
+                    <li><a href="https://discord.gg/3GWM5Vy2HV" target="_blank">› Discord</a></li>
                 </ul>
             </div>
 
@@ -1072,10 +1072,6 @@
             document.getElementById('stat-registered').textContent = "14 285";
             document.getElementById('stat-hours').textContent = "86 420";
 
-            // Načtení reálného počtu členů z Discord Widget API (nahraď ID tvého serveru, pokud je jiné)
-            const discordServerId = "3GWM5Vy2HV"; // Případně vlož číselné ID serveru, pokud máš widget API spárované s ID
-            // Poznámka: Pro Discord widget API je potřeba číselné ID serveru (např. 123456789012345678). 
-            // Pokud máš jen pozvánku, níže zkusíme načíst data přes widget JSON endpoint:
             fetch("https://discord.com/api/guilds/123456789012345678/widget.json")
                 .then(response => response.json())
                 .then(data => {
@@ -1084,7 +1080,6 @@
                     }
                 })
                 .catch(() => {
-                    // Záložní hodnota, pokud widget není v administraci Discordu povolen
                     document.getElementById('stat-discord').textContent = "3 002";
                 });
         }
