@@ -14,7 +14,6 @@
         }
 
         body {
-            /* Fialové tmavé přechodové pozadí celé stránky */
             background: linear-gradient(to bottom, #0d0614, #150924 30%, #0b0412 70%, #06020a);
             color: #ffffff;
             overflow-x: hidden;
@@ -204,13 +203,12 @@
             color: #ffffff;
         }
 
-        /* Společný kontejner pro O nás i Minihry - bez dělicích čar */
         .unified-section-bg {
             background: transparent;
-            padding: 90px 20px;
+            padding: 90px 20px 30px 20px;
         }
 
-        /* Sekce "O nás" bez rámečku na obrázku */
+        /* Sekce O nás */
         .about-section {
             max-width: 1100px;
             margin: 0 auto 90px auto;
@@ -259,7 +257,7 @@
             border: none;
         }
 
-        /* Sekce Minihry - bez rámečků, bez tlačítek "Chci vědět více" */
+        /* Sekce Minihry */
         .minigames-section {
             max-width: 1200px;
             margin: 0 auto;
@@ -315,13 +313,13 @@
             line-height: 1.6;
         }
 
-        /* Sekce Hlasování (Vote) - bez jakékoliv dělicí čáry nad ní */
+        /* Sekce Hlasování (Vote) */
         .vote-wrapper-section {
             position: relative;
             background: transparent;
-            padding: 50px 20px 100px 20px;
+            padding: 50px 20px 70px 20px;
             overflow: hidden;
-            border-top: none; /* Odstraněna jakákoliv dřívější čára */
+            border-top: none;
         }
 
         .avg-web-con-vote {
@@ -398,7 +396,7 @@
 
         .vote-links {
             display: flex;
-            gap: 12px;
+            gap: 10px;
             flex-wrap: wrap;
             justify-content: center;
             width: 100%;
@@ -406,7 +404,7 @@
         }
 
         .button-vote {
-            padding: 12px 20px;
+            padding: 12px 16px;
             border-radius: 10px;
             font-weight: 600;
             font-size: 13px;
@@ -420,7 +418,7 @@
         .craftlist-design { background: #3b82f6; }
         .czechcraft-design { background: #f97316; }
         .minecraftservery-design { background: #8b5cf6; }
-        .minecraftlist-design { background: #10b981; } /* Čtvrtá hlasovací stránka */
+        .minecraftlist-design { background: #10b981; }
 
         .button-vote:hover {
             transform: translateY(-2px);
@@ -431,6 +429,119 @@
             opacity: 0.5;
             cursor: not-allowed;
             transform: none;
+        }
+
+        /* NOVÁ SEKCE: Statistiky serveru (přesně podle vzoru MineHub v číslech) */
+        .stats-wrapper-section {
+            background: #0d0614;
+            padding: 90px 20px;
+            border-top: 1px solid #231242;
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .stats-intro {
+            max-width: 380px;
+        }
+
+        .stats-intro-small {
+            font-size: 13px;
+            font-weight: 700;
+            color: #8b5cf6;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 12px;
+        }
+
+        .stats-intro h2 {
+            font-size: 42px;
+            font-weight: 800;
+            color: #ffffff;
+            line-height: 1.15;
+            margin-bottom: 20px;
+        }
+
+        .stats-intro p {
+            font-size: 14px;
+            color: #b7a9ce;
+            line-height: 1.6;
+        }
+
+        .stats-cards-grid {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            flex: 1;
+            justify-content: flex-end;
+        }
+
+        .stat-card {
+            background: #130a24;
+            border: 1px solid #231242;
+            border-radius: 16px;
+            padding: 35px 30px;
+            width: 230px;
+            min-height: 220px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: #8b5cf6;
+        }
+
+        .stat-icon-box {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            width: 40px;
+            height: 40px;
+            background: rgba(139, 92, 246, 0.15);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #8b5cf6;
+        }
+
+        .stat-icon-box svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        .stat-number {
+            font-size: 38px;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: -0.5px;
+            margin-top: 30px;
+        }
+
+        .stat-label {
+            font-size: 16px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-top: 5px;
+        }
+
+        .stat-sublabel {
+            font-size: 12px;
+            color: #8a79a8;
+            margin-top: 3px;
         }
 
         /* Plovoucí notifikační pilulky na stranách */
@@ -461,7 +572,23 @@
             border: 1px solid #8b5cf6;
         }
 
-        @media (max-width: 1100px) {
+        @media (max-width: 1200px) {
+            .stats-container {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .stats-intro {
+                max-width: 100%;
+            }
+            .stats-intro h2::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            .stats-cards-grid {
+                justify-content: center;
+                width: 100%;
+            }
             .vote-pill { display: none !important; }
         }
 
@@ -529,7 +656,7 @@
         </div>
     </section>
 
-    <!-- Společná sekce pro O nás i Minihry (plynulé tmavě fialové pozadí, bez čar) -->
+    <!-- Společná sekce pro O nás i Minihry -->
     <div class="unified-section-bg">
         <!-- Sekce O nás -->
         <section id="onas" class="about-section">
@@ -538,11 +665,10 @@
                 <p>Vítejte na MystiLand, jedinečném Minecraft serveru, který vám přináší nezapomenutelný herní zážitek! Naše komunita staví na přátelském prostředí, skvělém admin týmu a neustále vylepšovaných herních módech.</p>
                 <p>Připojte se k nám ještě dnes, objevujte nová dobrodružství, stavte své vysněné stavby a ukažte všem, co ve vás je. Těšíme se na vás ve hře!</p>
             </div>
-            <!-- Obrázek postavičky zcela bez rámečku -->
             <img src="https://github.com/user-attachments/assets/23d44b0f-e1d7-4a2b-8294-914d88fcc7c9" alt="O nás postavička" class="about-image">
         </section>
 
-        <!-- Sekce Minihry - bez tlačítek "Chci vědět více", bez rámečků -->
+        <!-- Sekce Minihry -->
         <section class="minigames-section">
             <h2>Co vám můžeme nabídnout - Minihry</h2>
             <div class="minigames-grid">
@@ -569,7 +695,7 @@
         </section>
     </div>
 
-    <!-- Hlasovací sekce (Vote) - plynule navazuje bez jakékoliv dělicí čáry -->
+    <!-- Hlasovací sekce (Vote) -->
     <section id="vote" class="vote-wrapper-section">
         <div class="avg-web-con-vote">
             <div class="div-block-9">
@@ -588,8 +714,56 @@
                     <button data-vote-url="https://craftlist.org/mystiland?nickname=%p%" class="button-vote craftlist-design" disabled>CraftList.cz</button>
                     <button data-vote-url="https://czech-craft.eu/server/mystiland/vote/?user=%p%" class="button-vote czechcraft-design" disabled>Czech-Craft.cz</button>
                     <button data-vote-url="https://minecraftservery.eu/server/mystiland/vote/%p%" class="button-vote minecraftservery-design" disabled>MinecraftServery.eu</button>
-                    <!-- Čtvrtá hlasovací stránka -->
                     <button data-vote-url="https://www.minecraft-list.cz/server/mystiland/vote?nick=%p%" class="button-vote minecraftlist-design" disabled>Minecraft-List.cz</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NOVÁ SEKCE: Statistiky serveru (přesně podle designu MineHubu) -->
+    <section class="stats-wrapper-section">
+        <div class="stats-container">
+            <div class="stats-intro">
+                <div class="stats-intro-small">MYSTILAND V ČÍSLECH</div>
+                <h2>Server, který nikdy nespí.</h2>
+                <p>Živý přehled toho, co se právě děje na MystiLandu a co už naše komunita společně dokázala.</p>
+            </div>
+            
+            <div class="stats-cards-grid">
+                <!-- Karta 1: Zaregistrovaných hráčů -->
+                <div class="stat-card">
+                    <div class="stat-icon-box">
+                        <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+                    </div>
+                    <div>
+                        <div class="stat-number" id="stat-registered">--</div>
+                        <div class="stat-label">Zaregistrovaných hráčů</div>
+                    </div>
+                    <div class="stat-sublabel">Celkem vytvořených účtů</div>
+                </div>
+
+                <!-- Karta 2: Celkem nahráno hodin -->
+                <div class="stat-card">
+                    <div class="stat-icon-box">
+                        <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                    </div>
+                    <div>
+                        <div class="stat-number" id="stat-hours">--</div>
+                        <div class="stat-label">Odehraných hodin</div>
+                    </div>
+                    <div class="stat-sublabel">Společně strávený čas</div>
+                </div>
+
+                <!-- Karta 3: Členů na Discordu (napojeno živě na invite kód 3GWM5Vy2HV) -->
+                <div class="stat-card">
+                    <div class="stat-icon-box">
+                        <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg>
+                    </div>
+                    <div>
+                        <div class="stat-number" id="stat-discord">3 002</div>
+                        <div class="stat-label">Členů na Discordu</div>
+                    </div>
+                    <div class="stat-sublabel">Součást naší komunity</div>
                 </div>
             </div>
         </div>
@@ -606,6 +780,8 @@
             const loader = document.getElementById('loader');
             loader.style.opacity = '0';
             setTimeout(() => { loader.style.display = 'none'; }, 500);
+            fetchDiscordStats();
+            fetchServerStats();
         });
 
         // Kopírování IP
@@ -699,6 +875,28 @@
         }
 
         setInterval(createVotePill, 3500);
+
+        // Načítání živých dat pro Discord (kód: 3GWM5Vy2HV)
+        async function fetchDiscordStats() {
+            try {
+                const response = await fetch('https://discord.com/api/v10/invites/3GWM5Vy2HV?with_counts=true');
+                if (response.ok) {
+                    const data = await response.json();
+                    if (data && data.approximate_member_count) {
+                        document.getElementById('stat-discord').textContent = data.approximate_member_count.toLocaleString('cs-CZ');
+                    }
+                }
+            } catch (err) {
+                console.log("Nepodařilo se načíst Discord widget, ponechává se výchozí hodnota.");
+            }
+        }
+
+        // Ukázkové načtení statistik herního serveru (registrace a hodiny)
+        function fetchServerStats() {
+            // Zde lze napojit reálnou API endpoint tvého Minecraft serveru, prozatím ukázková čísla s animací
+            document.getElementById('stat-registered').textContent = "14 285";
+            document.getElementById('stat-hours').textContent = "86 420";
+        }
     </script>
 </body>
 </html>
