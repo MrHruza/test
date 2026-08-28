@@ -920,6 +920,922 @@
                         <img src="https://cdn.prod.website-files.com/68828d32a4fb4696477cfc1e/695a6fa31451ea9b96070b62_steve.jpg" id="player-head-image" alt="Hlava" class="player-head"/>
                         <input class="text-field" maxlength="256" placeholder="Zadej svůj herní nick" type="text" id="player-nick-input"/>
                     </div>
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MystiLand</title>
+    <link rel="icon" type="image/png" href="https://github.com/user-attachments/assets/bdd5da67-7841-40f2-a218-3483f6de0bda">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(to bottom, #0d0614, #150924 30%, #0b0412 70%, #06020a);
+            color: #ffffff;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Načítací obrazovka */
+        #loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #0d0614;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(139, 92, 246, 0.2);
+            border-top: 4px solid #8b5cf6;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Horní panel */
+        header {
+            background-color: #130a24;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 50px;
+            border-bottom: 2px solid #231242;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-container img {
+            height: 38px;
+            object-fit: contain;
+        }
+
+        .logo-container span {
+            font-weight: 700;
+            font-size: 18px;
+            color: #ffffff;
+            letter-spacing: 0.5px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            align-items: center;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #b7a9ce;
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            transition: color 0.2s, transform 0.2s;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            color: #ffffff;
+            transform: translateY(-1px);
+        }
+
+        .store-btn {
+            background: linear-gradient(135deg, #7c3aed, #6d28d9);
+            color: white !important;
+            padding: 10px 24px;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(124, 58, 237, 0.4);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+        }
+
+        .store-btn:hover {
+            transform: translateY(-4px) scale(1.05) !important;
+            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.7);
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+        }
+
+        /* Úvodní sekce */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(13, 6, 20, 0.6), rgba(13, 6, 20, 0.85)), url('https://github.com/user-attachments/assets/5ac66448-a179-4d92-abe1-9c3d60e2a089') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: 70px;
+            position: relative;
+        }
+
+        @keyframes floatLogo {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-6px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .hero-logo {
+            max-width: 280px;
+            width: 100%;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
+            animation: floatLogo 4s ease-in-out infinite;
+        }
+
+        .hero-subtitle {
+            font-size: 16px;
+            color: #d1c4e9;
+            margin-bottom: 30px;
+            font-weight: 400;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+            color: white;
+            padding: 14px 38px;
+            font-size: 15px;
+            font-weight: bold;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            text-transform: uppercase;
+            box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
+            transition: all 0.2s ease;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.6);
+            background: linear-gradient(135deg, #a78bfa, #8b5cf6);
+        }
+
+        .btn-ip {
+            background-color: rgba(139, 92, 246, 0.1);
+            color: #e2d9f3;
+            padding: 12px 24px;
+            font-size: 14px;
+            font-weight: 600;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 12px;
+            cursor: pointer;
+            backdrop-filter: blur(8px);
+            transition: all 0.2s ease;
+        }
+
+        .btn-ip:hover {
+            background-color: rgba(139, 92, 246, 0.2);
+            border-color: rgba(139, 92, 246, 0.6);
+            transform: translateY(-2px);
+            color: #ffffff;
+        }
+
+        /* HLAVNÍ KONTEJNER SE SEKCEMI */
+        .content-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 120px;
+            padding: 120px 20px 120px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Sekce O nás */
+        .about-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        .about-content {
+            max-width: 550px;
+        }
+
+        .about-content h2 {
+            font-size: 32px;
+            color: #ffffff;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .about-content h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 60px;
+            height: 3px;
+            background: #8b5cf6;
+            border-radius: 2px;
+        }
+
+        .about-content p {
+            font-size: 15px;
+            color: #b7a9ce;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .about-image {
+            max-width: 170px;
+            width: 100%;
+            height: auto;
+            background: transparent;
+            box-shadow: none;
+            border: none;
+        }
+
+        /* Sekce Minihry */
+        .minigames-section {
+            width: 100%;
+            text-align: center;
+        }
+
+        .minigames-section h2 {
+            font-size: 32px;
+            color: #ffffff;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .minigames-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .game-card {
+            background: transparent;
+            border: none;
+            box-shadow: none;
+            padding: 0;
+            width: 350px;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .game-card img.image-card-h {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            display: block;
+            background: transparent;
+            box-shadow: none;
+        }
+
+        .game-card p.text-block-4 {
+            font-size: 14px;
+            color: #b7a9ce;
+            line-height: 1.6;
+        }
+
+        /* Sekce Hlasování (Vote) - opraveno, aby pilulky nelezly dovnitř */
+        .vote-wrapper-section {
+            width: 100%;
+            position: relative;
+        }
+
+        .avg-web-con-vote {
+            max-width: 850px;
+            margin: 0 auto;
+            background: #130a24;
+            border: 1px solid #231242;
+            border-radius: 20px;
+            padding: 40px;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            overflow: hidden;
+        }
+
+        .div-block-9 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .heading-3 {
+            font-size: 26px;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        .text-block-6 {
+            color: #b7a9ce;
+            font-size: 14px;
+        }
+
+        .vote-player {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .vote-heading {
+            font-size: 18px;
+            color: #ffffff;
+        }
+
+        .nick-row {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: #1c0f33;
+            padding: 10px 20px;
+            border-radius: 14px;
+            border: 1px solid #32185c;
+            width: 100%;
+            max-width: 450px;
+        }
+
+        .player-head {
+            width: 40px;
+            height: 40px;
+            border-radius: 6px;
+            object-fit: cover;
+        }
+
+        .text-field {
+            width: 100%;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 15px;
+            outline: none;
+        }
+
+        .text-field::placeholder {
+            color: #8a79a8;
+        }
+
+        .vote-links {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .button-vote {
+            padding: 12px 16px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 13px;
+            text-decoration: none;
+            color: white;
+            transition: transform 0.2s, opacity 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .craftlist-design { background: #3b82f6; }
+        .czechcraft-design { background: #f97316; }
+        .minecraftservery-design { background: #8b5cf6; }
+        .minecraftlist-design { background: #10b981; }
+
+        .button-vote:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+
+        .button-vote:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* SEKCE: Statistiky serveru */
+        .stats-wrapper-section {
+            width: 100%;
+        }
+
+        .stats-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .stats-intro {
+            max-width: 380px;
+        }
+
+        .stats-intro-small {
+            font-size: 13px;
+            font-weight: 700;
+            color: #8b5cf6;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 12px;
+        }
+
+        .stats-intro h2 {
+            font-size: 42px;
+            font-weight: 800;
+            color: #ffffff;
+            line-height: 1.15;
+            margin-bottom: 20px;
+        }
+
+        .stats-intro p {
+            font-size: 14px;
+            color: #b7a9ce;
+            line-height: 1.6;
+        }
+
+        .stats-cards-grid {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            flex: 1;
+            justify-content: flex-end;
+        }
+
+        .stat-card {
+            background: #130a24;
+            border: 1px solid #231242;
+            border-radius: 16px;
+            padding: 35px 30px;
+            width: 230px;
+            min-height: 220px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: #8b5cf6;
+        }
+
+        .stat-icon-box {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            width: 40px;
+            height: 40px;
+            background: rgba(139, 92, 246, 0.15);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #8b5cf6;
+        }
+
+        .stat-icon-box svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        .stat-number {
+            font-size: 38px;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: -0.5px;
+            margin-top: 30px;
+        }
+
+        .stat-label {
+            font-size: 16px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-top: 5px;
+        }
+
+        .stat-sublabel {
+            font-size: 12px;
+            color: #8a79a8;
+            margin-top: 3px;
+        }
+
+        /* SEKCE: Discord – opraveno (text vlevo, obrázek vpravo, bez počítadla) */
+        .discord-wrapper-section {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .discord-box {
+            max-width: 850px;
+            width: 100%;
+            background: #130a24;
+            border: 1px solid #231242;
+            border-radius: 20px;
+            padding: 40px 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            position: relative;
+        }
+
+        .discord-text-content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 15px;
+            flex: 1;
+        }
+
+        .discord-box h2 {
+            font-size: 28px;
+            color: #ffffff;
+            font-weight: 800;
+        }
+
+        .discord-box p {
+            font-size: 14px;
+            color: #b7a9ce;
+            line-height: 1.6;
+        }
+
+        .discord-image {
+            width: 140px;
+            height: auto;
+            object-fit: contain;
+            flex-shrink: 0;
+            filter: drop-shadow(0 8px 16px rgba(88, 101, 242, 0.3));
+            animation: floatLogo 4s ease-in-out infinite;
+        }
+
+        .btn-discord {
+            background: linear-gradient(135deg, #5865F2, #4752C4);
+            color: white;
+            padding: 12px 28px;
+            font-size: 14px;
+            font-weight: bold;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            text-transform: uppercase;
+            box-shadow: 0 6px 20px rgba(88, 101, 242, 0.4);
+            transition: all 0.2s ease;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 5px;
+        }
+
+        .btn-discord:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(88, 101, 242, 0.6);
+            background: linear-gradient(135deg, #6c79ff, #5865F2);
+        }
+
+        /* FOOTER */
+        footer.main-footer {
+            background-color: #0b0412;
+            border-top: 2px solid #231242;
+            padding: 60px 50px 30px 50px;
+            width: 100%;
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid #231242;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-logo-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .footer-logo-area img {
+            height: 42px;
+            object-fit: contain;
+        }
+
+        .footer-logo-texts h3 {
+            font-size: 18px;
+            color: #ffffff;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-logo-texts p {
+            font-size: 13px;
+            color: #b7a9ce;
+            margin-top: 2px;
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 15px;
+        }
+
+        .footer-social-icon {
+            width: 38px;
+            height: 38px;
+            background: #150924;
+            border: 1px solid #231242;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #b7a9ce;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .footer-social-icon:hover {
+            background: #8b5cf6;
+            color: #ffffff;
+            border-color: #8b5cf6;
+            transform: translateY(-2px);
+        }
+
+        .footer-social-icon svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+
+        .footer-columns {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 40px auto 0 auto;
+        }
+
+        .footer-col {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-col h4 {
+            font-size: 14px;
+            font-weight: 700;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 18px;
+        }
+
+        .footer-col p {
+            font-size: 14px;
+            color: #b7a9ce;
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-col ul li a {
+            text-decoration: none;
+            color: #b7a9ce;
+            font-size: 14px;
+            transition: color 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-col ul li a:hover {
+            color: #ffffff;
+        }
+
+        .footer-email-link {
+            color: #8b5cf6 !important;
+            font-weight: 600;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 40px;
+            border-top: 1px solid #1c0f33;
+            font-size: 12px;
+            color: #7a6a95;
+        }
+
+        /* Plovoucí notifikační pilulky (hlasování) – max 5 současně, umístěny po stranách */
+        .vote-pill {
+            position: absolute;
+            padding: 10px 18px;
+            border-radius: 50px;
+            background: rgba(25, 15, 45, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            color: #d1c4e9;
+            font-size: 13px;
+            font-weight: 500;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .vote-pill-avatar {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid #8b5cf6;
+        }
+
+        @media (max-width: 1200px) {
+            .stats-container {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .stats-intro {
+                max-width: 100%;
+            }
+            .stats-cards-grid {
+                justify-content: center;
+                width: 100%;
+            }
+            .discord-box {
+                flex-direction: column;
+                text-align: center;
+            }
+            .discord-text-content {
+                align-items: center;
+            }
+            .footer-top {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .vote-pill { display: none !important; }
+        }
+
+        /* Notifikace zkopírování IP */
+        .notification {
+            position: fixed;
+            bottom: 35px;
+            right: 35px;
+            background: linear-gradient(135deg, #7c3aed, #6d28d9);
+            color: white;
+            padding: 14px 26px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(124, 58, 237, 0.4);
+            font-weight: 600;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transform: translateY(120px);
+            opacity: 0;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease;
+            z-index: 1000;
+        }
+
+        .notification.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="loader">
+        <div class="spinner"></div>
+    </div>
+
+    <header>
+        <div class="logo-container">
+            <img src="https://github.com/user-attachments/assets/bdd5da67-7841-40f2-a218-3483f6de0bda" alt="MystiLand Logo">
+            <span>MystiLand</span>
+        </div>
+        
+        <nav>
+            <ul>
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">Pravidla</a></li>
+                <li><a href="#" class="store-btn">Obchod</a></li>
+                <li><a href="#">Wiki</a></li>
+                <li><a href="#">Admin Team</a></li>
+            </ul>
+        </nav>
+        
+        <div style="width: 100px;"></div>
+    </header>
+
+    <section class="hero">
+        <img src="https://github.com/user-attachments/assets/775b273f-837e-4146-ba75-34cd58d73fac" alt="MystiLand Hlavní Logo" class="hero-logo">
+        <p class="hero-subtitle">Vítejte na oficiálním webu Minecraft serveru MystiLand!</p>
+        <div class="hero-buttons">
+            <a href="#onas" class="btn-primary">Chci jít hrát!</a>
+            <button class="btn-ip" onclick="copyIP()">📋 play.mystiland.eu</button>
+        </div>
+    </section>
+
+    <div class="content-wrapper">
+
+        <section id="onas" class="about-section">
+            <div class="about-content">
+                <h2>O našem serveru</h2>
+                <p>Vítejte na MystiLand, jedinečném Minecraft serveru, který vám přináší nezapomenutelný herní zážitek! Naše komunita staví na přátelském prostředí, skvělém admin týmu a neustále vylepšovaných herních módech.</p>
+                <p>Připojte se k nám ještě dnes, objevujte nová dobrodružství, stavte své vysněné stavby a ukažte všem, co ve vás je. Těšíme se na vás ve hře!</p>
+            </div>
+            <img src="https://github.com/user-attachments/assets/23d44b0f-e1d7-4a2b-8294-914d88fcc7c9" alt="O nás postavička" class="about-image">
+        </section>
+
+        <section class="minigames-section">
+            <h2>Co vám můžeme nabídnout - Minihry</h2>
+            <div class="minigames-grid">
+                
+                <div class="game-card">
+                    <img src="https://cdn.prod.website-files.com/6960358238e60855e0241576/69660106586025b7e2d0c53a_Frame%2053.png" loading="lazy" alt="Survival" class="image-card-h">
+                    <p class="text-block-4">Zkoumej zákoutí úplně nového světa, vybuduj si s kamarády obydlí a překonávej ostatní!</p>
+                </div>
+
+                <div class="game-card">
+                    <img src="https://cdn.prod.website-files.com/6960358238e60855e0241576/696601b3e52b309916863284_Frame%2052.png" loading="lazy" alt="OneBlock" class="image-card-h">
+                    <p class="text-block-4">Na tomto módu dokážeš z jednoho jediného blocku vybudovat obří impérium.</p>
+                </div>
+
+                <div class="game-card">
+                    <img src="https://cdn.prod.website-files.com/6960358238e60855e0241576/696be04a8d05bb84b06b8587_SMP.png" loading="lazy" alt="SkyBlock" class="image-card-h">
+                    <p class="text-block-4">Postav svůj ostrov od základu ve vzduchu, plň úkoly, obchoduj s ostatními a staň se nejlepším.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="vote" class="vote-wrapper-section">
+            <div class="avg-web-con-vote">
+                <div class="div-block-9">
+                    <h2 class="heading-3">Hlasem podpoříš sebe i server</h2>
+                    <div class="text-block-6">Každé 2 hodiny můžeš hlasovat pro sebe a rychleji progresovat v našich hrách.</div>
+                </div>
+                
+                <div class="vote-player">
+                    <h3 class="vote-heading">Hlasovací konfigurátor</h3>
+                    <div class="nick-row">
+                        <img src="https://cdn.prod.website-files.com/68828d32a4fb4696477cfc1e/695a6fa31451ea9b96070b62_steve.jpg" id="player-head-image" alt="Hlava" class="player-head"/>
+                        <input class="text-field" maxlength="256" placeholder="Zadej svůj herní nick" type="text" id="player-nick-input"/>
+                    </div>
                     
                     <div class="vote-links">
                         <button data-vote-url="https://craftlist.org/mystiland?nickname=%p%" class="button-vote craftlist-design" disabled>CraftList.cz</button>
@@ -931,7 +1847,6 @@
             </div>
         </section>
 
-        <!-- SEKCE: Statistiky serveru -->
         <section class="stats-wrapper-section">
             <div class="stats-container">
                 <div class="stats-intro">
@@ -977,7 +1892,6 @@
             </div>
         </section>
 
-        <!-- SEKCE: Discord – upraveno podle nového vzoru bez počítadla -->
         <section class="discord-wrapper-section">
             <div class="discord-box">
                 <div class="discord-text-content">
@@ -993,7 +1907,6 @@
 
     </div>
 
-    <!-- FOOTER -->
     <footer class="main-footer">
         <div class="footer-top">
             <div class="footer-logo-area">
@@ -1048,7 +1961,6 @@
         </div>
     </footer>
 
-    <!-- Notifikace zkopírování IP -->
     <div id="notification" class="notification">
         <span>✨</span> IP adresa byla úspěšně zkopírována do schránky!
     </div>
@@ -1099,15 +2011,16 @@
         const voteSection = document.getElementById('vote');
 
         function createVotePill() {
-            // Omezení na maximálně 5 současně zobrazených pilulek
+            // Omezení max na 5 současně zobrazených pilulek
             const activePills = document.querySelectorAll('.vote-pill');
             if (activePills.length >= 5) return;
 
             const pill = document.createElement('div');
             const nick = sampleNicks[Math.floor(Math.random() * sampleNicks.length)];
             const isLeft = Math.random() > 0.5;
-            // Pozicování po stranách (levá strana 2% - 15%, nebo pravá strana 80% - 93%)
-            const xPos = isLeft ? Math.random() * 13 + 2 : Math.random() * 13 + 80;
+            
+            // Umístění výhradně po stranách mimo vnitřní obsah boxu
+            const xPos = isLeft ? Math.random() * 15 + 2 : Math.random() * 15 + 78;
 
             pill.className = 'vote-pill';
             pill.style.left = `${xPos}%`;
@@ -1116,49 +2029,4 @@
 
             const img = document.createElement('img');
             img.className = 'vote-pill-avatar';
-            img.src = `https://mc-heads.net/avatar/${nick}/32`;
-
-            const text = document.createElement('span');
-            text.textContent = `+${nick} zahlasoval`;
-
-            pill.appendChild(img);
-            pill.appendChild(text);
-            voteSection.appendChild(pill);
-
-            let startTime = Date.now();
-            let duration = 14000;
-
-            function animatePill() {
-                let elapsed = Date.now() - startTime;
-                let progress = elapsed / duration;
-
-                if (progress >= 1) {
-                    pill.remove();
-                    return;
-                }
-
-                let newY = progress * 350;
-                pill.style.bottom = `${newY}px`;
-
-                if (progress < 0.1) {
-                    pill.style.opacity = progress * 10;
-                } else if (progress > 0.8) {
-                    pill.style.opacity = (1 - progress) * 5;
-                } else {
-                    pill.style.opacity = '1';
-                }
-
-                requestAnimationFrame(animatePill);
-            }
-            animatePill();
-        }
-
-        setInterval(createVotePill, 2500);
-
-        function fetchServerStats() {
-            document.getElementById('stat-registered').textContent = "14 285";
-            document.getElementById('stat-hours').textContent = "86 420";
-        }
-    </script>
-</body>
-</html>
+            img.src = `https://mc-heads
