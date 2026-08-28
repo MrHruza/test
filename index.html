@@ -20,6 +20,35 @@
             scroll-behavior: smooth;
         }
 
+        #loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #0d0614;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(139, 92, 246, 0.2);
+            border-top: 4px solid #8b5cf6;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
         header {
             background-color: #130a24;
             height: 70px;
@@ -56,7 +85,7 @@
         nav ul {
             display: flex;
             list-style: none;
-            gap: 25px;
+            gap: 30px;
             align-items: center;
         }
 
@@ -273,6 +302,121 @@
             font-size: 14px;
             color: #b7a9ce;
             line-height: 1.6;
+        }
+
+        .vote-wrapper-section {
+            width: 100%;
+            position: relative;
+            padding: 40px 0;
+        }
+
+        .avg-web-con-vote {
+            max-width: 850px;
+            margin: 0 auto;
+            background: #130a24;
+            border: 1px solid #231242;
+            border-radius: 20px;
+            padding: 40px;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+        }
+
+        .div-block-9 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .heading-3 {
+            font-size: 26px;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        .text-block-6 {
+            color: #b7a9ce;
+            font-size: 14px;
+        }
+
+        .vote-player {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .vote-heading {
+            font-size: 18px;
+            color: #ffffff;
+        }
+
+        .nick-row {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: #1c0f33;
+            padding: 10px 20px;
+            border-radius: 14px;
+            border: 1px solid #32185c;
+            width: 100%;
+            max-width: 450px;
+        }
+
+        .player-head {
+            width: 40px;
+            height: 40px;
+            border-radius: 6px;
+            object-fit: cover;
+        }
+
+        .text-field {
+            width: 100%;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 15px;
+            outline: none;
+        }
+
+        .text-field::placeholder {
+            color: #8a79a8;
+        }
+
+        .vote-links {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .button-vote {
+            padding: 12px 16px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 13px;
+            text-decoration: none;
+            color: white;
+            transition: transform 0.2s, opacity 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .craftlist-design { background: #3b82f6; }
+        .czechcraft-design { background: #f97316; }
+        .minecraftservery-design { background: #8b5cf6; }
+        .minecraftlist-design { background: #10b981; }
+
+        .button-vote:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+
+        .button-vote:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
         }
 
         .stats-wrapper-section {
@@ -653,6 +797,10 @@
 </head>
 <body>
 
+    <div id="loader">
+        <div class="spinner"></div>
+    </div>
+
     <header>
         <a href="index.html" class="logo-container">
             <img src="https://github.com/user-attachments/assets/bdd5da67-7841-40f2-a218-3483f6de0bda" alt="MystiLand Logo">
@@ -662,15 +810,14 @@
         <nav>
             <ul>
                 <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="wiki.html">Wiki</a></li>
-                <li><a href="#" class="store-btn">Obchod</a></li>
-                <li><a href="pravidla.html">Pravidla</a></li>
-                <li><a href="admin-tym.html">Admin tým</a></li>
                 <li><a href="pripojit.html">Jak se připojit</a></li>
+                <li><a href="wiki.html">Wiki</a></li>
+                <li><a href="#vote">Hlasovat</a></li>
+                <li><a href="#" class="store-btn">Obchod</a></li>
             </ul>
         </nav>
         
-        <div style="width: 50px;"></div>
+        <div style="width: 100px;"></div>
     </header>
 
     <section class="hero">
@@ -712,6 +859,31 @@
                     <p class="text-block-4">Postav svůj ostrov od základu ve vzduchu, plň úkoly, obchoduj s ostatními a staň se nejlepším.</p>
                 </div>
 
+            </div>
+        </section>
+
+        <!-- HLASOVACÍ SYSTÉM OPĚT ZAPOJEN -->
+        <section id="vote" class="vote-wrapper-section">
+            <div class="avg-web-con-vote">
+                <div class="div-block-9">
+                    <h2 class="heading-3">Hlasem podpoříš sebe i server</h2>
+                    <div class="text-block-6">Každé 2 hodiny můžeš hlasovat pro sebe a rychleji progresovat v našich hrách.</div>
+                </div>
+                
+                <div class="vote-player">
+                    <h3 class="vote-heading">Hlasovací konfigurátor</h3>
+                    <div class="nick-row">
+                        <img src="https://cdn.prod.website-files.com/68828d32a4fb4696477cfc1e/695a6fa31451ea9b96070b62_steve.jpg" id="player-head-image" alt="Hlava" class="player-head"/>
+                        <input class="text-field" maxlength="256" placeholder="Zadej svůj herní nick" type="text" id="player-nick-input"/>
+                    </div>
+                    
+                    <div class="vote-links">
+                        <button data-vote-url="https://craftlist.org/mystiland?nickname=%p%" class="button-vote craftlist-design" disabled>CraftList.cz</button>
+                        <button data-vote-url="https://czech-craft.eu/server/mystiland/vote/?user=%p%" class="button-vote czechcraft-design" disabled>Czech-Craft.cz</button>
+                        <button data-vote-url="https://minecraftservery.eu/server/mystiland/vote/%p%" class="button-vote minecraftservery-design" disabled>MinecraftServery.eu</button>
+                        <button data-vote-url="https://www.minecraft-list.cz/server/mystiland/vote?nick=%p%" class="button-vote minecraftlist-design" disabled>Minecraft-List.cz</button>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -811,9 +983,9 @@
             <div class="footer-col">
                 <h4>Navigace</h4>
                 <ul>
+                    <li><a href="pripojit.html">› Chci jít hrát!</a></li>
                     <li><a href="wiki.html">› Wiki</a></li>
-                    <li><a href="pravidla.html">› Pravidla</a></li>
-                    <li><a href="admin-tym.html">› Admin tým</a></li>
+                    <li><a href="#vote">› Hlasování</a></li>
                     <li><a href="https://discord.gg/3GWM5Vy2HV" target="_blank">› Discord</a></li>
                 </ul>
             </div>
@@ -834,8 +1006,10 @@
     </div>
 
     <script>
-        // Spuštění funkcí ihned po načtení DOM stromu (bez čekání na loader)
-        document.addEventListener("DOMContentLoaded", () => {
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loader');
+            loader.style.opacity = '0';
+            setTimeout(() => { loader.style.display = 'none'; }, 500);
             fetchServerStats();
         });
 
@@ -847,22 +1021,44 @@
             });
         }
 
+        const inputField = document.getElementById('player-nick-input');
+        const headImage = document.getElementById('player-head-image');
+        const voteButtons = document.querySelectorAll('[data-vote-url]');
+        const defaultHeadSrc = "https://cdn.prod.website-files.com/68828d32a4fb4696477cfc1e/695a6fa31451ea9b96070b62_steve.jpg";
+
+        inputField.addEventListener('input', function() {
+            const nick = this.value.trim();
+            if (nick.length > 0) {
+                headImage.src = `https://mc-heads.net/avatar/${nick}/64`;
+                voteButtons.forEach(btn => btn.disabled = false);
+            } else {
+                headImage.src = defaultHeadSrc;
+                voteButtons.forEach(btn => btn.disabled = true);
+            }
+        });
+
+        voteButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                const nick = inputField.value.trim();
+                const urlTemplate = this.getAttribute('data-vote-url');
+                if (!nick || !urlTemplate) return;
+                window.open(urlTemplate.replace(/%p%/g, nick), '_blank');
+            });
+        });
+
         function fetchServerStats() {
             document.getElementById('stat-registered').textContent = "14 285";
             document.getElementById('stat-hours').textContent = "86 420";
 
-            // Načtení reálného počtu členů z Discord Widgetu pomocí tvého ID z pozvánky (3GWM5Vy2HV)
-            fetch("https://discord.com/api/guilds/3GWM5Vy2HV/widget.json")
+            fetch("https://discord.com/api/guilds/123456789012345678/widget.json")
                 .then(response => response.json())
                 .then(data => {
-                    if (data && data.presence_count) {
-                        document.getElementById('stat-discord').textContent = data.presence_count.toLocaleString('cs-CZ');
-                    } else if (data && data.approximate_member_count) {
+                    if (data && data.approximate_member_count) {
                         document.getElementById('stat-discord').textContent = data.approximate_member_count.toLocaleString('cs-CZ');
                     }
                 })
                 .catch(() => {
-                    // Pokud by widget selhal, vypíše se záložní hodnota
                     document.getElementById('stat-discord').textContent = "3 002";
                 });
         }
