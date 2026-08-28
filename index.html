@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MystiLand - Minecraft Server</title>
+    <title>MystiLand</title>
     <link rel="icon" type="image/png" href="https://github.com/user-attachments/assets/bdd5da67-7841-40f2-a218-3483f6de0bda">
     <style>
         * {
@@ -14,27 +14,50 @@
         }
 
         body {
-            background-color: #0b0f19;
+            background-color: #0d0614;
             color: #ffffff;
             overflow-x: hidden;
-            animation: fadeIn 0.8s ease-in-out;
         }
 
-        /* Animace načítání webu */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        /* Načítací obrazovka s točícím se kolečkem */
+        #loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #0d0614;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(139, 92, 246, 0.2);
+            border-top: 4px solid #8b5cf6;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         /* Horní panel */
         header {
-            background-color: #121624;
+            background-color: #130a24;
             height: 70px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 40px;
-            border-bottom: 2px solid #1e2640;
+            padding: 0 50px;
+            border-bottom: 2px solid #231242;
             position: fixed;
             top: 0;
             width: 100%;
@@ -48,7 +71,7 @@
         }
 
         .logo-container img {
-            height: 40px;
+            height: 38px;
             object-fit: contain;
         }
 
@@ -59,7 +82,7 @@
             letter-spacing: 0.5px;
         }
 
-        /* Navigace: Obchod uprostřed, 2 a 2 po stranách */
+        /* Navigace */
         nav ul {
             display: flex;
             list-style: none;
@@ -69,7 +92,7 @@
 
         nav ul li a {
             text-decoration: none;
-            color: #a0aec0;
+            color: #b7a9ce;
             font-weight: 600;
             font-size: 14px;
             text-transform: uppercase;
@@ -82,36 +105,17 @@
         }
 
         .store-btn {
-            background: linear-gradient(135deg, #6b46c1, #553c9a);
+            background: linear-gradient(135deg, #7c3aed, #6d28d9);
             color: white !important;
-            padding: 10px 22px;
+            padding: 10px 24px;
             border-radius: 20px;
-            box-shadow: 0 4px 12px rgba(107, 70, 193, 0.4);
+            box-shadow: 0 4px 15px rgba(124, 58, 237, 0.4);
         }
 
-        .user-section {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 13px;
-            font-weight: 600;
-            color: #a0aec0;
-            background: #1a2035;
-            padding: 6px 14px;
-            border-radius: 20px;
-            border: 1px solid #2d3748;
-        }
-
-        .user-section img {
-            width: 28px;
-            height: 28px;
-            border-radius: 4px;
-        }
-
-        /* Hlavní úvodní sekce s pozadím */
+        /* Hlavní úvodní sekce (Tmavě fialový styl) */
         .hero {
             height: 100vh;
-            background: linear-gradient(rgba(11, 15, 25, 0.5), rgba(11, 15, 25, 0.8)), url('https://github.com/user-attachments/assets/775b273f-837e-4146-ba75-34cd58d73fac') no-repeat center center/cover;
+            background: radial-gradient(circle at center, #231242 0%, #0d0614 70%);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -121,27 +125,25 @@
             position: relative;
         }
 
-        /* Animace vznášení loga nahoru a dolů */
         @keyframes floatLogo {
             0% { transform: translateY(0px); }
-            50% { transform: translateY(-8px); }
+            50% { transform: translateY(-6px); }
             100% { transform: translateY(0px); }
         }
 
         .hero-logo {
-            max-width: 420px;
+            max-width: 280px; /* Zmenšené logo uprostřed */
             width: 100%;
             margin-bottom: 15px;
-            filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.6));
+            filter: drop-shadow(0 10px 20px rgba(109, 40, 217, 0.3));
             animation: floatLogo 4s ease-in-out infinite;
         }
 
         .hero-subtitle {
-            font-size: 18px;
-            color: #cbd5e0;
+            font-size: 16px;
+            color: #d1c4e9;
             margin-bottom: 30px;
             font-weight: 400;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
         }
 
         .hero-buttons {
@@ -152,56 +154,57 @@
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, #f59e0b, #d97706);
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
             color: white;
-            padding: 15px 40px;
-            font-size: 16px;
+            padding: 14px 38px;
+            font-size: 15px;
             font-weight: bold;
             border: none;
-            border-radius: 10px;
+            border-radius: 12px;
             cursor: pointer;
             text-transform: uppercase;
-            box-shadow: 0 6px 20px rgba(217, 119, 6, 0.4);
-            transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+            box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
+            transition: all 0.2s ease;
             text-decoration: none;
             letter-spacing: 0.5px;
         }
 
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(217, 119, 6, 0.6);
-            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.6);
+            background: linear-gradient(135deg, #a78bfa, #8b5cf6);
         }
 
         .btn-ip {
-            background-color: rgba(255, 255, 255, 0.1);
-            color: #ffffff;
+            background-color: rgba(139, 92, 246, 0.1);
+            color: #e2d9f3;
             padding: 12px 24px;
             font-size: 14px;
             font-weight: 600;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 10px;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 12px;
             cursor: pointer;
             backdrop-filter: blur(8px);
-            transition: background-color 0.2s, transform 0.2s, border-color 0.2s;
+            transition: all 0.2s ease;
         }
 
         .btn-ip:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-            border-color: rgba(255, 255, 255, 0.4);
+            background-color: rgba(139, 92, 246, 0.2);
+            border-color: rgba(139, 92, 246, 0.6);
             transform: translateY(-2px);
+            color: #ffffff;
         }
 
-        /* Moderní notifikační rámeček */
+        /* Notifikační rámeček */
         .notification {
             position: fixed;
             bottom: 35px;
             right: 35px;
-            background: linear-gradient(135deg, #10b981, #059669);
+            background: linear-gradient(135deg, #7c3aed, #6d28d9);
             color: white;
             padding: 14px 26px;
             border-radius: 10px;
-            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4);
+            box-shadow: 0 10px 25px rgba(124, 58, 237, 0.4);
             font-weight: 600;
             font-size: 14px;
             display: flex;
@@ -221,6 +224,12 @@
 </head>
 <body>
 
+    <!-- Načítací kolečko -->
+    <div id="loader">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Horní panel -->
     <header>
         <div class="logo-container">
             <img src="https://github.com/user-attachments/assets/bdd5da67-7841-40f2-a218-3483f6de0bda" alt="MystiLand Logo">
@@ -231,20 +240,17 @@
             <ul>
                 <li><a href="#" class="active">Úvod</a></li>
                 <li><a href="#">Pravidla</a></li>
-                
                 <li><a href="#" class="store-btn">Obchod</a></li>
-                
                 <li><a href="#">Wiki</a></li>
                 <li><a href="#">Admin Team</a></li>
             </ul>
         </nav>
-
-        <div class="user-section">
-            <span>NEPŘIHLÁŠEN</span>
-            <img src="https://crafthead.net/avatar/steve/32" alt="Steve Avatar">
-        </div>
+        
+        <!-- Prázdný element pro vyvážení flexboxu vpravo -->
+        <div style="width: 100px;"></div>
     </header>
 
+    <!-- Úvodní sekce -->
     <section class="hero">
         <img src="https://github.com/user-attachments/assets/775b273f-837e-4146-ba75-34cd58d73fac" alt="MystiLand Hlavní Logo" class="hero-logo">
         
@@ -256,11 +262,21 @@
         </div>
     </section>
 
+    <!-- Oznámení o zkopírování -->
     <div id="notification" class="notification">
         <span>✨</span> IP adresa byla úspěšně zkopírována do schránky!
     </div>
 
     <script>
+        // Skrýt načítací kolečko po načtení stránky
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loader');
+            loader.style.opacity = '0';
+            setTimeout(() => {
+                loader.style.display = 'none';
+            }, 500);
+        });
+
         function copyIP() {
             const ip = "play.mystiland.eu";
             navigator.clipboard.writeText(ip).then(() => {
