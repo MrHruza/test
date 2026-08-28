@@ -20,35 +20,6 @@
             scroll-behavior: smooth;
         }
 
-        #loader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #0d0614;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            transition: opacity 0.5s ease;
-        }
-
-        .spinner {
-            width: 50px;
-            height: 50px;
-            border: 4px solid rgba(139, 92, 246, 0.2);
-            border-top: 4px solid #8b5cf6;
-            border-radius: 50%;
-            animation: spin 0.8s linear infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
         header {
             background-color: #130a24;
             height: 70px;
@@ -682,10 +653,6 @@
 </head>
 <body>
 
-    <div id="loader">
-        <div class="spinner"></div>
-    </div>
-
     <header>
         <a href="index.html" class="logo-container">
             <img src="https://github.com/user-attachments/assets/bdd5da67-7841-40f2-a218-3483f6de0bda" alt="MystiLand Logo">
@@ -699,10 +666,11 @@
                 <li><a href="#" class="store-btn">Obchod</a></li>
                 <li><a href="pravidla.html">Pravidla</a></li>
                 <li><a href="admin-tym.html">Admin tým</a></li>
+                <li><a href="pripojit.html">Jak se připojit</a></li>
             </ul>
         </nav>
         
-        <div style="width: 100px;"></div>
+        <div style="width: 50px;"></div>
     </header>
 
     <section class="hero">
@@ -866,11 +834,8 @@
     </div>
 
     <script>
-        window.addEventListener('load', () => {
-            const loader = document.getElementById('loader');
-            loader.style.opacity = '0';
-            // Načítání zkráceno na přesně 1 sekundu (1000 ms)
-            setTimeout(() => { loader.style.display = 'none'; }, 1000);
+        // Spuštění funkcí ihned po načtení DOM stromu (bez čekání na loader)
+        document.addEventListener("DOMContentLoaded", () => {
             fetchServerStats();
         });
 
@@ -886,14 +851,18 @@
             document.getElementById('stat-registered').textContent = "14 285";
             document.getElementById('stat-hours').textContent = "86 420";
 
-            fetch("https://discord.com/api/guilds/123456789012345678/widget.json")
+            // Načtení reálného počtu členů z Discord Widgetu pomocí tvého ID z pozvánky (3GWM5Vy2HV)
+            fetch("https://discord.com/api/guilds/3GWM5Vy2HV/widget.json")
                 .then(response => response.json())
                 .then(data => {
-                    if (data && data.approximate_member_count) {
+                    if (data && data.presence_count) {
+                        document.getElementById('stat-discord').textContent = data.presence_count.toLocaleString('cs-CZ');
+                    } else if (data && data.approximate_member_count) {
                         document.getElementById('stat-discord').textContent = data.approximate_member_count.toLocaleString('cs-CZ');
                     }
                 })
                 .catch(() => {
+                    // Pokud by widget selhal, vypíše se záložní hodnota
                     document.getElementById('stat-discord').textContent = "3 002";
                 });
         }
