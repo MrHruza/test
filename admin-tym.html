@@ -96,7 +96,7 @@
             background: linear-gradient(135deg, #8b5cf6, #7c3aed);
         }
 
-        /* HERO SEKCE - 3 HLAVY BEZ RÁMEČKU */
+        /* HERO SEKCE - VĚTŠÍ 3 HLAVY (PROHOZENÉ: PRVNÍ OD PRAVA VLEVO, PROSTŘEDEK, PRVNÍ OD LEVA VPRAVO) BEZ RÁMEČKU */
         .admin-hero {
             padding-top: 140px;
             padding-bottom: 60px;
@@ -124,18 +124,18 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 20px;
+            gap: 25px;
             max-width: 1000px;
             margin: 0 auto;
             padding: 0 20px;
-            height: 90px;
+            height: 120px;
         }
 
         .character-item {
-            height: 75px;
+            height: 105px;
             transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             cursor: pointer;
-            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.6));
+            filter: drop-shadow(0 12px 20px rgba(0,0,0,0.7));
             background: transparent !important;
             border: none !important;
         }
@@ -153,7 +153,7 @@
             transform: translateY(-8px) scale(1.05);
         }
 
-        /* OBSAH - TÝMY A KARTY (S VLASTNÍMI OBRÁZKY PRO 3 HLAVNÍ ČLENY) */
+        /* OBSAH - TÝMY A KARTY */
         .admin-container {
             max-width: 1100px;
             margin: 0 auto;
@@ -181,8 +181,8 @@
 
         .members-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 35px;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
             padding-top: 20px;
         }
 
@@ -191,11 +191,11 @@
                 grid-template-columns: 1fr;
             }
             .characters-row {
-                height: 75px;
+                height: 90px;
                 gap: 15px;
             }
             .character-item {
-                height: 55px;
+                height: 75px;
             }
         }
 
@@ -243,7 +243,7 @@
         }
 
         .member-name {
-            font-size: 20px;
+            font-size: 19px;
             font-weight: 700;
             color: #ffffff;
             margin-top: 5px;
@@ -276,7 +276,7 @@
             min-height: 40px;
         }
 
-        /* BARVY ROLÍ PODLE DISCORDU */
+        /* BARVY ROLÍ */
         .badge-vedeni { background: rgba(220, 20, 60, 0.15); color: #ff4d6d; border: 1px solid rgba(220, 20, 60, 0.3); }
         .badge-dev { background: rgba(139, 92, 246, 0.15); color: #a78bfa; border: 1px solid rgba(139, 92, 246, 0.3); }
         .badge-builder { background: rgba(46, 204, 113, 0.15); color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.3); }
@@ -420,116 +420,226 @@
         <div style="width: 100px;"></div>
     </header>
 
-    <!-- HERO SEKCE - 3 SPRÁVNÉ OBRÁZKY (HLAVY) MÍSTO 5 PŮVODNÍCH, BEZ RÁMEČKU -->
+    <!-- HERO SEKCE - 3 VĚTŠÍ HLAVY (PROHOZENÉ: 1. PRVNÍ OD PRAVA, 2. PROSTŘEDEK, 3. PRVNÍ OD LEVA) -->
     <section class="admin-hero">
         <h1>Admin Tým</h1>
         <p>Lidé, kteří se starají o chod, rozvoj a bezpečí serveru MystiLand.</p>
         
         <div class="characters-row">
-            <div class="character-item"><img src="https://github.com/user-attachments/assets/d9e2727e-0b92-4483-a943-1f1788b208b6" alt="První od leva"></div>
-            <div class="character-item"><img src="https://github.com/user-attachments/assets/78a27d2c-2b8b-4a5a-87f9-06e6f9581425" alt="Prostředek"></div>
             <div class="character-item"><img src="https://github.com/user-attachments/assets/2cd8e574-2572-47cf-a5d5-f74b593f5b42" alt="První od prava"></div>
+            <div class="character-item"><img src="https://github.com/user-attachments/assets/78a27d2c-2b8b-4a5a-87f9-06e6f9581425" alt="Prostředek"></div>
+            <div class="character-item"><img src="https://github.com/user-attachments/assets/d9e2727e-0b92-4483-a943-1f1788b208b6" alt="První od leva"></div>
         </div>
     </section>
 
-    <!-- OBSAH - TÝMY A KARTY (TAKÉ BEZ RÁMEČKU KOLEM HLAV) -->
+    <!-- OBSAH - VŠECHNY TÝMY A VŠECHNY POŽADOVANÉ ROLE ("Hledáme") -->
     <div class="admin-container">
 
-        <!-- Vedení & Manažeři -->
+        <!-- Vedení Team -->
         <div class="team-section">
-            <div class="team-title">Vedení & Manažeři</div>
+            <div class="team-title">Vedení Team</div>
             <div class="members-grid">
                 
                 <div class="member-card">
                     <div class="member-avatar-container">
-                        <img src="https://github.com/user-attachments/assets/d9e2727e-0b92-4483-a943-1f1788b208b6" alt="Lolkocz">
+                        <img src="https://mc-heads.net/avatar/Steve" alt="Hlava">
                     </div>
-                    <div class="member-name">Lolkocz</div>
-                    <div class="member-date">Členem od 01.01.2021</div>
+                    <div class="member-name">Hledáme</div>
+                    <div class="member-date">-</div>
                     <div class="member-role-badge badge-vedeni">Vedení</div>
-                    <div class="member-bio">Hlavní zakladatel a majitel projektu MystiLand. Starám se o celkový chod serveru a jeho směřování.</div>
+                    <div class="member-bio">Pozice pro hlavního zakladatele a vedení projektu.</div>
                 </div>
 
                 <div class="member-card">
                     <div class="member-avatar-container">
-                        <img src="https://github.com/user-attachments/assets/78a27d2c-2b8b-4a5a-87f9-06e6f9581425" alt="CHAD_BROFLOWSKI">
+                        <img src="https://mc-heads.net/avatar/Steve" alt="Hlava">
                     </div>
-                    <div class="member-name">CHAD_BROFLOWSKI</div>
-                    <div class="member-date">Členem od 05.05.2021</div>
-                    <div class="member-role-badge badge-vedeni">Manažer</div>
-                    <div class="member-bio">Pravá ruka vedení, hlídám pořádek v zákulisí, řeším komunitní záležitosti a sociální sítě.</div>
+                    <div class="member-name">Hledáme</div>
+                    <div class="member-date">-</div>
+                    <div class="member-role-badge badge-vedeni">Team Leader</div>
+                    <div class="member-bio">Koordinace a vedení celého admin týmu.</div>
                 </div>
 
             </div>
         </div>
 
-        <!-- Developer Tým -->
+        <!-- Developer Team -->
         <div class="team-section">
-            <div class="team-title">Developer Tým</div>
+            <div class="team-title">Developer Team</div>
             <div class="members-grid">
                 
                 <div class="member-card">
                     <div class="member-avatar-container">
-                        <img src="https://github.com/user-attachments/assets/2cd8e574-2572-47cf-a5d5-f74b593f5b42" alt="MrHruza">
+                        <img src="https://mc-heads.net/avatar/Steve" alt="Hlava">
                     </div>
-                    <div class="member-name">MrHruza</div>
-                    <div class="member-date">Členem od 15.03.2023</div>
+                    <div class="member-name">Hledáme</div>
+                    <div class="member-date">-</div>
+                    <div class="member-role-badge badge-dev">Zk. Developer</div>
+                    <div class="member-bio">Zkušební pozice pro vývojáře pluginů.</div>
+                </div>
+
+                <div class="member-card">
+                    <div class="member-avatar-container">
+                        <img src="https://mc-heads.net/avatar/Steve" alt="Hlava">
+                    </div>
+                    <div class="member-name">Hledáme</div>
+                    <div class="member-date">-</div>
+                    <div class="member-role-badge badge-dev">Developer</div>
+                    <div class="member-bio">Vývoj a úprava herních mechanik a pluginů.</div>
+                </div>
+
+                <div class="member-card">
+                    <div class="member-avatar-container">
+                        <img src="https://mc-heads.net/avatar/Steve" alt="Hlava">
+                    </div>
+                    <div class="member-name">Hledáme</div>
+                    <div class="member-date">-</div>
                     <div class="member-role-badge badge-dev">Hl. Developer</div>
-                    <div class="member-bio">Programování herních pluginů, správa kódů a technického zázemí serveru.</div>
+                    <div class="member-bio">Hlavní vývojář a správce technického zázemí.</div>
                 </div>
 
             </div>
         </div>
 
-        <!-- Technik Tým -->
+        <!-- Technik Team -->
         <div class="team-section">
-            <div class="team-title">Technik Tým</div>
+            <div class="team-title">Technik Team</div>
             <div class="members-grid">
                 
                 <div class="member-card">
                     <div class="member-avatar-container">
-                        <img src="https://mc-heads.net/avatar/Alex" alt="TechnikUser">
+                        <img src="https://mc-heads.net/avatar/Steve" alt="Hlava">
                     </div>
-                    <div class="member-name">TechnikUser</div>
-                    <div class="member-date">Členem od 10.01.2024</div>
+                    <div class="member-name">Hledáme</div>
+                    <div class="member-date">-</div>
+                    <div class="member-role-badge badge-technik">Zk. Technik</div>
+                    <div class="member-bio">Zkušební pozice pro technickou správu.</div>
+                </div>
+
+                <div class="member-card">
+                    <div class="member-avatar-container">
+                        <img src="https://mc-heads.net/avatar/Steve" alt="Hlava">
+                    </div>
+                    <div class="member-name">Hledáme</div>
+                    <div class="member-date">-</div>
+                    <div class="member-role-badge badge-technik">Technik</div>
+                    <div class="member-bio">Správa serverů a optimalizace.</div>
+                </div>
+
+                <div class="member-card">
+                    <div class="member-avatar-container">
+                        <img src="https://mc-heads.net/avatar/Steve" alt="Hlava">
+                    </div>
+                    <div class="member-name">Hledáme</div>
+                    <div class="member-date">-</div>
                     <div class="member-role-badge badge-technik">Hl. Technik</div>
-                    <div class="member-bio">Správa serverových strojů, optimalizace výkonu a dohled nad plynulostí hraní.</div>
+                    <div class="member-bio">Hlavní správce serverových strojů.</div>
                 </div>
 
             </div>
         </div>
 
-        <!-- Builder Tým -->
+        <!-- Builder Team -->
         <div class="team-section">
-            <div class="team-title">Builder Tým</div>
+            <div class="team-title">Builder Team</div>
             <div class="members-grid">
                 
                 <div class="member-card">
                     <div class="member-avatar-container">
-                        <img src="https://mc-heads.net/avatar/Steve" alt="BuilderName">
+                        <img src="https://mc-heads.net/avatar/Steve" alt="Hlava">
                     </div>
-                    <div class="member-name">BuilderName</div>
-                    <div class="member-date">Členem od 20.06.2024</div>
+                    <div class="member-name">Hledáme</div>
+                    <div class="member-date">-</div>
+                    <div class="member-role-badge badge-builder">Zk. Builder</div>
+                    <div class="member-bio">Zkušební stavitel pro vytváření map.</div>
+                </div>
+
+                <div class="member-card">
+                    <div class="member-avatar-container">
+                        <img src="https://mc-heads.net/avatar/Steve" alt="Hlava">
+                    </div>
+                    <div class="member-name">Hledáme</div>
+                    <div class="member-date">-</div>
+                    <div class="member-role-badge badge-builder">Builder</div>
+                    <div class="member-bio">Stavění herních zón a eventových map.</div>
+                </div>
+
+                <div class="member-card">
+                    <div class="member-avatar-container">
+                        <img src="https://mc-heads.net/avatar/Steve" alt="Hlava">
+                    </div>
+                    <div class="member-name">Hledáme</div>
+                    <div class="member-date">-</div>
+                    <div class="member-role-badge badge-builder">+Builder</div>
+                    <div class="member-bio">Pokročilý stavitel s většími pravomocemi.</div>
+                </div>
+
+                <div class="member-card">
+                    <div class="member-avatar-container">
+                        <img src="https://mc-heads.net/avatar/Steve" alt="Hlava">
+                    </div>
+                    <div class="member-name">Hledáme</div>
+                    <div class="member-date">-</div>
                     <div class="member-role-badge badge-builder">Hl. Builder</div>
-                    <div class="member-bio">Navrhuji a stavím překrásné stavby, eventové mapy a herní zóny.</div>
+                    <div class="member-bio">Hlavní stavitel a vedoucí stavebního týmu.</div>
                 </div>
 
             </div>
         </div>
 
-        <!-- Helper & Moderátor Tým -->
+        <!-- Moderátor & Helper Team -->
         <div class="team-section">
-            <div class="team-title">Helper & Moderátor Tým</div>
+            <div class="team-title">Moderátor & Helper Team</div>
             <div class="members-grid">
                 
                 <div class="member-card">
                     <div class="member-avatar-container">
-                        <img src="https://mc-heads.net/avatar/Stefoo420" alt="Stefoo420">
+                        <img src="https://mc-heads.net/avatar/Steve" alt="Hlava">
                     </div>
-                    <div class="member-name">Stefoo420</div>
-                    <div class="member-date">Členem od 16.09.2025</div>
+                    <div class="member-name">Hledáme</div>
+                    <div class="member-date">-</div>
+                    <div class="member-role-badge badge-helper">Zk. Helper</div>
+                    <div class="member-bio">Zkušební pomocník pro podporu hráčů.</div>
+                </div>
+
+                <div class="member-card">
+                    <div class="member-avatar-container">
+                        <img src="https://mc-heads.net/avatar/Steve" alt="Hlava">
+                    </div>
+                    <div class="member-name">Hledáme</div>
+                    <div class="member-date">-</div>
+                    <div class="member-role-badge badge-helper">Helper</div>
+                    <div class="member-bio">Pomoc hráčům a zodpovídání dotazů ve hře.</div>
+                </div>
+
+                <div class="member-card">
+                    <div class="member-avatar-container">
+                        <img src="https://mc-heads.net/avatar/Steve" alt="Hlava">
+                    </div>
+                    <div class="member-name">Hledáme</div>
+                    <div class="member-date">-</div>
+                    <div class="member-role-badge badge-helper">Hl. Helper</div>
+                    <div class="member-bio">Hlavní helper dohlížející na nováčky.</div>
+                </div>
+
+                <div class="member-card">
+                    <div class="member-avatar-container">
+                        <img src="https://mc-heads.net/avatar/Steve" alt="Hlava">
+                    </div>
+                    <div class="member-name">Hledáme</div>
+                    <div class="member-date">-</div>
                     <div class="member-role-badge badge-helper">Moderátor</div>
-                    <div class="member-bio">Hlídám pořádek ve hře, pomáhám hráčům s dotazy a řeším nahlášené problémy.</div>
+                    <div class="member-bio">Dohled nad pořádkem, řešení stížností a banů.</div>
+                </div>
+
+                <div class="member-card">
+                    <div class="member-avatar-container">
+                        <img src="https://mc-heads.net/avatar/Steve" alt="Hlava">
+                    </div>
+                    <div class="member-name">Hledáme</div>
+                    <div class="member-date">-</div>
+                    <div class="member-role-badge badge-helper">Hl. Moderátor</div>
+                    <div class="member-bio">Hlavní moderátor zodpovědný za tým moderátorů.</div>
                 </div>
 
             </div>
@@ -549,7 +659,7 @@
             </div>
             
             <div class="footer-socials">
-                <!-- Discord ikona kompletně odstraněna dle tvého přání -->
+                <!-- Discord ikona kompletně odstraněna -->
             </div>
         </div>
 
