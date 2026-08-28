@@ -20,7 +20,6 @@
             scroll-behavior: smooth;
         }
 
-        /* Načítací obrazovka */
         #loader {
             position: fixed;
             top: 0;
@@ -50,7 +49,6 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* Horní panel */
         header {
             background-color: #130a24;
             height: 70px;
@@ -120,7 +118,6 @@
             background: linear-gradient(135deg, #8b5cf6, #7c3aed);
         }
 
-        /* Úvodní sekce */
         .hero {
             height: 100vh;
             background: linear-gradient(rgba(13, 6, 20, 0.6), rgba(13, 6, 20, 0.85)), url('https://github.com/user-attachments/assets/5ac66448-a179-4d92-abe1-9c3d60e2a089') no-repeat center center/cover;
@@ -204,7 +201,6 @@
             color: #ffffff;
         }
 
-        /* HLAVNÍ KONTEJNER SE SEKCEMI */
         .content-wrapper {
             display: flex;
             flex-direction: column;
@@ -214,7 +210,6 @@
             margin: 0 auto;
         }
 
-        /* Sekce O nás */
         .about-section {
             display: flex;
             align-items: center;
@@ -262,7 +257,6 @@
             border: none;
         }
 
-        /* Sekce Minihry */
         .minigames-section {
             width: 100%;
             text-align: center;
@@ -310,7 +304,6 @@
             line-height: 1.6;
         }
 
-        /* Sekce Hlasování (Vote) */
         .vote-wrapper-section {
             width: 100%;
             position: relative;
@@ -426,7 +419,6 @@
             transform: none;
         }
 
-        /* SEKCE: Statistiky serveru */
         .stats-wrapper-section {
             width: 100%;
         }
@@ -535,7 +527,6 @@
             margin-top: 3px;
         }
 
-        /* SEKCE: Discord */
         .discord-wrapper-section {
             width: 100%;
             display: flex;
@@ -612,7 +603,6 @@
             background: linear-gradient(135deg, #6c79ff, #5865F2);
         }
 
-        /* FOOTER */
         footer.main-footer {
             background-color: #0b0412;
             border-top: 2px solid #231242;
@@ -779,7 +769,6 @@
             }
         }
 
-        /* Notifikace zkopírování IP */
         .notification {
             position: fixed;
             bottom: 35px;
@@ -808,12 +797,10 @@
 </head>
 <body>
 
-    <!-- Načítací kolečko -->
     <div id="loader">
         <div class="spinner"></div>
     </div>
 
-    <!-- Horní panel -->
     <header>
         <a href="index.html" class="logo-container">
             <img src="https://github.com/user-attachments/assets/bdd5da67-7841-40f2-a218-3483f6de0bda" alt="MystiLand Logo">
@@ -824,6 +811,8 @@
             <ul>
                 <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="pripojit.html">Jak se připojit</a></li>
+                <!-- WIKI ZPĚT V NAVIGACI -->
+                <li><a href="wiki.html">Wiki</a></li>
                 <li><a href="#vote">Hlasovat</a></li>
                 <li><a href="#" class="store-btn">Obchod</a></li>
             </ul>
@@ -832,31 +821,26 @@
         <div style="width: 100px;"></div>
     </header>
 
-    <!-- Úvodní sekce -->
     <section class="hero">
         <img src="https://github.com/user-attachments/assets/775b273f-837e-4146-ba75-34cd58d73fac" alt="MystiLand Hlavní Logo" class="hero-logo">
         <p class="hero-subtitle">Vítejte na oficiálním webu Minecraft serveru MystiLand!</p>
         <div class="hero-buttons">
-            <!-- TLAČÍTKO "CHCI JÍT HRÁT!" ODKAZUJÍCÍ NA PRIPOJIT.HTML -->
             <a href="pripojit.html" class="btn-primary">Chci jít hrát!</a>
             <button class="btn-ip" onclick="copyIP()">📋 play.mystiland.eu</button>
         </div>
     </section>
 
-    <!-- HLAVNÍ OBSAHOVÝ KONTEJNER SE VŠEMI SEKCEMI A MEZERAMI -->
     <div class="content-wrapper">
 
-        <!-- Sekce O nás -->
         <section id="onas" class="about-section">
             <div class="about-content">
                 <h2>O našem serveru</h2>
                 <p>Vítejte na MystiLand, jedinečném Minecraft serveru, který vám přináší nezapomenutelný herní zážitek! Naše komunita staví na přátelském prostředí, skvělém admin týmu a neustále vylepšovaných herních módech.</p>
-                <p>Připojte se k nám ještě dnes, objevujte nová dobrodružství, stavтьte své vysněné stavby a ukažte všem, co ve vás je. Těšíme se na vás ve hře!</p>
+                <p>Připojte se k nám ještě dnes, objevujte nová dobrodružství, stavět své vysněné stavby a ukažte všem, co ve vás je. Těšíme se na vás ve hře!</p>
             </div>
             <img src="https://github.com/user-attachments/assets/23d44b0f-e1d7-4a2b-8294-914d88fcc7c9" alt="O nás postavička" class="about-image">
         </section>
 
-        <!-- Sekce Minihry -->
         <section class="minigames-section">
             <h2>Co vám můžeme nabídnout - Minihry</h2>
             <div class="minigames-grid">
@@ -879,7 +863,6 @@
             </div>
         </section>
 
-        <!-- Hlasovací sekce (Vote) -->
         <section id="vote" class="vote-wrapper-section">
             <div class="avg-web-con-vote">
                 <div class="div-block-9">
@@ -904,7 +887,6 @@
             </div>
         </section>
 
-        <!-- SEKCE: Statistiky serveru -->
         <section class="stats-wrapper-section">
             <div class="stats-container">
                 <div class="stats-intro">
@@ -950,7 +932,7 @@
             </div>
         </section>
 
-        <!-- SEKCE: Discord -->
+        <!-- DISCORD SEKCE S NOVÝM OBRÁZKEM -->
         <section class="discord-wrapper-section">
             <div class="discord-box">
                 <div class="discord-text-content">
@@ -960,13 +942,12 @@
                         Připoj se →
                     </a>
                 </div>
-                <img src="https://github.com/user-attachments/assets/775b273f-837e-4146-ba75-34cd58d73fac" alt="Discord ikona" class="discord-image">
+                <img src="https://github.com/user-attachments/assets/796f188a-46d6-4b68-81bb-754cb5d54248" alt="Discord obrázek" class="discord-image">
             </div>
         </section>
 
     </div>
 
-    <!-- FOOTER -->
     <footer class="main-footer">
         <div class="footer-top">
             <div class="footer-logo-area">
@@ -1003,8 +984,8 @@
             <div class="footer-col">
                 <h4>Navigace</h4>
                 <ul>
-                    <!-- ODKAZ V PATIČCE NA PRIPOJIT.HTML -->
                     <li><a href="pripojit.html">› Chci jít hrát!</a></li>
+                    <li><a href="wiki.html">› Wiki</a></li>
                     <li><a href="#vote">› Hlasování</a></li>
                     <li><a href="https://discord.gg/3GWM5Vy2HV" target="_blank">› Discord</a></li>
                 </ul>
@@ -1021,7 +1002,6 @@
         </div>
     </footer>
 
-    <!-- Notifikace zkopírování IP -->
     <div id="notification" class="notification">
         <span>✨</span> IP adresa byla úspěšně zkopírována do schránky!
     </div>
